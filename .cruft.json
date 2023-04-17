@@ -1,0 +1,27 @@
+{
+  "template": "https://github.com/linkml/linkml-project-cookiecutter",
+  "commit": "b801ab6c7e44c46db15905bf440aa573a8f1b3b2",
+  "checkout": null,
+  "context": {
+    "cookiecutter": {
+      "project_name": "ga4gh-va-schema",
+      "__project_slug": "ga4gh_va_schema",
+      "github_org": "my-org",
+      "__source_path": "src/ga4gh_va_schema/schema/ga4gh_va_schema.yaml",
+      "project_description": "Data model for variant annotation in the GA4GH consortium.",
+      "full_name": "Matthew Brush",
+      "email": "matt@tislab.org",
+      "__author": "Matthew Brush <matt@tislab.org>",
+      "license": "MIT",
+      "main_schema_class": "Element",
+      "create_python_classes": "Yes",
+      "use_schemasheets": "Yes",
+      "google_sheet_id": "19Rp5DLFS3a1Yvvw84mPupgEkCMFRKax4LXCcwX84Vbg",
+      "google_sheet_tabs": "ga4gh_va_schema",
+      "__google_sheet_module": "ga4gh_va_schema",
+      "github_token_for_pypi_deployment": "PYPI_PASSWORD",
+      "_template": "https://github.com/linkml/linkml-project-cookiecutter"
+    }
+  },
+  "directory": null
+}

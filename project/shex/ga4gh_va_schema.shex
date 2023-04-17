@@ -1,0 +1,289 @@
+BASE <https://example.org/vacoreim/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX linkml: <https://w3id.org/linkml/>
+
+
+<Url> xsd:string
+
+<Class> xsd:string
+
+<DateTime> xsd:string
+
+<Identifier> xsd:string
+
+linkml:String xsd:string
+
+linkml:Integer xsd:integer
+
+linkml:Boolean xsd:boolean
+
+linkml:Float xsd:float
+
+linkml:Double xsd:double
+
+linkml:Decimal xsd:decimal
+
+linkml:Time xsd:time
+
+linkml:Date xsd:date
+
+linkml:Datetime xsd:dateTime
+
+linkml:DateOrDatetime linkml:DateOrDatetime
+
+linkml:Uriorcurie IRI
+
+linkml:Curie xsd:string
+
+linkml:Uri IRI
+
+linkml:Ncname xsd:string
+
+linkml:Objectidentifier IRI
+
+linkml:Nodeidentifier NONLITERAL
+
+<Activity>  (
+    CLOSED {
+       (  $<Activity_tes> (  &<Entity_tes> ;
+             rdf:type [ <Entity> ] ? ;
+             <subtype> @<Coding> ? ;
+             <date> @<DateTime> ? ;
+             <performedBy> @<Agent> * ;
+             <input> @<Entity> * ;
+             <output> @<Entity> * ;
+             <specifiedBy> @<Method> *
+          ) ;
+          rdf:type [ <Activity> ] ?
+       )
+    } OR @<Contribution>
+)
+
+<Agent> CLOSED {
+    (  $<Agent_tes> (  &<Entity_tes> ;
+          rdf:type [ <Entity> ] ? ;
+          <subtype> @<Coding> ? ;
+          <name> @linkml:String ?
+       ) ;
+       rdf:type [ <Agent> ] ?
+    )
+}
+
+<Coding> CLOSED {
+    (  $<Coding_tes> (  &<Utility_tes> ;
+          rdf:type [ <Utility> ] ? ;
+          <code> @<Identifier> ? ;
+          <label> @linkml:String ? ;
+          <system> @linkml:String ? ;
+          <systemURL> @<Url> ? ;
+          <systemVersion> @linkml:String ?
+       ) ;
+       rdf:type [ <Coding> ] ?
+    )
+}
+
+<Contribution> CLOSED {
+    (  $<Contribution_tes> (  &<Activity_tes> ;
+          rdf:type [ <Activity> ] ? ;
+          <contributionMadeTo> @<InformationEntity> ? ;
+          <activity> @<Coding> *
+       ) ;
+       rdf:type [ <Contribution> ] ?
+    )
+}
+
+<DataItem> CLOSED {
+    (  $<DataItem_tes> (  &<InformationEntity_tes> ;
+          rdf:type [ <InformationEntity> ] ? ;
+          <subtype> @<Coding> ? ;
+          <value> @linkml:String ? ;
+          <unit> @<Coding> ?
+       ) ;
+       rdf:type [ <DataItem> ] ?
+    )
+}
+
+<DataSet> CLOSED {
+    (  $<DataSet_tes> (  &<InformationEntity_tes> ;
+          rdf:type [ <InformationEntity> ] ? ;
+          <subtype> @<Coding> ? ;
+          <releaseDate> @<DateTime> ? ;
+          <license> @linkml:String ? ;
+          <version> @linkml:String ?
+       ) ;
+       rdf:type [ <DataSet> ] ?
+    )
+}
+
+<Document> CLOSED {
+    (  $<Document_tes> (  &<InformationEntity_tes> ;
+          rdf:type [ <InformationEntity> ] ? ;
+          <subtype> @<Coding> ? ;
+          <title> @linkml:String ? ;
+          <license> @linkml:String ? ;
+          <version> @linkml:String ?
+       ) ;
+       rdf:type [ <Document> ] ?
+    )
+}
+
+<Element>  (
+    CLOSED {
+       (  $<Element_tes> (  <type> @<Class> ;
+             <description> @linkml:String ? ;
+             <extensions> @<Extension> *
+          ) ;
+          rdf:type [ <Element> ] ?
+       )
+    } OR @<Entity> OR @<Utility>
+)
+
+<Entity>  (
+    CLOSED {
+       (  $<Entity_tes> (  &<Element_tes> ;
+             rdf:type [ <Element> ] ? ;
+             <id> @<Identifier> ;
+             <identifiers> @<Identifier> * ;
+             <label> @linkml:String ? ;
+             <urls> @<Url> * ;
+             <xrefs> @linkml:String * ;
+             <recordMetadata> @<RecordMetadata> ?
+          ) ;
+          rdf:type [ <Entity> ] ?
+       )
+    } OR @<Activity> OR @<Agent> OR @<InformationEntity> OR @<Proposition>
+)
+
+<EvidenceLine> CLOSED {
+    (  $<EvidenceLine_tes> (  &<InformationEntity_tes> ;
+          rdf:type [ <InformationEntity> ] ? ;
+          <subtype> @<Coding> ? ;
+          <targetProposition> @<Proposition> ? ;
+          <evidenceItems> @<InformationEntity> * ;
+          <directionOfEvidenceProvided> @<Coding> ? ;
+          <strengthOfEvidenceProvided> @<Coding> ?
+       ) ;
+       rdf:type [ <EvidenceLine> ] ?
+    )
+}
+
+<Expression> CLOSED {
+    (  $<Expression_tes> (  &<Utility_tes> ;
+          rdf:type [ <Utility> ] ? ;
+          <value> @linkml:String ;
+          <system> @linkml:String ;
+          <systemURL> @<Url> ? ;
+          <systemVersion> @linkml:String ?
+       ) ;
+       rdf:type [ <Expression> ] ?
+    )
+}
+
+<Extension> CLOSED {
+    (  $<Extension_tes> (  &<Utility_tes> ;
+          rdf:type [ <Utility> ] ? ;
+          <description> @linkml:String ? ;
+          <name> @linkml:String ? ;
+          <value> @<Element>
+       ) ;
+       rdf:type [ <Extension> ] ?
+    )
+}
+
+<InformationEntity>  (
+    CLOSED {
+       (  $<InformationEntity_tes> (  &<Entity_tes> ;
+             rdf:type [ <Entity> ] ? ;
+             <contributions> @<Contribution> * ;
+             <dateAuthored> @<DateTime> ? ;
+             <specifiedBy> @<Method> * ;
+             <derivedFrom> @<InformationEntity> * ;
+             <reportedIn> @<Document> *
+          ) ;
+          rdf:type [ <InformationEntity> ] ?
+       )
+    } OR @<DataItem> OR @<DataSet> OR @<Document> OR @<EvidenceLine> OR @<Method> OR @<Statement> OR @<StudyResult>
+)
+
+<Method> CLOSED {
+    (  $<Method_tes> (  &<InformationEntity_tes> ;
+          rdf:type [ <InformationEntity> ] ? ;
+          <subtype> @<Coding> ? ;
+          <license> @linkml:String ?
+       ) ;
+       rdf:type [ <Method> ] ?
+    )
+}
+
+<Proposition> CLOSED {
+    (  $<Proposition_tes> (  &<Entity_tes> ;
+          rdf:type [ <Entity> ] ? ;
+          <subtype> @<Coding> ? ;
+          <propositionText> @linkml:String ? ;
+          <subject> @<Element> ;
+          <predicate> @<Coding> ;
+          <object> @<Element> ;
+          <qualifiers> @<Element> * ;
+          <negated> @linkml:Boolean ?
+       ) ;
+       rdf:type [ <Proposition> ] ?
+    )
+}
+
+<RecordMetadata> CLOSED {
+    (  $<RecordMetadata_tes> (  &<Utility_tes> ;
+          rdf:type [ <Utility> ] ? ;
+          <recordIdentifier> @<Identifier> ? ;
+          <recordVersion> @linkml:String ? ;
+          <derivedFrom> @<Identifier> * ;
+          <dateRecordCreated> @<DateTime> ? ;
+          <contributions> @<Contribution> *
+       ) ;
+       rdf:type [ <RecordMetadata> ] ?
+    )
+}
+
+<Statement> CLOSED {
+    (  $<Statement_tes> (  &<InformationEntity_tes> ;
+          rdf:type [ <InformationEntity> ] ? ;
+          <subtype> @<Coding> ? ;
+          <statementText> @linkml:String ? ;
+          <confidenceDirection> @<Coding> ? ;
+          <confidenceLevel> @<Coding> ? ;
+          <confidenceScore> @<DataItem> ? ;
+          <evidenceDirection> @linkml:String ? ;
+          <evidenceLevel> @<Coding> ? ;
+          <evidenceScore> @<DataItem> ? ;
+          <conclusion> @<Coding> ? ;
+          <hasEvidence> @<InformationEntity> * ;
+          <hasEvidenceLines> @<EvidenceLine> * ;
+          <hasEvidenceOfTypes> @<Coding> *
+       ) ;
+       rdf:type [ <Statement> ] ?
+    )
+}
+
+<StudyResult> CLOSED {
+    (  $<StudyResult_tes> (  &<InformationEntity_tes> ;
+          rdf:type [ <InformationEntity> ] ? ;
+          <subtype> @<Coding> ? ;
+          <focus> @<Entity> ? ;
+          <dataItems> @<DataItem> * ;
+          <derivedFrom> @linkml:String ?
+       ) ;
+       rdf:type [ <StudyResult> ] ?
+    )
+}
+
+<Utility>  (
+    CLOSED {
+       (  $<Utility_tes> (  &<Element_tes> ;
+             rdf:type [ <Element> ] ?
+          ) ;
+          rdf:type [ <Utility> ] ?
+       )
+    } OR @<Coding> OR @<Expression> OR @<Extension> OR @<RecordMetadata>
+)
+
+

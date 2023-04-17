@@ -1,0 +1,323 @@
+// An action or set of actions performed by an agent, that occurs over a period of time. Activities may use, generate, modify, move, or destroy one or more entities.
+message Activity
+ {
+  class type = 0
+  string description = 0
+ repeated  extension extensions = 0
+  identifier id = 0
+ repeated  identifier identifiers = 0
+  string label = 0
+ repeated  url urls = 0
+ repeated  string xrefs = 0
+  recordMetadata recordMetadata = 0
+  coding subtype = 0
+  dateTime date = 0
+ repeated  agent performedBy = 0
+ repeated  entity input = 0
+ repeated  entity output = 0
+ repeated  method specifiedBy = 0
+ }
+// An autonomous actor (person, organization, or computational agent) that bears some form of responsibility for an activity taking place, for the existence of an entity, or for another agent’s activity.
+message Agent
+ {
+  class type = 0
+  string description = 0
+ repeated  extension extensions = 0
+  identifier id = 0
+ repeated  identifier identifiers = 0
+  string label = 0
+ repeated  url urls = 0
+ repeated  string xrefs = 0
+  recordMetadata recordMetadata = 0
+  coding subtype = 0
+  string name = 0
+ }
+// A structured representation of a coded/enumerated data value, that may include additional metadata about the code and code system.
+message Coding
+ {
+  class type = 0
+  string description = 0
+ repeated  extension extensions = 0
+  identifier code = 0
+  string label = 0
+  string system = 0
+  url systemURL = 0
+  string systemVersion = 0
+ }
+// The actions taken by a particular agent in the creation, modification, assessment, or deprecation of some entity (e.g. a Statement, Evidence Line, Data Item, Publication, etc.)
+message Contribution
+ {
+  class type = 0
+  string description = 0
+ repeated  extension extensions = 0
+  identifier id = 0
+ repeated  identifier identifiers = 0
+  string label = 0
+ repeated  url urls = 0
+ repeated  string xrefs = 0
+  recordMetadata recordMetadata = 0
+  coding subtype = 0
+  dateTime date = 0
+ repeated  agent performedBy = 0
+ repeated  entity input = 0
+ repeated  entity output = 0
+ repeated  method specifiedBy = 0
+  informationEntity contributionMadeTo = 0
+ repeated  coding activity = 0
+ }
+// An InformationEntity representing an individual piece of data, generated/acquired through methods which reliably produce truthful information about something.
+message DataItem
+ {
+  class type = 0
+  string description = 0
+ repeated  extension extensions = 0
+  identifier id = 0
+ repeated  identifier identifiers = 0
+  string label = 0
+ repeated  url urls = 0
+ repeated  string xrefs = 0
+  recordMetadata recordMetadata = 0
+ repeated  contribution contributions = 0
+  dateTime dateAuthored = 0
+ repeated  method specifiedBy = 0
+ repeated  informationEntity derivedFrom = 0
+ repeated  document reportedIn = 0
+  coding subtype = 0
+  string value = 0
+  coding unit = 0
+ }
+// A collection of related data items or records that are organized together in a common format or structure, to enable their computational manipulation as a unit.
+message DataSet
+ {
+  class type = 0
+  string description = 0
+ repeated  extension extensions = 0
+  identifier id = 0
+ repeated  identifier identifiers = 0
+  string label = 0
+ repeated  url urls = 0
+ repeated  string xrefs = 0
+  recordMetadata recordMetadata = 0
+ repeated  contribution contributions = 0
+  dateTime dateAuthored = 0
+ repeated  method specifiedBy = 0
+ repeated  informationEntity derivedFrom = 0
+ repeated  document reportedIn = 0
+  coding subtype = 0
+  dateTime releaseDate = 0
+  string license = 0
+  string version = 0
+ }
+// A collection of information, usually in human-readable form, intended to be read and understood together as a whole.
+message Document
+ {
+  class type = 0
+  string description = 0
+ repeated  extension extensions = 0
+  identifier id = 0
+ repeated  identifier identifiers = 0
+  string label = 0
+ repeated  url urls = 0
+ repeated  string xrefs = 0
+  recordMetadata recordMetadata = 0
+ repeated  contribution contributions = 0
+  dateTime dateAuthored = 0
+ repeated  method specifiedBy = 0
+ repeated  informationEntity derivedFrom = 0
+ repeated  document reportedIn = 0
+  coding subtype = 0
+  string title = 0
+  string license = 0
+  string version = 0
+ }
+// The base definition for all elements that comprise the model (core, domain entity, and utility classes, value sets)
+message Element
+ {
+  class type = 0
+  string description = 0
+ repeated  extension extensions = 0
+ }
+// Anything that exists, has existed, or will exist.
+message Entity
+ {
+  class type = 0
+  string description = 0
+ repeated  extension extensions = 0
+  identifier id = 0
+ repeated  identifier identifiers = 0
+  string label = 0
+ repeated  url urls = 0
+ repeated  string xrefs = 0
+  recordMetadata recordMetadata = 0
+ }
+// A discrete, independent argument relevant to the validity of the Proposition put forth as true in the Statement,  that is based on the interpretation of one or more pieces of information as evidence.
+message EvidenceLine
+ {
+  class type = 0
+  string description = 0
+ repeated  extension extensions = 0
+  identifier id = 0
+ repeated  identifier identifiers = 0
+  string label = 0
+ repeated  url urls = 0
+ repeated  string xrefs = 0
+  recordMetadata recordMetadata = 0
+ repeated  contribution contributions = 0
+  dateTime dateAuthored = 0
+ repeated  method specifiedBy = 0
+ repeated  informationEntity derivedFrom = 0
+ repeated  document reportedIn = 0
+  coding subtype = 0
+  proposition targetProposition = 0
+ repeated  informationEntity evidenceItems = 0
+  coding directionOfEvidenceProvided = 0
+  coding strengthOfEvidenceProvided = 0
+ }
+// A structure for labels representing systematic expressions that describe an entity, as generated by formal nomenclatures (e.g. HGVS for genetic variants, ISCN for karyotypes, HLA nomenclature for HLA genes/alleles).
+message Expression
+ {
+  class type = 0
+  string description = 0
+ repeated  extension extensions = 0
+  string value = 0
+  string system = 0
+  url systemURL = 0
+  string systemVersion = 0
+ }
+// A data structure that allows implementations to define and create custom fields within an Entity to capture information not supported by the core specification.
+message Extension
+ {
+  class type = 0
+ repeated  extension extensions = 0
+  string description = 0
+  string name = 0
+  element value = 0
+ }
+// An abstract (non-physical) entity that is about something.
+message InformationEntity
+ {
+  class type = 0
+  string description = 0
+ repeated  extension extensions = 0
+  identifier id = 0
+ repeated  identifier identifiers = 0
+  string label = 0
+ repeated  url urls = 0
+ repeated  string xrefs = 0
+  recordMetadata recordMetadata = 0
+ repeated  contribution contributions = 0
+  dateTime dateAuthored = 0
+ repeated  method specifiedBy = 0
+ repeated  informationEntity derivedFrom = 0
+ repeated  document reportedIn = 0
+ }
+// A set of instructions that specify how to achieve some objective (e.g. study/experimental protocols, curation guidelines, rule sets, etc.)
+message Method
+ {
+  class type = 0
+  string description = 0
+ repeated  extension extensions = 0
+  identifier id = 0
+ repeated  identifier identifiers = 0
+  string label = 0
+ repeated  url urls = 0
+ repeated  string xrefs = 0
+  recordMetadata recordMetadata = 0
+ repeated  contribution contributions = 0
+  dateTime dateAuthored = 0
+ repeated  method specifiedBy = 0
+ repeated  informationEntity derivedFrom = 0
+ repeated  document reportedIn = 0
+  coding subtype = 0
+  string license = 0
+ }
+// An abstract entity representing the sharable meaning that can be put forth as true or false in a Statement made by an Agent.
+message Proposition
+ {
+  class type = 0
+  string description = 0
+ repeated  extension extensions = 0
+  identifier id = 0
+ repeated  identifier identifiers = 0
+  string label = 0
+ repeated  url urls = 0
+ repeated  string xrefs = 0
+  recordMetadata recordMetadata = 0
+  coding subtype = 0
+  string propositionText = 0
+  element subject = 0
+  coding predicate = 0
+  element object = 0
+ repeated  element qualifiers = 0
+  boolean negated = 0
+ }
+// A data structure that encapsulates provenance metadata that applies to a specific concrete record/encoding of information, as opposed to provenance of the abstract information content/knowledge the record represents.
+message RecordMetadata
+ {
+  class type = 0
+  string description = 0
+ repeated  extension extensions = 0
+  identifier recordIdentifier = 0
+  string recordVersion = 0
+ repeated  identifier derivedFrom = 0
+  dateTime dateRecordCreated = 0
+ repeated  contribution contributions = 0
+ }
+// An information entity expressing a declarative sentence that is either true or false.
+message Statement
+ {
+  class type = 0
+  string description = 0
+ repeated  extension extensions = 0
+  identifier id = 0
+ repeated  identifier identifiers = 0
+  string label = 0
+ repeated  url urls = 0
+ repeated  string xrefs = 0
+  recordMetadata recordMetadata = 0
+ repeated  contribution contributions = 0
+  dateTime dateAuthored = 0
+ repeated  method specifiedBy = 0
+ repeated  informationEntity derivedFrom = 0
+ repeated  document reportedIn = 0
+  coding subtype = 0
+  string statementText = 0
+  coding confidenceDirection = 0
+  coding confidenceLevel = 0
+  dataItem confidenceScore = 0
+  string evidenceDirection = 0
+  coding evidenceLevel = 0
+  dataItem evidenceScore = 0
+  coding conclusion = 0
+ repeated  informationEntity hasEvidence = 0
+ repeated  evidenceLine hasEvidenceLines = 0
+ repeated  coding hasEvidenceOfTypes = 0
+ }
+// A collection of data items from a single study that are about a particular subject or experimental unit in the study  (along with optional provenance metadata describing how these data items were generated).
+message StudyResult
+ {
+  class type = 0
+  string description = 0
+ repeated  extension extensions = 0
+  identifier id = 0
+ repeated  identifier identifiers = 0
+  string label = 0
+ repeated  url urls = 0
+ repeated  string xrefs = 0
+  recordMetadata recordMetadata = 0
+ repeated  contribution contributions = 0
+  dateTime dateAuthored = 0
+ repeated  method specifiedBy = 0
+ repeated  document reportedIn = 0
+  coding subtype = 0
+  entity focus = 0
+ repeated  dataItem dataItems = 0
+  string derivedFrom = 0
+ }
+// An abstract organizational class that groups complex datatype-like classes - which provide re-usable collections of fields that can be plugged into other objects to capture related information.
+message Utility
+ {
+  class type = 0
+  string description = 0
+ repeated  extension extensions = 0
+ }

@@ -1,0 +1,1543 @@
+{
+    "$defs": {
+        "Activity": {
+            "additionalProperties": false,
+            "description": "An action or set of actions performed by an agent, that occurs over a period of time. Activities may use, generate, modify, move, or destroy one or more entities.",
+            "properties": {
+                "date": {
+                    "description": "The date (or a specifiec time on a date) that the Activitywas performed",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "A free text description of the Element.",
+                    "type": "string"
+                },
+                "extensions": {
+                    "description": "A key-value data structure that allows definition of custom fields to capture information not directly supported by the VA specification.",
+                    "items": {
+                        "$ref": "#/$defs/Extension"
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "description": "The logical identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system.",
+                    "type": "string"
+                },
+                "identifiers": {
+                    "description": "A business identifier or accession number for the entity, typically as provided by an external system or authority, that is globally unique and persists across implementing systems.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "input": {
+                    "description": "An entity that was input into the Activity (could be material or information)",
+                    "items": {
+                        "$ref": "#/$defs/Entity"
+                    },
+                    "type": "array"
+                },
+                "label": {
+                    "description": "A primary name for the Entity.",
+                    "type": "string"
+                },
+                "output": {
+                    "description": "An entity that was output from the Activity (could be material or information)",
+                    "items": {
+                        "$ref": "#/$defs/Entity"
+                    },
+                    "type": "array"
+                },
+                "performedBy": {
+                    "description": "An Agent who participated in executing the Activity.",
+                    "items": {
+                        "$ref": "#/$defs/Agent"
+                    },
+                    "type": "array"
+                },
+                "recordMetadata": {
+                    "$ref": "#/$defs/RecordMetadata",
+                    "description": "A reusable structure that encapsulates provenance metadata about the present record/data object  (as opposed to provenance information about the real world entity this record/data object represents)."
+                },
+                "specifiedBy": {
+                    "description": "A directive specification followed in performing an Activity, that describes how it should be executed.",
+                    "items": {
+                        "$ref": "#/$defs/Method"
+                    },
+                    "type": "array"
+                },
+                "subtype": {
+                    "$ref": "#/$defs/Coding",
+                    "description": "A specific type of activity this Activity object may represent"
+                },
+                "type": {
+                    "description": "The schema class that is instantiated by the data object.  Must be the name of a class from the VA schema.",
+                    "type": "string"
+                },
+                "urls": {
+                    "description": "The URL/web address of a digital resource representing the entity, or providing information about it.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "xrefs": {
+                    "description": "Cross-references to database identifier(s) representing the same (or a closely related) entity or concept as the Entity.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "id",
+                "type"
+            ],
+            "title": "Activity",
+            "type": "object"
+        },
+        "Agent": {
+            "additionalProperties": false,
+            "description": "An autonomous actor (person, organization, or computational agent) that bears some form of responsibility for an activity taking place, for the existence of an entity, or for another agent\u2019s activity.",
+            "properties": {
+                "description": {
+                    "description": "A free text description of the Element.",
+                    "type": "string"
+                },
+                "extensions": {
+                    "description": "A key-value data structure that allows definition of custom fields to capture information not directly supported by the VA specification.",
+                    "items": {
+                        "$ref": "#/$defs/Extension"
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "description": "The logical identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system.",
+                    "type": "string"
+                },
+                "identifiers": {
+                    "description": "A business identifier or accession number for the entity, typically as provided by an external system or authority, that is globally unique and persists across implementing systems.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "label": {
+                    "description": "A primary name for the Entity.",
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "recordMetadata": {
+                    "$ref": "#/$defs/RecordMetadata",
+                    "description": "A reusable structure that encapsulates provenance metadata about the present record/data object  (as opposed to provenance information about the real world entity this record/data object represents)."
+                },
+                "subtype": {
+                    "$ref": "#/$defs/Coding",
+                    "description": "A specific type of agent the Agent object represents. Must be one of {Person, Organization, Software Agent}"
+                },
+                "type": {
+                    "description": "The schema class that is instantiated by the data object.  Must be the name of a class from the VA schema.",
+                    "type": "string"
+                },
+                "urls": {
+                    "description": "The URL/web address of a digital resource representing the entity, or providing information about it.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "xrefs": {
+                    "description": "Cross-references to database identifier(s) representing the same (or a closely related) entity or concept as the Entity.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "id",
+                "type"
+            ],
+            "title": "Agent",
+            "type": "object"
+        },
+        "Coding": {
+            "additionalProperties": false,
+            "description": "A structured representation of a coded/enumerated data value, that may include additional metadata about the code and code system.",
+            "properties": {
+                "code": {
+                    "description": "An identifier (preferably a CURIE) representing the identifier of the coded concept (e.g. \u2018SO:000704\u2019).",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "A free text description of the Element.",
+                    "type": "string"
+                },
+                "extensions": {
+                    "description": "A key-value data structure that allows definition of custom fields to capture information not directly supported by the VA specification.",
+                    "items": {
+                        "$ref": "#/$defs/Extension"
+                    },
+                    "type": "array"
+                },
+                "label": {
+                    "description": "The human-readable name for the coded concept, as defined by the provisioning code system (e.g. \u2018gene\u2019)",
+                    "type": "string"
+                },
+                "system": {
+                    "description": "The name of the code system where the coded concept is defined (e.g. \u2018Sequence Ontology\u2019).",
+                    "type": "string"
+                },
+                "systemURL": {
+                    "description": "A URL where the code system can be found.",
+                    "type": "string"
+                },
+                "systemVersion": {
+                    "description": "The version of the code system.",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "The schema class that is instantiated by the data object.  Must be the name of a class from the VA schema.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "type"
+            ],
+            "title": "Coding",
+            "type": "object"
+        },
+        "Contribution": {
+            "additionalProperties": false,
+            "description": "The actions taken by a particular agent in the creation, modification, assessment, or deprecation of some entity (e.g. a Statement, Evidence Line, Data Item, Publication, etc.)",
+            "properties": {
+                "activity": {
+                    "description": "The specific type of activity that was performed by the agent in making the contribution.",
+                    "items": {
+                        "$ref": "#/$defs/Coding"
+                    },
+                    "type": "array"
+                },
+                "contributionMadeTo": {
+                    "$ref": "#/$defs/InformationEntity",
+                    "description": "The artifact toward which the contribution was made."
+                },
+                "date": {
+                    "description": "The date (or a specifiec time on a date) that the Activitywas performed",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "A free text description of the Element.",
+                    "type": "string"
+                },
+                "extensions": {
+                    "description": "A key-value data structure that allows definition of custom fields to capture information not directly supported by the VA specification.",
+                    "items": {
+                        "$ref": "#/$defs/Extension"
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "description": "The logical identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system.",
+                    "type": "string"
+                },
+                "identifiers": {
+                    "description": "A business identifier or accession number for the entity, typically as provided by an external system or authority, that is globally unique and persists across implementing systems.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "input": {
+                    "description": "An entity that was input into the Activity (could be material or information)",
+                    "items": {
+                        "$ref": "#/$defs/Entity"
+                    },
+                    "type": "array"
+                },
+                "label": {
+                    "description": "A primary name for the Entity.",
+                    "type": "string"
+                },
+                "output": {
+                    "description": "An entity that was output from the Activity (could be material or information)",
+                    "items": {
+                        "$ref": "#/$defs/Entity"
+                    },
+                    "type": "array"
+                },
+                "performedBy": {
+                    "description": "An Agent who participated in executing the Activity.",
+                    "items": {
+                        "$ref": "#/$defs/Agent"
+                    },
+                    "type": "array"
+                },
+                "recordMetadata": {
+                    "$ref": "#/$defs/RecordMetadata",
+                    "description": "A reusable structure that encapsulates provenance metadata about the present record/data object  (as opposed to provenance information about the real world entity this record/data object represents)."
+                },
+                "specifiedBy": {
+                    "description": "A directive specification followed in performing an Activity, that describes how it should be executed.",
+                    "items": {
+                        "$ref": "#/$defs/Method"
+                    },
+                    "type": "array"
+                },
+                "subtype": {
+                    "$ref": "#/$defs/Coding",
+                    "description": "A specific type of activity this Activity object may represent"
+                },
+                "type": {
+                    "description": "The schema class that is instantiated by the data object.  Must be the name of a class from the VA schema.",
+                    "type": "string"
+                },
+                "urls": {
+                    "description": "The URL/web address of a digital resource representing the entity, or providing information about it.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "xrefs": {
+                    "description": "Cross-references to database identifier(s) representing the same (or a closely related) entity or concept as the Entity.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "id",
+                "type"
+            ],
+            "title": "Contribution",
+            "type": "object"
+        },
+        "DataItem": {
+            "additionalProperties": false,
+            "description": "An InformationEntity representing an individual piece of data, generated/acquired through methods which reliably produce truthful information about something.",
+            "properties": {
+                "contributions": {
+                    "description": "A specific contribution made by some Agent to the creation, modification, or validation of the information represented in the Information Entity.",
+                    "items": {
+                        "$ref": "#/$defs/Contribution"
+                    },
+                    "type": "array"
+                },
+                "dateAuthored": {
+                    "description": "The date the information content expressed in this entity was generated.",
+                    "type": "string"
+                },
+                "derivedFrom": {
+                    "description": "An information resource from which the Information Entity is derived, in whole or in part",
+                    "items": {
+                        "$ref": "#/$defs/InformationEntity"
+                    },
+                    "type": "array"
+                },
+                "description": {
+                    "description": "A free text description of the Element.",
+                    "type": "string"
+                },
+                "extensions": {
+                    "description": "A key-value data structure that allows definition of custom fields to capture information not directly supported by the VA specification.",
+                    "items": {
+                        "$ref": "#/$defs/Extension"
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "description": "The logical identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system.",
+                    "type": "string"
+                },
+                "identifiers": {
+                    "description": "A business identifier or accession number for the entity, typically as provided by an external system or authority, that is globally unique and persists across implementing systems.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "label": {
+                    "description": "A primary name for the Entity.",
+                    "type": "string"
+                },
+                "recordMetadata": {
+                    "$ref": "#/$defs/RecordMetadata",
+                    "description": "A reusable structure that encapsulates provenance metadata about the present record/data object  (as opposed to provenance information about the real world entity this record/data object represents)."
+                },
+                "reportedIn": {
+                    "description": "A document in which the information content carried by the Information Entity is expressed",
+                    "items": {
+                        "$ref": "#/$defs/Document"
+                    },
+                    "type": "array"
+                },
+                "specifiedBy": {
+                    "description": "A particular plan specification that describes all or part of the process that led to creation of the reported information (e.g. a specific experimental protocol, analysis specification, cohort selection criteria, interpretation guideline, etc.).",
+                    "items": {
+                        "$ref": "#/$defs/Method"
+                    },
+                    "type": "array"
+                },
+                "subtype": {
+                    "$ref": "#/$defs/Coding",
+                    "description": "A specific type of data the DataItem object represents (e.g. a specimen count, a patient weight, an allele frequency, a p-value)"
+                },
+                "type": {
+                    "description": "The schema class that is instantiated by the data object.  Must be the name of a class from the VA schema.",
+                    "type": "string"
+                },
+                "unit": {
+                    "$ref": "#/$defs/Coding",
+                    "description": "A unit of measure for the value"
+                },
+                "urls": {
+                    "description": "The URL/web address of a digital resource representing the entity, or providing information about it.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "value": {
+                    "description": "The value of the data item",
+                    "type": "string"
+                },
+                "xrefs": {
+                    "description": "Cross-references to database identifier(s) representing the same (or a closely related) entity or concept as the Entity.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "id",
+                "type"
+            ],
+            "title": "DataItem",
+            "type": "object"
+        },
+        "DataSet": {
+            "additionalProperties": false,
+            "description": "A collection of related data items or records that are organized together in a common format or structure, to enable their computational manipulation as a unit.",
+            "properties": {
+                "contributions": {
+                    "description": "A specific contribution made by some Agent to the creation, modification, or validation of the information represented in the Information Entity.",
+                    "items": {
+                        "$ref": "#/$defs/Contribution"
+                    },
+                    "type": "array"
+                },
+                "dateAuthored": {
+                    "description": "The date the information content expressed in this entity was generated.",
+                    "type": "string"
+                },
+                "derivedFrom": {
+                    "description": "An information resource from which the Information Entity is derived, in whole or in part",
+                    "items": {
+                        "$ref": "#/$defs/InformationEntity"
+                    },
+                    "type": "array"
+                },
+                "description": {
+                    "description": "A free text description of the Element.",
+                    "type": "string"
+                },
+                "extensions": {
+                    "description": "A key-value data structure that allows definition of custom fields to capture information not directly supported by the VA specification.",
+                    "items": {
+                        "$ref": "#/$defs/Extension"
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "description": "The logical identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system.",
+                    "type": "string"
+                },
+                "identifiers": {
+                    "description": "A business identifier or accession number for the entity, typically as provided by an external system or authority, that is globally unique and persists across implementing systems.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "label": {
+                    "description": "A primary name for the Entity.",
+                    "type": "string"
+                },
+                "license": {
+                    "description": "The type of license that dictates legal permissions for how the Data Set can be used - typically referenced by its URL.",
+                    "type": "string"
+                },
+                "recordMetadata": {
+                    "$ref": "#/$defs/RecordMetadata",
+                    "description": "A reusable structure that encapsulates provenance metadata about the present record/data object  (as opposed to provenance information about the real world entity this record/data object represents)."
+                },
+                "releaseDate": {
+                    "description": "The date when a version-level Data Set was released.",
+                    "type": "string"
+                },
+                "reportedIn": {
+                    "description": "A document in which the information content carried by the Information Entity is expressed",
+                    "items": {
+                        "$ref": "#/$defs/Document"
+                    },
+                    "type": "array"
+                },
+                "specifiedBy": {
+                    "description": "A particular plan specification that describes all or part of the process that led to creation of the reported information (e.g. a specific experimental protocol, analysis specification, cohort selection criteria, interpretation guideline, etc.).",
+                    "items": {
+                        "$ref": "#/$defs/Method"
+                    },
+                    "type": "array"
+                },
+                "subtype": {
+                    "$ref": "#/$defs/Coding",
+                    "description": "A specific type of data set the DataSet object represents."
+                },
+                "type": {
+                    "description": "The schema class that is instantiated by the data object.  Must be the name of a class from the VA schema.",
+                    "type": "string"
+                },
+                "urls": {
+                    "description": "The URL/web address of a digital resource representing the entity, or providing information about it.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "version": {
+                    "description": "The version of the Data Set (use this field used in cases where version is not reflected in an identifier associated with the Data Set)",
+                    "type": "string"
+                },
+                "xrefs": {
+                    "description": "Cross-references to database identifier(s) representing the same (or a closely related) entity or concept as the Entity.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "id",
+                "type"
+            ],
+            "title": "DataSet",
+            "type": "object"
+        },
+        "Document": {
+            "additionalProperties": false,
+            "description": "A collection of information, usually in human-readable form, intended to be read and understood together as a whole.",
+            "properties": {
+                "contributions": {
+                    "description": "A specific contribution made by some Agent to the creation, modification, or validation of the information represented in the Information Entity.",
+                    "items": {
+                        "$ref": "#/$defs/Contribution"
+                    },
+                    "type": "array"
+                },
+                "dateAuthored": {
+                    "description": "The date the information content expressed in this entity was generated.",
+                    "type": "string"
+                },
+                "derivedFrom": {
+                    "description": "An information resource from which the Information Entity is derived, in whole or in part",
+                    "items": {
+                        "$ref": "#/$defs/InformationEntity"
+                    },
+                    "type": "array"
+                },
+                "description": {
+                    "description": "A free text description of the Element.",
+                    "type": "string"
+                },
+                "extensions": {
+                    "description": "A key-value data structure that allows definition of custom fields to capture information not directly supported by the VA specification.",
+                    "items": {
+                        "$ref": "#/$defs/Extension"
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "description": "The logical identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system.",
+                    "type": "string"
+                },
+                "identifiers": {
+                    "description": "A business identifier or accession number for the entity, typically as provided by an external system or authority, that is globally unique and persists across implementing systems.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "label": {
+                    "description": "A primary name for the Entity.",
+                    "type": "string"
+                },
+                "license": {
+                    "description": "The type of license that dictates legal permissions for how the Document can be used - typically referenced by its URL.",
+                    "type": "string"
+                },
+                "recordMetadata": {
+                    "$ref": "#/$defs/RecordMetadata",
+                    "description": "A reusable structure that encapsulates provenance metadata about the present record/data object  (as opposed to provenance information about the real world entity this record/data object represents)."
+                },
+                "reportedIn": {
+                    "description": "A document in which the information content carried by the Information Entity is expressed",
+                    "items": {
+                        "$ref": "#/$defs/Document"
+                    },
+                    "type": "array"
+                },
+                "specifiedBy": {
+                    "description": "A particular plan specification that describes all or part of the process that led to creation of the reported information (e.g. a specific experimental protocol, analysis specification, cohort selection criteria, interpretation guideline, etc.).",
+                    "items": {
+                        "$ref": "#/$defs/Method"
+                    },
+                    "type": "array"
+                },
+                "subtype": {
+                    "$ref": "#/$defs/Coding",
+                    "description": "The specific type of the document (e.g.  'publication', 'patent', 'pathology report')"
+                },
+                "title": {
+                    "description": "The given title of the document.",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "The schema class that is instantiated by the data object.  Must be the name of a class from the VA schema.",
+                    "type": "string"
+                },
+                "urls": {
+                    "description": "The URL/web address of a digital resource representing the entity, or providing information about it.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "version": {
+                    "description": "The version of the Document (use this field used in cases where version is not reflected in an identifier associated with the Document)",
+                    "type": "string"
+                },
+                "xrefs": {
+                    "description": "Cross-references to database identifier(s) representing the same (or a closely related) entity or concept as the Entity.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "id",
+                "type"
+            ],
+            "title": "Document",
+            "type": "object"
+        },
+        "Element": {
+            "additionalProperties": false,
+            "description": "The base definition for all elements that comprise the model (core, domain entity, and utility classes, value sets)",
+            "properties": {
+                "description": {
+                    "description": "A free text description of the Element.",
+                    "type": "string"
+                },
+                "extensions": {
+                    "description": "A key-value data structure that allows definition of custom fields to capture information not directly supported by the VA specification.",
+                    "items": {
+                        "$ref": "#/$defs/Extension"
+                    },
+                    "type": "array"
+                },
+                "type": {
+                    "description": "The schema class that is instantiated by the data object.  Must be the name of a class from the VA schema.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "type"
+            ],
+            "title": "Element",
+            "type": "object"
+        },
+        "Entity": {
+            "additionalProperties": false,
+            "description": "Anything that exists, has existed, or will exist.",
+            "properties": {
+                "description": {
+                    "description": "A free text description of the Element.",
+                    "type": "string"
+                },
+                "extensions": {
+                    "description": "A key-value data structure that allows definition of custom fields to capture information not directly supported by the VA specification.",
+                    "items": {
+                        "$ref": "#/$defs/Extension"
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "description": "The logical identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system.",
+                    "type": "string"
+                },
+                "identifiers": {
+                    "description": "A business identifier or accession number for the entity, typically as provided by an external system or authority, that is globally unique and persists across implementing systems.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "label": {
+                    "description": "A primary name for the Entity.",
+                    "type": "string"
+                },
+                "recordMetadata": {
+                    "$ref": "#/$defs/RecordMetadata",
+                    "description": "A reusable structure that encapsulates provenance metadata about the present record/data object  (as opposed to provenance information about the real world entity this record/data object represents)."
+                },
+                "type": {
+                    "description": "The schema class that is instantiated by the data object.  Must be the name of a class from the VA schema.",
+                    "type": "string"
+                },
+                "urls": {
+                    "description": "The URL/web address of a digital resource representing the entity, or providing information about it.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "xrefs": {
+                    "description": "Cross-references to database identifier(s) representing the same (or a closely related) entity or concept as the Entity.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "id",
+                "type"
+            ],
+            "title": "Entity",
+            "type": "object"
+        },
+        "EvidenceLine": {
+            "additionalProperties": false,
+            "description": "A discrete, independent argument relevant to the validity of the Proposition put forth as true in the Statement,  that is based on the interpretation of one or more pieces of information as evidence.",
+            "properties": {
+                "contributions": {
+                    "description": "A specific contribution made by some Agent to the creation, modification, or validation of the information represented in the Information Entity.",
+                    "items": {
+                        "$ref": "#/$defs/Contribution"
+                    },
+                    "type": "array"
+                },
+                "dateAuthored": {
+                    "description": "The date the information content expressed in this entity was generated.",
+                    "type": "string"
+                },
+                "derivedFrom": {
+                    "description": "An information resource from which the Information Entity is derived, in whole or in part",
+                    "items": {
+                        "$ref": "#/$defs/InformationEntity"
+                    },
+                    "type": "array"
+                },
+                "description": {
+                    "description": "A free text description of the Element.",
+                    "type": "string"
+                },
+                "directionOfEvidenceProvided": {
+                    "$ref": "#/$defs/Coding",
+                    "description": "The direction of support that the Evidence Line is determined to provide for its target Proposition (can be supporting, disputing, or neutral)"
+                },
+                "evidenceItems": {
+                    "description": "An Information Entity that was evaluated in making the argument represented by the Evidence Lines.",
+                    "items": {
+                        "$ref": "#/$defs/InformationEntity"
+                    },
+                    "type": "array"
+                },
+                "extensions": {
+                    "description": "A key-value data structure that allows definition of custom fields to capture information not directly supported by the VA specification.",
+                    "items": {
+                        "$ref": "#/$defs/Extension"
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "description": "The logical identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system.",
+                    "type": "string"
+                },
+                "identifiers": {
+                    "description": "A business identifier or accession number for the entity, typically as provided by an external system or authority, that is globally unique and persists across implementing systems.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "label": {
+                    "description": "A primary name for the Entity.",
+                    "type": "string"
+                },
+                "recordMetadata": {
+                    "$ref": "#/$defs/RecordMetadata",
+                    "description": "A reusable structure that encapsulates provenance metadata about the present record/data object  (as opposed to provenance information about the real world entity this record/data object represents)."
+                },
+                "reportedIn": {
+                    "description": "A document in which the information content carried by the Information Entity is expressed",
+                    "items": {
+                        "$ref": "#/$defs/Document"
+                    },
+                    "type": "array"
+                },
+                "specifiedBy": {
+                    "description": "A particular plan specification that describes all or part of the process that led to creation of the reported information (e.g. a specific experimental protocol, analysis specification, cohort selection criteria, interpretation guideline, etc.).",
+                    "items": {
+                        "$ref": "#/$defs/Method"
+                    },
+                    "type": "array"
+                },
+                "strengthOfEvidenceProvided": {
+                    "$ref": "#/$defs/Coding",
+                    "description": "The strength of support that an Evidence Line is determined to provide for or against its target Proposition."
+                },
+                "subtype": {
+                    "$ref": "#/$defs/Coding",
+                    "description": "A specific type of evidence the EvidenceLine object represents (e.g. 'mutant phenotype evidence', 'evidence from manual interpretation', 'ACMG PM2 evidence')"
+                },
+                "targetProposition": {
+                    "$ref": "#/$defs/Proposition",
+                    "description": "The proposition against which the evidence items were evaluated, in determining the overall strength and direction of evidence they provide (as captured in the Evidence Line)"
+                },
+                "type": {
+                    "description": "The schema class that is instantiated by the data object.  Must be the name of a class from the VA schema.",
+                    "type": "string"
+                },
+                "urls": {
+                    "description": "The URL/web address of a digital resource representing the entity, or providing information about it.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "xrefs": {
+                    "description": "Cross-references to database identifier(s) representing the same (or a closely related) entity or concept as the Entity.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "id",
+                "type"
+            ],
+            "title": "EvidenceLine",
+            "type": "object"
+        },
+        "Expression": {
+            "additionalProperties": false,
+            "description": "A structure for labels representing systematic expressions that describe an entity, as generated by formal nomenclatures (e.g. HGVS for genetic variants, ISCN for karyotypes, HLA nomenclature for HLA genes/alleles).",
+            "properties": {
+                "description": {
+                    "description": "A free text description of the Element.",
+                    "type": "string"
+                },
+                "extensions": {
+                    "description": "A key-value data structure that allows definition of custom fields to capture information not directly supported by the VA specification.",
+                    "items": {
+                        "$ref": "#/$defs/Extension"
+                    },
+                    "type": "array"
+                },
+                "system": {
+                    "description": "The nomenclature system that created and assigned the expression.",
+                    "type": "string"
+                },
+                "systemURL": {
+                    "description": "A URL for the nomenclature system",
+                    "type": "string"
+                },
+                "systemVersion": {
+                    "description": "The version of the nomenclature system.",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "The schema class that is instantiated by the data object.  Must be the name of a class from the VA schema.",
+                    "type": "string"
+                },
+                "value": {
+                    "description": "A free-text rendering of the expression used as a label for the entity",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "value",
+                "system",
+                "type"
+            ],
+            "title": "Expression",
+            "type": "object"
+        },
+        "Extension": {
+            "additionalProperties": false,
+            "description": "A data structure that allows implementations to define and create custom fields within an Entity to capture information not supported by the core specification.",
+            "properties": {
+                "description": {
+                    "description": "A free text description of the intended semantics and use of this extension element (i.e. they types of values it takes, and how to interpret these values in the context of the parent Class)",
+                    "type": "string"
+                },
+                "extensions": {
+                    "description": "A key-value data structure that allows definition of custom fields to capture information not directly supported by the VA specification.",
+                    "items": {
+                        "$ref": "#/$defs/Extension"
+                    },
+                    "type": "array"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "type": {
+                    "description": "The schema class that is instantiated by the data object.  Must be the name of a class from the VA schema.",
+                    "type": "string"
+                },
+                "value": {
+                    "$ref": "#/$defs/Element",
+                    "description": "The value of the extension element"
+                }
+            },
+            "required": [
+                "value",
+                "type"
+            ],
+            "title": "Extension",
+            "type": "object"
+        },
+        "InformationEntity": {
+            "additionalProperties": false,
+            "description": "An abstract (non-physical) entity that is about something.",
+            "properties": {
+                "contributions": {
+                    "description": "A specific contribution made by some Agent to the creation, modification, or validation of the information represented in the Information Entity.",
+                    "items": {
+                        "$ref": "#/$defs/Contribution"
+                    },
+                    "type": "array"
+                },
+                "dateAuthored": {
+                    "description": "The date the information content expressed in this entity was generated.",
+                    "type": "string"
+                },
+                "derivedFrom": {
+                    "description": "An information resource from which the Information Entity is derived, in whole or in part",
+                    "items": {
+                        "$ref": "#/$defs/InformationEntity"
+                    },
+                    "type": "array"
+                },
+                "description": {
+                    "description": "A free text description of the Element.",
+                    "type": "string"
+                },
+                "extensions": {
+                    "description": "A key-value data structure that allows definition of custom fields to capture information not directly supported by the VA specification.",
+                    "items": {
+                        "$ref": "#/$defs/Extension"
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "description": "The logical identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system.",
+                    "type": "string"
+                },
+                "identifiers": {
+                    "description": "A business identifier or accession number for the entity, typically as provided by an external system or authority, that is globally unique and persists across implementing systems.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "label": {
+                    "description": "A primary name for the Entity.",
+                    "type": "string"
+                },
+                "recordMetadata": {
+                    "$ref": "#/$defs/RecordMetadata",
+                    "description": "A reusable structure that encapsulates provenance metadata about the present record/data object  (as opposed to provenance information about the real world entity this record/data object represents)."
+                },
+                "reportedIn": {
+                    "description": "A document in which the information content carried by the Information Entity is expressed",
+                    "items": {
+                        "$ref": "#/$defs/Document"
+                    },
+                    "type": "array"
+                },
+                "specifiedBy": {
+                    "description": "A particular plan specification that describes all or part of the process that led to creation of the reported information (e.g. a specific experimental protocol, analysis specification, cohort selection criteria, interpretation guideline, etc.).",
+                    "items": {
+                        "$ref": "#/$defs/Method"
+                    },
+                    "type": "array"
+                },
+                "type": {
+                    "description": "The schema class that is instantiated by the data object.  Must be the name of a class from the VA schema.",
+                    "type": "string"
+                },
+                "urls": {
+                    "description": "The URL/web address of a digital resource representing the entity, or providing information about it.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "xrefs": {
+                    "description": "Cross-references to database identifier(s) representing the same (or a closely related) entity or concept as the Entity.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "id",
+                "type"
+            ],
+            "title": "InformationEntity",
+            "type": "object"
+        },
+        "Method": {
+            "additionalProperties": false,
+            "description": "A set of instructions that specify how to achieve some objective (e.g. study/experimental protocols, curation guidelines, rule sets, etc.)",
+            "properties": {
+                "contributions": {
+                    "description": "A specific contribution made by some Agent to the creation, modification, or validation of the information represented in the Information Entity.",
+                    "items": {
+                        "$ref": "#/$defs/Contribution"
+                    },
+                    "type": "array"
+                },
+                "dateAuthored": {
+                    "description": "The date the information content expressed in this entity was generated.",
+                    "type": "string"
+                },
+                "derivedFrom": {
+                    "description": "An information resource from which the Information Entity is derived, in whole or in part",
+                    "items": {
+                        "$ref": "#/$defs/InformationEntity"
+                    },
+                    "type": "array"
+                },
+                "description": {
+                    "description": "A free text description of the Element.",
+                    "type": "string"
+                },
+                "extensions": {
+                    "description": "A key-value data structure that allows definition of custom fields to capture information not directly supported by the VA specification.",
+                    "items": {
+                        "$ref": "#/$defs/Extension"
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "description": "The logical identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system.",
+                    "type": "string"
+                },
+                "identifiers": {
+                    "description": "A business identifier or accession number for the entity, typically as provided by an external system or authority, that is globally unique and persists across implementing systems.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "label": {
+                    "description": "A primary name for the Entity.",
+                    "type": "string"
+                },
+                "license": {
+                    "description": "The type of license that dictates legal permissions for how a published method (e.g. an experimental protocol, workflow specification, curation guideline) can be used - typically referenced by its URL.",
+                    "type": "string"
+                },
+                "recordMetadata": {
+                    "$ref": "#/$defs/RecordMetadata",
+                    "description": "A reusable structure that encapsulates provenance metadata about the present record/data object  (as opposed to provenance information about the real world entity this record/data object represents)."
+                },
+                "reportedIn": {
+                    "description": "A document in which the information content carried by the Information Entity is expressed",
+                    "items": {
+                        "$ref": "#/$defs/Document"
+                    },
+                    "type": "array"
+                },
+                "specifiedBy": {
+                    "description": "A particular plan specification that describes all or part of the process that led to creation of the reported information (e.g. a specific experimental protocol, analysis specification, cohort selection criteria, interpretation guideline, etc.).",
+                    "items": {
+                        "$ref": "#/$defs/Method"
+                    },
+                    "type": "array"
+                },
+                "subtype": {
+                    "$ref": "#/$defs/Coding",
+                    "description": "A specific type of method that the Method object represents (e.g. 'Variant Interpretation Guideline', 'Experimental Protocol')"
+                },
+                "type": {
+                    "description": "The schema class that is instantiated by the data object.  Must be the name of a class from the VA schema.",
+                    "type": "string"
+                },
+                "urls": {
+                    "description": "The URL/web address of a digital resource representing the entity, or providing information about it.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "xrefs": {
+                    "description": "Cross-references to database identifier(s) representing the same (or a closely related) entity or concept as the Entity.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "id",
+                "type"
+            ],
+            "title": "Method",
+            "type": "object"
+        },
+        "Proposition": {
+            "additionalProperties": false,
+            "description": "An abstract entity representing the sharable meaning that can be put forth as true or false in a Statement made by an Agent.",
+            "properties": {
+                "description": {
+                    "description": "A free text description of the Element.",
+                    "type": "string"
+                },
+                "extensions": {
+                    "description": "A key-value data structure that allows definition of custom fields to capture information not directly supported by the VA specification.",
+                    "items": {
+                        "$ref": "#/$defs/Extension"
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "description": "The logical identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system.",
+                    "type": "string"
+                },
+                "identifiers": {
+                    "description": "A business identifier or accession number for the entity, typically as provided by an external system or authority, that is globally unique and persists across implementing systems.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "label": {
+                    "description": "A primary name for the Entity.",
+                    "type": "string"
+                },
+                "negated": {
+                    "description": "A boolean flag set to 'true' if the statement expressed by the subject, predicate, object, and qualifier(s) is explicitly asserted to be false.",
+                    "type": "boolean"
+                },
+                "object": {
+                    "$ref": "#/$defs/Element",
+                    "description": "An Entity, concept, or value that is related to the subject of a Proposition via its predicate."
+                },
+                "predicate": {
+                    "$ref": "#/$defs/Coding",
+                    "description": "The relationship asserted to hold between the subject and the object of the Proposition."
+                },
+                "propositionText": {
+                    "description": "A natural-language expression of the Proposition's meaning.",
+                    "type": "string"
+                },
+                "qualifiers": {
+                    "description": "A value or concept that extends or refines the meaning of the Proposition expressed by the core subject - predicate - object 'triple' - e.g. by providing additional information/detail, or constraining the claim to apply in a particular context.",
+                    "items": {
+                        "$ref": "#/$defs/Element"
+                    },
+                    "type": "array"
+                },
+                "recordMetadata": {
+                    "$ref": "#/$defs/RecordMetadata",
+                    "description": "A reusable structure that encapsulates provenance metadata about the present record/data object  (as opposed to provenance information about the real world entity this record/data object represents)."
+                },
+                "subject": {
+                    "$ref": "#/$defs/Element",
+                    "description": "The Entity about which the Proposition is made."
+                },
+                "subtype": {
+                    "$ref": "#/$defs/Coding",
+                    "description": "A specific type of proposition the Proposition object represents (e.g. a 'Variant Pathogenicity Proposition', or 'Molecular Consequence Proposition')"
+                },
+                "type": {
+                    "description": "The schema class that is instantiated by the data object.  Must be the name of a class from the VA schema.",
+                    "type": "string"
+                },
+                "urls": {
+                    "description": "The URL/web address of a digital resource representing the entity, or providing information about it.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "xrefs": {
+                    "description": "Cross-references to database identifier(s) representing the same (or a closely related) entity or concept as the Entity.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "subject",
+                "predicate",
+                "object",
+                "id",
+                "type"
+            ],
+            "title": "Proposition",
+            "type": "object"
+        },
+        "RecordMetadata": {
+            "additionalProperties": false,
+            "description": "A data structure that encapsulates provenance metadata that applies to a specific concrete record/encoding of information, as opposed to provenance of the abstract information content/knowledge the record represents.",
+            "properties": {
+                "contributions": {
+                    "description": "Links to a 'Contribution' object allowing richer representation of specific types of contributions made by an agent to the creation, modification, or administrative management of a record.",
+                    "items": {
+                        "$ref": "#/$defs/Contribution"
+                    },
+                    "type": "array"
+                },
+                "dateRecordCreated": {
+                    "description": "The date the record was initially created.",
+                    "type": "string"
+                },
+                "derivedFrom": {
+                    "description": "Another data record from which the record described here was derived.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "description": {
+                    "description": "A free text description of the Element.",
+                    "type": "string"
+                },
+                "extensions": {
+                    "description": "A key-value data structure that allows definition of custom fields to capture information not directly supported by the VA specification.",
+                    "items": {
+                        "$ref": "#/$defs/Extension"
+                    },
+                    "type": "array"
+                },
+                "recordIdentifier": {
+                    "description": "The business identifier of the record described in the RecordMetadata object (required when the record described is not the one in the present system)",
+                    "type": "string"
+                },
+                "recordVersion": {
+                    "description": "The version number of the record-level artifact the object describes",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "The schema class that is instantiated by the data object.  Must be the name of a class from the VA schema.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "type"
+            ],
+            "title": "RecordMetadata",
+            "type": "object"
+        },
+        "Statement": {
+            "additionalProperties": false,
+            "description": "An information entity expressing a declarative sentence that is either true or false.",
+            "properties": {
+                "conclusion": {
+                    "$ref": "#/$defs/Coding",
+                    "description": "A term that describes a final conclusion about the subject of a Statement's proposition, based on what the proposition claims, and confidence and evidence level and direction assessments."
+                },
+                "confidenceDirection": {
+                    "$ref": "#/$defs/Coding",
+                    "description": "A term indicating whether the confidenceLevel and/or confidenceScore values reflect confidence that the statement's proposition is true or false."
+                },
+                "confidenceLevel": {
+                    "$ref": "#/$defs/Coding",
+                    "description": "A term describing the asserting agent's level of confidence about the Statement's proposition (i.e. how confident they are that it is true or false)."
+                },
+                "confidenceScore": {
+                    "$ref": "#/$defs/DataItem",
+                    "description": "A quantitative score reflecting the asserting agent's level of confidence in the Statement's proposition. For PropositionAssessmentStatements, the direction this confidence pertains to (i.e. the truth or falsehood of the proposition) is captured in the confidenceDirection attribute."
+                },
+                "contributions": {
+                    "description": "A specific contribution made by some Agent to the creation, modification, or validation of the information represented in the Information Entity.",
+                    "items": {
+                        "$ref": "#/$defs/Contribution"
+                    },
+                    "type": "array"
+                },
+                "dateAuthored": {
+                    "description": "The date the information content expressed in this entity was generated.",
+                    "type": "string"
+                },
+                "derivedFrom": {
+                    "description": "An information resource from which the Information Entity is derived, in whole or in part",
+                    "items": {
+                        "$ref": "#/$defs/InformationEntity"
+                    },
+                    "type": "array"
+                },
+                "description": {
+                    "description": "A free text description of the Element.",
+                    "type": "string"
+                },
+                "evidenceDirection": {
+                    "description": "A term indicating the net direction of all evidence assessed against the Statement's proposition.",
+                    "type": "string"
+                },
+                "evidenceLevel": {
+                    "$ref": "#/$defs/Coding",
+                    "description": "A term indicating the overall strength of support for or against the Statement's proposition, as provided by all evidence evaluated."
+                },
+                "evidenceScore": {
+                    "$ref": "#/$defs/DataItem",
+                    "description": "A quantitative score reflecting the overall strength of support for or against the Statement's proposition, as provided by all evidence evaluated."
+                },
+                "extensions": {
+                    "description": "A key-value data structure that allows definition of custom fields to capture information not directly supported by the VA specification.",
+                    "items": {
+                        "$ref": "#/$defs/Extension"
+                    },
+                    "type": "array"
+                },
+                "hasEvidence": {
+                    "description": "A piece of information that represents or contributes to an argument for or against the validity of the Proposition put forth in a Statement.",
+                    "items": {
+                        "$ref": "#/$defs/InformationEntity"
+                    },
+                    "type": "array"
+                },
+                "hasEvidenceLines": {
+                    "description": "A discrete, independent argument relevant to the validity of the Proposition put forth in the Statement, which is based on the interpretation of one or more pieces of information as evidence.",
+                    "items": {
+                        "$ref": "#/$defs/EvidenceLine"
+                    },
+                    "type": "array"
+                },
+                "hasEvidenceOfTypes": {
+                    "description": "A term describing a type of evidence used to assess the validity of Statement's proposition (e.g. 'sequence similarity evidence', 'in vitro assay evidence').",
+                    "items": {
+                        "$ref": "#/$defs/Coding"
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "description": "The logical identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system.",
+                    "type": "string"
+                },
+                "identifiers": {
+                    "description": "A business identifier or accession number for the entity, typically as provided by an external system or authority, that is globally unique and persists across implementing systems.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "label": {
+                    "description": "A primary name for the Entity.",
+                    "type": "string"
+                },
+                "recordMetadata": {
+                    "$ref": "#/$defs/RecordMetadata",
+                    "description": "A reusable structure that encapsulates provenance metadata about the present record/data object  (as opposed to provenance information about the real world entity this record/data object represents)."
+                },
+                "reportedIn": {
+                    "description": "A document in which the information content carried by the Information Entity is expressed",
+                    "items": {
+                        "$ref": "#/$defs/Document"
+                    },
+                    "type": "array"
+                },
+                "specifiedBy": {
+                    "description": "A particular plan specification that describes all or part of the process that led to creation of the reported information (e.g. a specific experimental protocol, analysis specification, cohort selection criteria, interpretation guideline, etc.).",
+                    "items": {
+                        "$ref": "#/$defs/Method"
+                    },
+                    "type": "array"
+                },
+                "statementText": {
+                    "description": "A natural-language expression of what the Statement asserts to be true.",
+                    "type": "string"
+                },
+                "subtype": {
+                    "$ref": "#/$defs/Coding",
+                    "description": "A specific type of statement the Statement object represents (e.g. a 'Variant Pathogenicity Statement', or 'Therapeutic Response Evidence Level Statement')"
+                },
+                "type": {
+                    "description": "The schema class that is instantiated by the data object.  Must be the name of a class from the VA schema.",
+                    "type": "string"
+                },
+                "urls": {
+                    "description": "The URL/web address of a digital resource representing the entity, or providing information about it.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "xrefs": {
+                    "description": "Cross-references to database identifier(s) representing the same (or a closely related) entity or concept as the Entity.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "id",
+                "type"
+            ],
+            "title": "Statement",
+            "type": "object"
+        },
+        "StudyResult": {
+            "additionalProperties": false,
+            "description": "A collection of data items from a single study that are about a particular subject or experimental unit in the study  (along with optional provenance metadata describing how these data items were generated).",
+            "properties": {
+                "contributions": {
+                    "description": "A specific contribution made by some Agent to the creation, modification, or validation of the information represented in the Information Entity.",
+                    "items": {
+                        "$ref": "#/$defs/Contribution"
+                    },
+                    "type": "array"
+                },
+                "dataItems": {
+                    "description": "A piece of data from the source Study that is included in the Result, and pertains to the entity that is the 'focus'. Can be data directly about the focus, or metadata relevant to how this data was generated.",
+                    "items": {
+                        "$ref": "#/$defs/DataItem"
+                    },
+                    "type": "array"
+                },
+                "dateAuthored": {
+                    "description": "The date the information content expressed in this entity was generated.",
+                    "type": "string"
+                },
+                "derivedFrom": {
+                    "$ref": "#/$defs/DataSet",
+                    "description": "A larger Data Set from which the content of the Result was derived."
+                },
+                "description": {
+                    "description": "A free text description of the Element.",
+                    "type": "string"
+                },
+                "extensions": {
+                    "description": "A key-value data structure that allows definition of custom fields to capture information not directly supported by the VA specification.",
+                    "items": {
+                        "$ref": "#/$defs/Extension"
+                    },
+                    "type": "array"
+                },
+                "focus": {
+                    "$ref": "#/$defs/Entity",
+                    "description": "The specific subject or experimental unit in the Research Study that data in the Result is about, and which guides the selection of data that is included within a single Study Result object."
+                },
+                "id": {
+                    "description": "The logical identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system.",
+                    "type": "string"
+                },
+                "identifiers": {
+                    "description": "A business identifier or accession number for the entity, typically as provided by an external system or authority, that is globally unique and persists across implementing systems.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "label": {
+                    "description": "A primary name for the Entity.",
+                    "type": "string"
+                },
+                "recordMetadata": {
+                    "$ref": "#/$defs/RecordMetadata",
+                    "description": "A reusable structure that encapsulates provenance metadata about the present record/data object  (as opposed to provenance information about the real world entity this record/data object represents)."
+                },
+                "reportedIn": {
+                    "description": "A document in which the information content carried by the Information Entity is expressed",
+                    "items": {
+                        "$ref": "#/$defs/Document"
+                    },
+                    "type": "array"
+                },
+                "specifiedBy": {
+                    "description": "A particular plan specification that describes all or part of the process that led to creation of the reported information (e.g. a specific experimental protocol, analysis specification, cohort selection criteria, interpretation guideline, etc.).",
+                    "items": {
+                        "$ref": "#/$defs/Method"
+                    },
+                    "type": "array"
+                },
+                "subtype": {
+                    "$ref": "#/$defs/Coding",
+                    "description": "A specific type of result the StudyResult object represents (e.g. an 'Population Allele Frequency Study Result')"
+                },
+                "type": {
+                    "description": "The schema class that is instantiated by the data object.  Must be the name of a class from the VA schema.",
+                    "type": "string"
+                },
+                "urls": {
+                    "description": "The URL/web address of a digital resource representing the entity, or providing information about it.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "xrefs": {
+                    "description": "Cross-references to database identifier(s) representing the same (or a closely related) entity or concept as the Entity.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "id",
+                "type"
+            ],
+            "title": "StudyResult",
+            "type": "object"
+        },
+        "Utility": {
+            "additionalProperties": false,
+            "description": "An abstract organizational class that groups complex datatype-like classes - which provide re-usable collections of fields that can be plugged into other objects to capture related information.",
+            "properties": {
+                "description": {
+                    "description": "A free text description of the Element.",
+                    "type": "string"
+                },
+                "extensions": {
+                    "description": "A key-value data structure that allows definition of custom fields to capture information not directly supported by the VA specification.",
+                    "items": {
+                        "$ref": "#/$defs/Extension"
+                    },
+                    "type": "array"
+                },
+                "type": {
+                    "description": "The schema class that is instantiated by the data object.  Must be the name of a class from the VA schema.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "type"
+            ],
+            "title": "Utility",
+            "type": "object"
+        }
+    },
+    "$id": "https://w3id.org/ga4gh-va-core-im",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "additionalProperties": true,
+    "metamodel_version": "1.7.0",
+    "title": "GA4GH-VA-Core-IM",
+    "type": "object",
+    "version": null
+}

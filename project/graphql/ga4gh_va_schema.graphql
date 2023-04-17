@@ -1,0 +1,323 @@
+type Activity
+  {
+    type: Class!
+    description: String
+    extensions: [Extension]
+    id: Identifier!
+    identifiers: [Identifier]
+    label: String
+    urls: [Url]
+    xrefs: [String]
+    recordMetadata: RecordMetadata
+    subtype: Coding
+    date: DateTime
+    performedBy: [Agent]
+    input: [Entity]
+    output: [Entity]
+    specifiedBy: [Method]
+  }
+
+type Agent
+  {
+    type: Class!
+    description: String
+    extensions: [Extension]
+    id: Identifier!
+    identifiers: [Identifier]
+    label: String
+    urls: [Url]
+    xrefs: [String]
+    recordMetadata: RecordMetadata
+    subtype: Coding
+    name: String
+  }
+
+type Coding
+  {
+    type: Class!
+    description: String
+    extensions: [Extension]
+    code: Identifier
+    label: String
+    system: String
+    systemURL: Url
+    systemVersion: String
+  }
+
+type Contribution
+  {
+    type: Class!
+    description: String
+    extensions: [Extension]
+    id: Identifier!
+    identifiers: [Identifier]
+    label: String
+    urls: [Url]
+    xrefs: [String]
+    recordMetadata: RecordMetadata
+    subtype: Coding
+    date: DateTime
+    performedBy: [Agent]
+    input: [Entity]
+    output: [Entity]
+    specifiedBy: [Method]
+    contributionMadeTo: InformationEntity
+    activity: [Coding]
+  }
+
+type DataItem
+  {
+    type: Class!
+    description: String
+    extensions: [Extension]
+    id: Identifier!
+    identifiers: [Identifier]
+    label: String
+    urls: [Url]
+    xrefs: [String]
+    recordMetadata: RecordMetadata
+    contributions: [Contribution]
+    dateAuthored: DateTime
+    specifiedBy: [Method]
+    derivedFrom: [InformationEntity]
+    reportedIn: [Document]
+    subtype: Coding
+    value: String
+    unit: Coding
+  }
+
+type DataSet
+  {
+    type: Class!
+    description: String
+    extensions: [Extension]
+    id: Identifier!
+    identifiers: [Identifier]
+    label: String
+    urls: [Url]
+    xrefs: [String]
+    recordMetadata: RecordMetadata
+    contributions: [Contribution]
+    dateAuthored: DateTime
+    specifiedBy: [Method]
+    derivedFrom: [InformationEntity]
+    reportedIn: [Document]
+    subtype: Coding
+    releaseDate: DateTime
+    license: String
+    version: String
+  }
+
+type Document
+  {
+    type: Class!
+    description: String
+    extensions: [Extension]
+    id: Identifier!
+    identifiers: [Identifier]
+    label: String
+    urls: [Url]
+    xrefs: [String]
+    recordMetadata: RecordMetadata
+    contributions: [Contribution]
+    dateAuthored: DateTime
+    specifiedBy: [Method]
+    derivedFrom: [InformationEntity]
+    reportedIn: [Document]
+    subtype: Coding
+    title: String
+    license: String
+    version: String
+  }
+
+type Element
+  {
+    type: Class!
+    description: String
+    extensions: [Extension]
+  }
+
+type Entity
+  {
+    type: Class!
+    description: String
+    extensions: [Extension]
+    id: Identifier!
+    identifiers: [Identifier]
+    label: String
+    urls: [Url]
+    xrefs: [String]
+    recordMetadata: RecordMetadata
+  }
+
+type EvidenceLine
+  {
+    type: Class!
+    description: String
+    extensions: [Extension]
+    id: Identifier!
+    identifiers: [Identifier]
+    label: String
+    urls: [Url]
+    xrefs: [String]
+    recordMetadata: RecordMetadata
+    contributions: [Contribution]
+    dateAuthored: DateTime
+    specifiedBy: [Method]
+    derivedFrom: [InformationEntity]
+    reportedIn: [Document]
+    subtype: Coding
+    targetProposition: Proposition
+    evidenceItems: [InformationEntity]
+    directionOfEvidenceProvided: Coding
+    strengthOfEvidenceProvided: Coding
+  }
+
+type Expression
+  {
+    type: Class!
+    description: String
+    extensions: [Extension]
+    value: String!
+    system: String!
+    systemURL: Url
+    systemVersion: String
+  }
+
+type Extension
+  {
+    type: Class!
+    extensions: [Extension]
+    description: String
+    name: String
+    value: Element!
+  }
+
+type InformationEntity
+  {
+    type: Class!
+    description: String
+    extensions: [Extension]
+    id: Identifier!
+    identifiers: [Identifier]
+    label: String
+    urls: [Url]
+    xrefs: [String]
+    recordMetadata: RecordMetadata
+    contributions: [Contribution]
+    dateAuthored: DateTime
+    specifiedBy: [Method]
+    derivedFrom: [InformationEntity]
+    reportedIn: [Document]
+  }
+
+type Method
+  {
+    type: Class!
+    description: String
+    extensions: [Extension]
+    id: Identifier!
+    identifiers: [Identifier]
+    label: String
+    urls: [Url]
+    xrefs: [String]
+    recordMetadata: RecordMetadata
+    contributions: [Contribution]
+    dateAuthored: DateTime
+    specifiedBy: [Method]
+    derivedFrom: [InformationEntity]
+    reportedIn: [Document]
+    subtype: Coding
+    license: String
+  }
+
+type Proposition
+  {
+    type: Class!
+    description: String
+    extensions: [Extension]
+    id: Identifier!
+    identifiers: [Identifier]
+    label: String
+    urls: [Url]
+    xrefs: [String]
+    recordMetadata: RecordMetadata
+    subtype: Coding
+    propositionText: String
+    subject: Element!
+    predicate: Coding!
+    object: Element!
+    qualifiers: [Element]
+    negated: Boolean
+  }
+
+type RecordMetadata
+  {
+    type: Class!
+    description: String
+    extensions: [Extension]
+    recordIdentifier: Identifier
+    recordVersion: String
+    derivedFrom: [Identifier]
+    dateRecordCreated: DateTime
+    contributions: [Contribution]
+  }
+
+type Statement
+  {
+    type: Class!
+    description: String
+    extensions: [Extension]
+    id: Identifier!
+    identifiers: [Identifier]
+    label: String
+    urls: [Url]
+    xrefs: [String]
+    recordMetadata: RecordMetadata
+    contributions: [Contribution]
+    dateAuthored: DateTime
+    specifiedBy: [Method]
+    derivedFrom: [InformationEntity]
+    reportedIn: [Document]
+    subtype: Coding
+    statementText: String
+    confidenceDirection: Coding
+    confidenceLevel: Coding
+    confidenceScore: DataItem
+    evidenceDirection: String
+    evidenceLevel: Coding
+    evidenceScore: DataItem
+    conclusion: Coding
+    hasEvidence: [InformationEntity]
+    hasEvidenceLines: [EvidenceLine]
+    hasEvidenceOfTypes: [Coding]
+  }
+
+type StudyResult
+  {
+    type: Class!
+    description: String
+    extensions: [Extension]
+    id: Identifier!
+    identifiers: [Identifier]
+    label: String
+    urls: [Url]
+    xrefs: [String]
+    recordMetadata: RecordMetadata
+    contributions: [Contribution]
+    dateAuthored: DateTime
+    specifiedBy: [Method]
+    reportedIn: [Document]
+    subtype: Coding
+    focus: Entity
+    dataItems: [DataItem]
+    derivedFrom: String
+  }
+
+type Utility
+  {
+    type: Class!
+    description: String
+    extensions: [Extension]
+  }
+

@@ -1,0 +1,7 @@
+---
+name: ga4gh_va_schema
+author: Matthew Brush <matt@tislab.org>
+description: Data model for variant annotation in the GA4GH consortium.
+source_schema_path: src/ga4gh_va_schema/schema/ga4gh_va_schema.yaml
+google_sheet_id: 1PxDdoX1qytI1TGBW_u6HODkv5f-Gx0b80W2ZCBn_G4k
+google_sheet_tabs: ga4gh_va_schema

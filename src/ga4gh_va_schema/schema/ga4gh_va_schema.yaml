@@ -1,0 +1,1365 @@
+name: GA4GH-VA-Core-IM
+id: https://w3id.org/ga4gh-va-core-im
+imports:
+- linkml:types
+prefixes:
+  BFO: http://purl.obolibrary.org/obo/BFO_
+  FHIR: http://example.org/FHIR/
+  CAM: http://example.org/CAM/
+  IAO: http://purl.obolibrary.org/obo/IAO_
+  PROV: http://www.w3.org/ns/prov#
+  SEPIO: http://purl.obolibrary.org/obo/SEPIO_
+  FRBR: https://vocab.org/frbr/core
+  DC: https://example.com/dc
+  linkml: https://w3id.org/linkml/
+  vacoreim: https://example.org/vacoreim/
+  OBI: http://purl.obolibrary.org/obo/OBI_
+default_prefix: vacoreim
+default_range: string
+types:
+  url:
+    description: A string representing a Uniform Resource Locator (RFC 1738), specifying
+      a web address where a resource can be found or information about the resource
+      discovered.
+    title: url
+    comments:
+    - 'Used in place of a plain string datatype when a resolvable web address for
+      a resource is desired.  Common URL protocols are http{s}:, ftp:, mailto: and
+      mllp:, though many others are defined.'
+    from_schema: https://w3id.org/ga4gh-va-core-im
+    base: string
+    uri: xsd:string
+  class:
+    description: A string representing a class in a VA model used to type an object
+      in the data.
+    title: class
+    comments:
+    - This string must be the name of a concrete class from the core VA specification
+      (e.g. 'Statement'), or a specialization of such a class in a profile defined
+      by a particular implementation (e.g. TherapeuticEfficacyStatement').
+    from_schema: https://w3id.org/ga4gh-va-core-im
+    base: string
+    uri: xsd:string
+  dateTime:
+    description: "A string value that specifies a date and time of day comprised of\
+      \ a year, month, day, hour, minute, and second, following the form \u201CYYYY-MM-DDThh:mm:ss\u201D"
+    title: dateTime
+    comments:
+    - "Conventions for representing date + time defined here are based on the ISO\
+      \ 8601 standard. Hours of the day should use 24-hour time (e.g. 2PM = 14:00:00).\
+      \ A time zone can be specified as described for \u2018dates\u2019 above, e.g.\
+      \ \"1978-01-20T05:15:00Z, and \"1978-01-20T05:15:00+5:00\".\n\nIf precision\
+      \ down to time of day is not possible or necessary, the hours, minutes, and\
+      \ seconds must still be provided due to schema constraints, but can all be set\
+      \ to \u201C00\u201D and ignored at the instruction of the message sender."
+    from_schema: https://w3id.org/ga4gh-va-core-im
+    base: string
+    uri: xsd:string
+  identifier:
+    description: A string value that uniquely identifies a specific instance of an
+      object in a dataset or document. Identifiers should be persistent, machine-resolvable,
+      and unique within their intended scope of use.
+    title: identifier
+    comments:
+    - "We distinguish between two types of identifiers depending on their intended\
+      \ scope of use. \u2018Logical identifiers\u2019 are used to identify a data\
+      \ object within a given system, where it is used as a reference from other objects\
+      \ within the same system (i.e. primary and foreign keys). The same data object\
+      \ copied to a different system will likely have a different logical identifier\
+      \ in that new system. \u2018Business identifiers\u2019 are typically provided\
+      \ by an external system or authority, and are meant to be globally unique and\
+      \ persist across implementing systems. A given entity or concept may have many\
+      \ business identifiers associated with it, which can all be captured in a given\
+      \ data system. In the VA model, we follow FHIR naming conventions and use an\
+      \  id  attribute to hold the logical identifier of a data object, and an identifier\
+      \ attribute to hold any business identifiers that the data creator may also\
+      \ want to provide.\nUse of the W3C Compact URI (CURIE) syntax to structure identifiers\
+      \ is strongly recommended, as a way to ensure that a given identifier is unique\
+      \ within its intended scope of use."
+    from_schema: https://w3id.org/ga4gh-va-core-im
+    base: string
+    uri: xsd:string
+slots:
+  type:
+    from_schema: https://w3id.org/ga4gh-va-core-im
+  description:
+    from_schema: https://w3id.org/ga4gh-va-core-im
+  extensions:
+    from_schema: https://w3id.org/ga4gh-va-core-im
+  id:
+    from_schema: https://w3id.org/ga4gh-va-core-im
+  identifiers:
+    from_schema: https://w3id.org/ga4gh-va-core-im
+  label:
+    from_schema: https://w3id.org/ga4gh-va-core-im
+  urls:
+    from_schema: https://w3id.org/ga4gh-va-core-im
+  xrefs:
+    from_schema: https://w3id.org/ga4gh-va-core-im
+  recordMetadata:
+    from_schema: https://w3id.org/ga4gh-va-core-im
+  contributions:
+    from_schema: https://w3id.org/ga4gh-va-core-im
+  dateAuthored:
+    from_schema: https://w3id.org/ga4gh-va-core-im
+  specifiedBy:
+    from_schema: https://w3id.org/ga4gh-va-core-im
+  derivedFrom:
+    from_schema: https://w3id.org/ga4gh-va-core-im
+  reportedIn:
+    from_schema: https://w3id.org/ga4gh-va-core-im
+  subtype:
+    from_schema: https://w3id.org/ga4gh-va-core-im
+  value:
+    from_schema: https://w3id.org/ga4gh-va-core-im
+  unit:
+    from_schema: https://w3id.org/ga4gh-va-core-im
+  releaseDate:
+    from_schema: https://w3id.org/ga4gh-va-core-im
+  license:
+    from_schema: https://w3id.org/ga4gh-va-core-im
+  version:
+    from_schema: https://w3id.org/ga4gh-va-core-im
+  title:
+    from_schema: https://w3id.org/ga4gh-va-core-im
+  statementText:
+    from_schema: https://w3id.org/ga4gh-va-core-im
+  confidenceDirection:
+    from_schema: https://w3id.org/ga4gh-va-core-im
+  confidenceLevel:
+    from_schema: https://w3id.org/ga4gh-va-core-im
+  confidenceScore:
+    from_schema: https://w3id.org/ga4gh-va-core-im
+  evidenceDirection:
+    from_schema: https://w3id.org/ga4gh-va-core-im
+  evidenceLevel:
+    from_schema: https://w3id.org/ga4gh-va-core-im
+  evidenceScore:
+    from_schema: https://w3id.org/ga4gh-va-core-im
+  conclusion:
+    from_schema: https://w3id.org/ga4gh-va-core-im
+  hasEvidence:
+    from_schema: https://w3id.org/ga4gh-va-core-im
+  hasEvidenceLines:
+    from_schema: https://w3id.org/ga4gh-va-core-im
+  hasEvidenceOfTypes:
+    from_schema: https://w3id.org/ga4gh-va-core-im
+  focus:
+    from_schema: https://w3id.org/ga4gh-va-core-im
+  dataItems:
+    from_schema: https://w3id.org/ga4gh-va-core-im
+  targetProposition:
+    from_schema: https://w3id.org/ga4gh-va-core-im
+  evidenceItems:
+    from_schema: https://w3id.org/ga4gh-va-core-im
+  directionOfEvidenceProvided:
+    from_schema: https://w3id.org/ga4gh-va-core-im
+  strengthOfEvidenceProvided:
+    from_schema: https://w3id.org/ga4gh-va-core-im
+  date:
+    from_schema: https://w3id.org/ga4gh-va-core-im
+  performedBy:
+    from_schema: https://w3id.org/ga4gh-va-core-im
+  input:
+    from_schema: https://w3id.org/ga4gh-va-core-im
+  output:
+    from_schema: https://w3id.org/ga4gh-va-core-im
+  contributionMadeTo:
+    from_schema: https://w3id.org/ga4gh-va-core-im
+  activity:
+    from_schema: https://w3id.org/ga4gh-va-core-im
+  name:
+    from_schema: https://w3id.org/ga4gh-va-core-im
+  propositionText:
+    from_schema: https://w3id.org/ga4gh-va-core-im
+  subject:
+    from_schema: https://w3id.org/ga4gh-va-core-im
+  predicate:
+    from_schema: https://w3id.org/ga4gh-va-core-im
+  object:
+    from_schema: https://w3id.org/ga4gh-va-core-im
+  qualifiers:
+    from_schema: https://w3id.org/ga4gh-va-core-im
+  negated:
+    from_schema: https://w3id.org/ga4gh-va-core-im
+  code:
+    from_schema: https://w3id.org/ga4gh-va-core-im
+  system:
+    from_schema: https://w3id.org/ga4gh-va-core-im
+  systemURL:
+    from_schema: https://w3id.org/ga4gh-va-core-im
+  systemVersion:
+    from_schema: https://w3id.org/ga4gh-va-core-im
+  recordIdentifier:
+    from_schema: https://w3id.org/ga4gh-va-core-im
+  recordVersion:
+    from_schema: https://w3id.org/ga4gh-va-core-im
+  dateRecordCreated:
+    from_schema: https://w3id.org/ga4gh-va-core-im
+classes:
+  Element:
+    description: The base definition for all elements that comprise the model (core,
+      domain entity, and utility classes, value sets)
+    title: Element
+    comments:
+    - This class holds the 'description' and 'extension' attributes, which are inherited
+      by all 'Core', 'Utility', and 'Domain Entity' classes in the model. Its child
+      class ' Entity' holds additional generic metadata attributes that all core classes
+      in the model inherit (e.g. things like ids/identifiers, labels,  xrefs, etc.)
+    from_schema: https://w3id.org/ga4gh-va-core-im
+    exact_mappings:
+    - FHIR:Element
+    slots:
+    - type
+    - description
+    - extensions
+    slot_usage:
+      type:
+        description: The schema class that is instantiated by the data object.  Must
+          be the name of a class from the VA schema.
+        multivalued: false
+        range: class
+        required: true
+      description:
+        description: A free text description of the Element.
+        multivalued: false
+        range: string
+        required: false
+      extensions:
+        description: A key-value data structure that allows definition of custom fields
+          to capture information not directly supported by the VA specification.
+        comments:
+        - The VA-Spec provides  implementers the ability to extend any model elements
+          with new attributes using this flexible Extension element.
+        multivalued: true
+        range: Extension
+        required: false
+  Entity:
+    description: Anything that exists, has existed, or will exist.
+    title: Entity
+    comments:
+    - Entity is the ancestorof all Core and Domain Entity classes in the model, which
+      inherit attributes holding identifiers and other general metadata like labels,
+      xrefs, urls, descriptions.
+    from_schema: https://w3id.org/ga4gh-va-core-im
+    aliases:
+    - Thing
+    exact_mappings:
+    - BFO:0000001
+    is_a: Element
+    slots:
+    - id
+    - identifiers
+    - label
+    - urls
+    - xrefs
+    - recordMetadata
+    slot_usage:
+      id:
+        description: The logical identifier of the entity in the system of record,
+          e.g. a UUID.  This 'id' is unique within a given system. The identified
+          entity may have a different 'id' in a different system.
+        comments:
+        - FHIR naming conventions are followed here, where an 'id' field holds logical
+          identifiers which are unique only within a given system, and an 'identifier'
+          field holds business identifiers, which are globally unique and used to
+          connect entities and share content across systems.
+        exact_mappings:
+        - FHIR:id
+        multivalued: false
+        range: identifier
+        required: true
+      identifiers:
+        description: A business identifier or accession number for the entity, typically
+          as provided by an external system or authority, that is globally unique
+          and persists across implementing systems.
+        comments:
+        - FHIR naming conventions are followed here, where an 'id' field holds logical
+          identifiers which are unique only within a given system, and an 'identifier'
+          field holds business identifiers, which are globally unique and used to
+          connect entities and share content across systems.
+        exact_mappings:
+        - FHIR:identifier
+        multivalued: true
+        range: identifier
+        required: false
+      label:
+        description: A primary name for the Entity.
+        multivalued: false
+        range: string
+        required: false
+      urls:
+        description: The URL/web address of a digital resource representing the entity,
+          or providing information about it.
+        comments:
+        - This attribute is meant to point directly to locations on the web where
+          more information about the Entity can be found.
+        multivalued: true
+        range: url
+        required: false
+      xrefs:
+        description: Cross-references to database identifier(s) representing the same
+          (or a closely related) entity or concept as the Entity.
+        comments:
+        - Preferred values for this field are CURIEs or URLs for database records
+          - so the system that provisioned the identifier is clear.
+        multivalued: true
+        range: string
+        required: false
+      recordMetadata:
+        description: A reusable structure that encapsulates provenance metadata about
+          the present record/data object  (as opposed to provenance information about
+          the real world entity this record/data object represents).
+        comments:
+        - Record-level metadata applies to a specific concrete encoding/serialization
+          of information (e.g as a record in a specific knowlegebase, or an online
+          digital resource). A RecordMetadata object can capture when, how, and by
+          whom a specific record was generated or modified; what upstream resources
+          it was derived/retrieved from; and record-level administrative information
+          such as versioning and system / lifecycle status.
+        multivalued: false
+        range: RecordMetadata
+        required: false
+  InformationEntity:
+    description: An abstract (non-physical) entity that is about something.
+    title: Information Entity
+    comments:
+    - Information Entities represent the abstract 'information content' that can be
+      concretized in physical or digital artifacts such as books, photographs, files,
+      web pages, the neural connections of a human brain, etc. They are independent
+      of any specific language, representational format, or physical/digital medium.
+      In the FRBR model, this corresponds to the 'Works' level of representation.
+    from_schema: https://w3id.org/ga4gh-va-core-im
+    aliases:
+    - Information Content Entity, ICE
+    exact_mappings:
+    - FRBR:Work
+    - IAO:0000030
+    is_a: Entity
+    slots:
+    - contributions
+    - dateAuthored
+    - specifiedBy
+    - derivedFrom
+    - reportedIn
+    slot_usage:
+      contributions:
+        description: A specific contribution made by some Agent to the creation, modification,
+          or validation of the information represented in the Information Entity.
+        comments:
+        - This attribute points to a Contribution object, which holds a structured
+          description of the actions taken by a particular agent in contributing to
+          an Information Entity.
+        multivalued: true
+        range: Contribution
+        required: false
+      dateAuthored:
+        description: The date the information content expressed in this entity was
+          generated.
+        comments:
+        - We use the term 'authored' to refer to the generation of information in
+          the abstract - i.e. the information content expressed in a Statement, not
+          a concrete encoding of it in a specific language or format.  The 'dateAuthored'
+          attribute captures when this abstract information content was first created.  Information
+          about when a particular concrete encoding of this information was created
+          (e.g. as a VA-based json object) would live in a RecordMetadata object attached
+          to the Information Entity).
+        multivalued: false
+        range: dateTime
+        required: false
+      specifiedBy:
+        description: A particular plan specification that describes all or part of
+          the process that led to creation of the reported information (e.g. a specific
+          experimental protocol, analysis specification, cohort selection criteria,
+          interpretation guideline, etc.).
+        comments:
+        - 'This field captures specific instances of specifications / methods (vs
+          the ''methodTypes'' attribute which captures types of methods applied).
+
+          In various domains and communities, such specifications may be called ''protocols'',
+          ''guidelines'', ''methods'', ''rule sets'', etc.'
+        multivalued: true
+        range: Method
+        required: false
+      derivedFrom:
+        description: An information resource from which the Information Entity is
+          derived, in whole or in part
+        exact_mappings:
+        - DC:source
+        multivalued: true
+        range: InformationEntity
+        required: false
+      reportedIn:
+        description: A document in which the information content carried by the Information
+          Entity is expressed
+        comments:
+        - "This attribute is used specifically to reference documents/publications\
+          \ where the Information Entity is expressed or reported.  For a Statement,\
+          \ this might be a publication where the authors express the statement in\
+          \ text.  For a Data Item, this might be a publication with a table or figure\
+          \ that reports the value of the  data.  \nNote that the VA-Spec provide\
+          \ separate attributes for describing different types of 'references' from\
+          \ an Information Entity to a Document (e.g. hasEvidenceFromSource is used\
+          \ by a Statement to reference a Document that provided evidence for the\
+          \ knowldege the Statement expresses."
+        multivalued: true
+        range: Document
+        required: false
+  DataItem:
+    description: An InformationEntity representing an individual piece of data, generated/acquired
+      through methods which reliably produce truthful information about something.
+    title: Data Item
+    comments:
+    - Examples include raw observations or measurements such as an allele count, or
+      patient's weight, derived calculations such as frequency or mean, and computed
+      statistical scores/metrics such as p-values and z-scores.
+    from_schema: https://w3id.org/ga4gh-va-core-im
+    exact_mappings:
+    - IAO:0000027
+    is_a: InformationEntity
+    slots:
+    - subtype
+    - value
+    - unit
+    slot_usage:
+      subtype:
+        description: A specific type of data the DataItem object represents (e.g.
+          a specimen count, a patient weight, an allele frequency, a p-value)
+        comments:
+        - This attribute is used to declare a more specific type of entity, in cases
+          where an implementation schema/profile choses not to define a subclass for
+          the specific type in the model itself.
+        multivalued: false
+        range: Coding
+        required: false
+      value:
+        description: The value of the data item
+        multivalued: false
+        range: string
+        required: false
+      unit:
+        description: A unit of measure for the value
+        multivalued: false
+        range: Coding
+        required: false
+  DataSet:
+    description: A collection of related data items or records that are organized
+      together in a common format or structure, to enable their computational manipulation
+      as a unit.
+    title: Data Set
+    comments:
+    - 'Instances of this class represent a specific version of a given dataset (e.g.
+      gnomAD v3.1.2). At present, the model does not support ''Summary Level'' or
+      ''Distribution Level'' representations (see https://www.w3.org/TR/hcls-dataset/#datasetdescriptionlevels).
+
+      Examples include the Broad ExAC dataset on allele population frequency, or a
+      SIFT dataset of computational predictions functional impact for a set of variants,
+      or the contents of a VCF file that describes variations observed in a particular
+      patient and various annotations made on them.'
+    from_schema: https://w3id.org/ga4gh-va-core-im
+    exact_mappings:
+    - IAO:0000100
+    is_a: InformationEntity
+    slots:
+    - subtype
+    - releaseDate
+    - license
+    - version
+    slot_usage:
+      subtype:
+        description: A specific type of data set the DataSet object represents.
+        comments:
+        - The recorded type is typically based on the nature of the data in the dataset,
+          and what it describes (e.g. genomic sequence dataset, genome feature annotation
+          dataset) .
+        multivalued: false
+        range: Coding
+        required: false
+      releaseDate:
+        description: The date when a version-level Data Set was released.
+        comments:
+        - This attribute may apply to version and distribution-level Data Set representations.
+        multivalued: false
+        range: dateTime
+        required: false
+      license:
+        description: The type of license that dictates legal permissions for how the
+          Data Set can be used - typically referenced by its URL.
+        comments:
+        - 'The VA Model can record license information for resources such as Data
+          Sets and Documents that get published and released as a unit for community
+          use.
+
+          This attribute may apply to summary, version, and distribution-level Data
+          Set representations.'
+        multivalued: false
+        range: string
+        required: false
+      version:
+        description: The version of the Data Set (use this field used in cases where
+          version is not reflected in an identifier associated with the Data Set)
+        comments:
+        - "The VA Model can record version information for resources such as Data\
+          \ Sets and Documents that get published and released as a unit for community\
+          \ use. These may go through rounds of revisions that add or modify content,\
+          \ but don\u2019t change the identity of the resource."
+        multivalued: false
+        range: string
+        required: false
+  Document:
+    description: A collection of information, usually in human-readable form, intended
+      to be read and understood together as a whole.
+    title: Document
+    comments:
+    - As an abstract InformationEntity, a Document instance represents the informational
+      content it expresses, which can be concretized in different languages, formats,
+      and physical mediums.
+    from_schema: https://w3id.org/ga4gh-va-core-im
+    exact_mappings:
+    - IAO:0000310
+    is_a: InformationEntity
+    slots:
+    - subtype
+    - title
+    - license
+    - version
+    slot_usage:
+      subtype:
+        description: The specific type of the document (e.g.  'publication', 'patent',
+          'pathology report')
+        multivalued: false
+        range: Coding
+        required: false
+      title:
+        description: The given title of the document.
+        multivalued: false
+        range: string
+        required: false
+      license:
+        description: The type of license that dictates legal permissions for how the
+          Document can be used - typically referenced by its URL.
+        comments:
+        - The VA Model can record license information for resources such as Data Sets
+          and Documents that get published and released as a unit for community use.
+        multivalued: false
+        range: string
+        required: false
+      version:
+        description: The version of the Document (use this field used in cases where
+          version is not reflected in an identifier associated with the Document)
+        comments:
+        - "The VA Model can record version information for resources such as Data\
+          \ Sets and Documents that get published and released as a unit for community\
+          \ use. These may go through rounds of revisions that add or modify content,\
+          \ but don\u2019t change the identity of the resource."
+        multivalued: false
+        range: string
+        required: false
+  Statement:
+    description: An information entity expressing a declarative sentence that is either
+      true or false.
+    title: Statement
+    comments:
+    - "In the VA model, each assertion of knowledge about a variant is captured in\
+      \ a self-contained Statement object. Organization of variant knowledge into\
+      \ discrete Statement objects allows clear and precise tracking of the evidence\
+      \ and provenance that supports each. \nThe VA model distinguishes two high-level\
+      \ categories of statements: (1) 'Domain Statements' put forth as true a specific\
+      \ proposition about the domain of discourse (e.g. that \"BRCA2 c.8023A>G is\
+      \ pathogenic for Breast Cancer\"); (2) 'Proposition Assessment Statements' describe\
+      \ the overall state of evidence and/or confidence surrounding a particular proposition\
+      \ (e.g. that \"there is moderate evidence supporting the pathogenicity of BRCA2\
+      \ c.8023A>G for Breast Cancer\", or that \"I have very high confidence that\
+      \ the proposition that BRCA2 c.8023A>G is pathogenic for Breast Cancer is true\"\
+      ) -  but does not directly express the proposition as true. The VA model provides\
+      \ distinct class structures for representing these different levels of Statements."
+    from_schema: https://w3id.org/ga4gh-va-core-im
+    aliases:
+    - Assertion; Claim
+    exact_mappings:
+    - SEPIO:0000174
+    is_a: InformationEntity
+    slots:
+    - subtype
+    - statementText
+    - confidenceDirection
+    - confidenceLevel
+    - confidenceScore
+    - evidenceDirection
+    - evidenceLevel
+    - evidenceScore
+    - conclusion
+    - hasEvidence
+    - hasEvidenceLines
+    - hasEvidenceOfTypes
+    slot_usage:
+      subtype:
+        description: A specific type of statement the Statement object represents
+          (e.g. a 'Variant Pathogenicity Statement', or 'Therapeutic Response Evidence
+          Level Statement')
+        multivalued: false
+        range: Coding
+        required: false
+      statementText:
+        description: A natural-language expression of what the Statement asserts to
+          be true.
+        comments:
+        - This attribute captures what a Statement says as human readable free text.
+          e.g. that "BRCA2 c.8023A>G is pathogenic for Breast Cancer", or that "there
+          is moderate evidence supporting the pathogenicity of BRCA2 c.8023A>G for
+          Breast Cancer". This optional attribute can be used instead of, or as a
+          complement to, more structured representations of Statement semantics using
+          the subject-predicate-object-qualifier pattern.
+        multivalued: false
+        range: string
+        required: false
+      confidenceDirection:
+        description: A term indicating whether the confidenceLevel and/or confidenceScore
+          values reflect confidence that the statement's proposition is true or false.
+        comments:
+        - Statements can report the asserting agent's confidence level that the target
+          proposition is true, or false, using the confidenceDirection, confidenceLevel,
+          and confidenceScore attributes.  e.g. if the propositionDirection is 'false'
+          and confidenceLevel is 'high', the agent has high confidence that the proposition
+          is false.  (Recommended values = 'true', 'false', 'uncertain')
+        multivalued: false
+        range: Coding
+        required: false
+      confidenceLevel:
+        description: A term describing the asserting agent's level of confidence about
+          the Statement's proposition (i.e. how confident they are that it is true
+          or false).
+        comments:
+        - A Statement's proposition may ultimately be assessed by the agent to be
+          true, false, or uncertain -  as indicated by the confidenceDirection attribute.
+          The confidenceLevel indicate the agent's confidence in the direction indicated
+          - e.g. if the confidenceDirection is 'false' and confidenceLevel is 'high',
+          the agent is very confident that the proposition is false.
+        multivalued: false
+        range: Coding
+        required: false
+      confidenceScore:
+        description: A quantitative score reflecting the asserting agent's level of
+          confidence in the Statement's proposition. For PropositionAssessmentStatements,
+          the direction this confidence pertains to (i.e. the truth or falsehood of
+          the proposition) is captured in the confidenceDirection attribute.
+        comments:
+        - A Statement's proposition may ultimately be assessed by the agent to be
+          true, false, or uncertain -  as indicated by the confidenceDirection attribute.
+          The confidenceScore provides a quantitative indication of the agent's confidence
+          in the direction indicated - e.g. if the confidenceDirection is 'true' and
+          confidenceScore is 9.8 out of 10, the agent has high confidence that the
+          proposition is true.  A numeric confidenceScore may be provided instead
+          of, or in addition to, qualitative confidenceLevel term -  where it provides
+          quantitative rigor to the assessment.
+        multivalued: false
+        range: DataItem
+        required: false
+      evidenceDirection:
+        description: A term indicating the net direction of all evidence assessed
+          against the Statement's proposition.
+        comments:
+        - Statements can report that the evidence assessed generally supports its
+          propostion (if it favors its validity), disputes its proposition (if it
+          argues against its validity), or remains 'inconclusive' (if conficting or
+          insufficient evidence exists to assert one direction or the other). (Recommended
+          values = 'supports', 'disputes', 'inconclusive'.)
+      evidenceLevel:
+        description: A term indicating the overall strength of support for or against
+          the Statement's proposition, as provided by all evidence evaluated.
+        comments:
+        - 'This attribute reports the asserting agent''s assessment of the overall
+          strength of all examined evidence for the Statement''s proposition, in the
+          direction reported by the evidenceDirection field. For example,  {"level":
+          "strong", "direction": "supporting"} means that the collective evidnece
+          ''strongly supports'' the Statement''s Proposition, while {"level": "strong",
+          "direction": "disputing"} means that the collective evidence ''strongly
+          disputes'' the Statement''s Proposition.
+
+          The overall strength of evidence supporting or disputing a proposition is
+          the predominant factor, but not the only factor, influencing the agent''s
+          confidence that the proposition is true or false.'
+        multivalued: false
+        range: Coding
+        required: false
+      evidenceScore:
+        description: A quantitative score reflecting the overall strength of support
+          for or against the Statement's proposition, as provided by all evidence
+          evaluated.
+        comments:
+        - This attribute serves the same purpose as evidenceLevel, but allows for
+          numeric scores providing quantitative assessment of evidence strength. A
+          numeric evidenceScore may be provided instead of, or in addition to, qualitative
+          evidenceLevel term -  where it provides quantitative rigor to the assessment.
+        multivalued: false
+        range: DataItem
+        required: false
+      conclusion:
+        description: A term that describes a final conclusion about the subject of
+          a Statement's proposition, based on what the proposition claims, and confidence
+          and evidence level and direction assessments.
+        comments:
+        - "This value typically represents a common term of art used in the domain\
+          \ of discourse - and can be provided to report of a statement's conclusion\
+          \ in user-friendly/familiar terms. \nFor example, in a Statement declaring\
+          \ there to be 'definitive' evidence 'supporting' the proposition that a\
+          \ variant causes a disease, the conclusion term might be 'pathogenic'. And\
+          \ for a Statement declaring there to be 'probable' evidence 'disputing'\
+          \ the proposition that a variant causes a disease, the conclusion term might\
+          \ be 'likely benign'."
+        multivalued: false
+        range: Coding
+        required: false
+      hasEvidence:
+        description: A piece of information that represents or contributes to an argument
+          for or against the validity of the Proposition put forth in a Statement.
+        comments:
+        - Evidence is any information that is interpreted in assessing the truth of  the
+          proposition a Statement puts forth as true or false.  A piece of information
+          only becomes evidence when it is interpreted in this way. Different types
+          of information entities can be used and cited as evidence, including direct
+          observation or measurement data, derived statistical calculations, data
+          tables or figures in a publication, conclusions/findings from a particular
+          study, or prior assertions of knowledge  that themselves are based on their
+          own set of evidence.  This is a shortcut relation that links a Statement
+          directly to a piece of evidnece supporting it, bypassing the EvidenceLine
+          class - to be used data creators cannot or do not wich to create an Evidence
+          Line object.
+        multivalued: true
+        range: InformationEntity
+        required: false
+      hasEvidenceLines:
+        description: A discrete, independent argument relevant to the validity of
+          the Proposition put forth in the Statement, which is based on the interpretation
+          of one or more pieces of information as evidence.
+        comments:
+        - Evidence Lines result from the interpretation of one or more pieces of information
+          to build an argument for or against a particular Proposition. These arguments
+          have direction (supporting / disputing) and strength (e.g. strong, moderate,
+          weak) relative to the Proposition they are evaluated against. For example,
+          ExaC allele counts and frequency calculations for the BRCA2 c.8023A>G variant
+          in different populations may be collectively assessed to provide an argument
+          of moderate strength in support of a Proposition that the variant is pathogenicity
+          for breast cancer.
+        multivalued: true
+        range: EvidenceLine
+        required: false
+      hasEvidenceOfTypes:
+        description: A term describing a type of evidence used to assess the validity
+          of Statement's proposition (e.g. 'sequence similarity evidence', 'in vitro
+          assay evidence').
+        comments:
+        - "This contrasts with separate attributes used to capture specific instances\
+          \ of evidence information, such as a particular data item, study result,\
+          \ or prior assertions, etc. \nThe VA-Spec recommends the use of terms from\
+          \ ontologies such as the Evidence and Conclusion Ontology (ECO) to describe\
+          \ specific types of evidence."
+        multivalued: true
+        range: Coding
+        required: false
+  StudyResult:
+    description: A collection of data items from a single study that are about a particular
+      subject or experimental unit in the study  (along with optional provenance metadata
+      describing how these data items were generated).
+    title: Study Result
+    comments:
+    - StudyResult objects provide a flexible and useful way to summarize a subset
+      of data items from a larger study that are cited as evidence in curation workflows
+      that generate higher order knowledge about a particular variant or other entity.
+      For example, a specific subset of allele frequency data items about a particular
+      variant of interest in the gnomAD dataset can be captured in a Study Result
+      object, along with relevant provenance information, and referenced as evidence
+      for a higher-order Statement about the variant's pathogenicity.
+    from_schema: https://w3id.org/ga4gh-va-core-im
+    is_a: InformationEntity
+    slots:
+    - subtype
+    - focus
+    - dataItems
+    - derivedFrom
+    slot_usage:
+      subtype:
+        description: A specific type of result the StudyResult object represents (e.g.
+          an 'Population Allele Frequency Study Result')
+        comments:
+        - Implementations can define subtypes based on any features that provide useful
+          information about the type of data the Result collects.
+        multivalued: false
+        range: Coding
+        required: false
+      focus:
+        description: The specific subject or experimental unit in the Research Study
+          that data in the Result is about, and which guides the selection of data
+          that is included within a single Study Result object.
+        comments:
+        - The value of this field explains why the sleected data as included in the
+          Study Result - because it all pertains to the 'focus' of the curator when
+          creating it.
+        multivalued: false
+        range: Entity
+        required: false
+      dataItems:
+        description: A piece of data from the source Study that is included in the
+          Result, and pertains to the entity that is the 'focus'. Can be data directly
+          about the focus, or metadata relevant to how this data was generated.
+        multivalued: true
+        range: DataItem
+        required: false
+      derivedFrom:
+        description: A larger Data Set from which the content of the Result was derived.
+        comments:
+        - Constrains the derivedFrom attribute of the parent InformationEntity class
+          to take a DataSet as a value.
+        multivalued: false
+        range: DataSet
+        required: false
+  EvidenceLine:
+    description: A discrete, independent argument relevant to the validity of the
+      Proposition put forth as true in the Statement,  that is based on the interpretation
+      of one or more pieces of information as evidence.
+    title: Evidence Line
+    comments:
+    - 'Evidence Lines result from the interpretation of one or more pieces of information
+      (Evidence Items) to build an argument for or against a particular Proposition
+      (possible fact). The Evidence Line that results can be considered a special
+      kind of Statement that asserts the direction and strength such an argument provides
+      for some target Proposition. For example, The various allele counts and frequency
+      calculations for the BRCA2 c.8023A>G variant found in the ExAC database are
+      Evidence Items  that might be collectively assessed by a ClinGen curator to
+      build an Evidence Line that is deemed to ''support'' with ''moderate'' strength
+      a target proposition that the variant is pathogenic for Breast Cancer.  The
+      narrative form of the Statement represented by this Evidence Line is roughly:
+      "ExAC allele frequency data for BRCA2 c.8023A>G {0.0000021, 0.0000034, ...}
+      provides evidence of moderate strength supporting the proposition that BRCA2
+      c.8023A>G is pathogenic for Breast Cancer".'
+    from_schema: https://w3id.org/ga4gh-va-core-im
+    exact_mappings:
+    - SEPIO:0000002
+    is_a: InformationEntity
+    slots:
+    - subtype
+    - targetProposition
+    - evidenceItems
+    - directionOfEvidenceProvided
+    - strengthOfEvidenceProvided
+    slot_usage:
+      subtype:
+        description: A specific type of evidence the EvidenceLine object represents
+          (e.g. 'mutant phenotype evidence', 'evidence from manual interpretation',
+          'ACMG PM2 evidence')
+        comments:
+        - Data creators may choose to define specific types of evidence lines relevant
+          for their domain/use case, based on the type of evidence items that comprise
+          it, the methodology that guided evidence interpretation, or the type of
+          statement the evidence line supports.  Terms from ontologies like the Evidence
+          and Conclusion Ontology (ECO) can be used as values here.
+        multivalued: false
+        range: Coding
+        required: false
+      targetProposition:
+        description: The proposition against which the evidence items were evaluated,
+          in determining the overall strength and direction of evidence they provide
+          (as captured in the Evidence Line)
+        comments:
+        - 'An example based on the ACMG Guidelines for germline variant pathogenicity
+          interpretation: consider a curator assessing the evidence provided by population
+          frequency data for a specific variant based on the ACMG criteria.  In order
+          to assign a strength (e.g. moderate, strong) and direction (PM2 or  BS1)
+          to this data as evidence, there must be some ''target proposition'' toward
+          which the evidence is assessed. If the PM2 criteria is deemed ''met'', this
+          indicates that the population frequency evidence supports with moderate
+          strength the target proposition that the variant is pathogenic for the disease
+          of interest.'
+        multivalued: false
+        range: Proposition
+        required: false
+      evidenceItems:
+        description: An Information Entity that was evaluated in making the argument
+          represented by the Evidence Lines.
+        comments:
+        - "A given Evidence Line might be suported by one or many individual pieces\
+          \ of evidence. Different types or scales of information entity can serve\
+          \ as evidence - but only when it realizes this role do we call it an 'Evidence\
+          \ Item'. For example, a piece of population frequency data about BRCA2 c.8023A>G\
+          \  becomes an Evidence Item when it is assessed as evidence (e.g. for the\
+          \ variant\u2019s pathogenicity - and thus contributes to an argument for\
+          \ (or against) this target proposition."
+        multivalued: true
+        range: InformationEntity
+        required: false
+      directionOfEvidenceProvided:
+        description: The direction of support that the Evidence Line is determined
+          to provide for its target Proposition (can be supporting, disputing, or
+          neutral)
+        multivalued: false
+        range: Coding
+        required: false
+      strengthOfEvidenceProvided:
+        description: The strength of support that an Evidence Line is determined to
+          provide for or against its target Proposition.
+        multivalued: false
+        range: Coding
+        required: false
+  Method:
+    description: A set of instructions that specify how to achieve some objective
+      (e.g. study/experimental protocols, curation guidelines, rule sets, etc.)
+    title: Method
+    comments:
+    - Methods guide human or computational agents by specifying what actions to perform
+      and how to do so.  Examples include research protocols specifying how to execute
+      studies or experiments to generate data, and guidelines for data curation or
+      interpretation that specify how information can be organized, evaluated, and
+      interpreted to generate evidence-based assertions.
+    from_schema: https://w3id.org/ga4gh-va-core-im
+    exact_mappings:
+    - IAO:0000104
+    is_a: InformationEntity
+    slots:
+    - subtype
+    - license
+    slot_usage:
+      subtype:
+        description: A specific type of method that the Method object represents (e.g.
+          'Variant Interpretation Guideline', 'Experimental Protocol')
+        multivalued: false
+        range: Coding
+        required: false
+      license:
+        description: The type of license that dictates legal permissions for how a
+          published method (e.g. an experimental protocol, workflow specification,
+          curation guideline) can be used - typically referenced by its URL.
+        multivalued: false
+        range: string
+        required: false
+  Activity:
+    description: An action or set of actions performed by an agent, that occurs over
+      a period of time. Activities may use, generate, modify, move, or destroy one
+      or more entities.
+    title: Activity
+    comments:
+    - Activities relevant to scientific knowledge generation including things like
+      designing and performing experiments, data analysis and transfomration, publishing
+      research results, data curation and interpretation, observations of the natural
+      world, and assessment and treatment of patients in clinical settings.  These
+      activities produce information that gets encoded in sharable artifacts used
+      to generate scientific knowledge. Agents can play different types of roles in
+      the generation and use of such artifacts.
+    from_schema: https://w3id.org/ga4gh-va-core-im
+    exact_mappings:
+    - OBI:0000011
+    - PROV:Activity
+    is_a: Entity
+    slots:
+    - subtype
+    - date
+    - performedBy
+    - input
+    - output
+    - specifiedBy
+    slot_usage:
+      subtype:
+        description: A specific type of activity this Activity object may represent
+        multivalued: false
+        range: Coding
+        required: false
+      date:
+        description: The date (or a specifiec time on a date) that the Activitywas
+          performed
+        comments:
+        - A simple 'date' attribute is used when data creators do not care to capture
+          specific start and end dates or times for an Activity.
+        multivalued: false
+        range: dateTime
+        required: false
+      performedBy:
+        description: An Agent who participated in executing the Activity.
+        multivalued: true
+        range: Agent
+        required: false
+      input:
+        description: An entity that was input into the Activity (could be material
+          or information)
+        multivalued: true
+        range: Entity
+        required: false
+      output:
+        description: An entity that was output from the Activity (could be material
+          or information)
+        multivalued: true
+        range: Entity
+        required: false
+      specifiedBy:
+        description: A directive specification followed in performing an Activity,
+          that describes how it should be executed.
+        multivalued: true
+        range: Method
+        required: false
+  Contribution:
+    description: The actions taken by a particular agent in the creation, modification,
+      assessment, or deprecation of some entity (e.g. a Statement, Evidence Line,
+      Data Item, Publication, etc.)
+    title: Contribution
+    comments:
+    - The scope of a given Contribution instance includes only the actions of a single
+      agent in contributing to a single artifact.  The agent can be an individual,
+      or a group or organization of individuals acting together to make the contribution.
+      Contribution instances are used to organize information about when, where, how
+      (e.g. what roles were played), and on whose behalf these actions were performed.
+    from_schema: https://w3id.org/ga4gh-va-core-im
+    exact_mappings:
+    - CAM:Contribution
+    is_a: Activity
+    slots:
+    - contributionMadeTo
+    - activity
+    slot_usage:
+      contributionMadeTo:
+        description: The artifact toward which the contribution was made.
+        multivalued: false
+        range: InformationEntity
+        required: false
+      activity:
+        description: The specific type of activity that was performed by the agent
+          in making the contribution.
+        comments:
+        - "Data creators can define terms for the specific types of activities relevant\
+          \ to their use case/application. \nNote that if the same Agent performed\
+          \ multiple types of activities in contibuting to some artifact, they may\
+          \ all be captured in a single Contribution object. However, if data creators\
+          \ want to provide metadata specific to each activity (e.g. when or how each\
+          \ was performed), then a separate Contribution object should be created\
+          \ for each activity."
+        multivalued: true
+        range: Coding
+        required: false
+  Agent:
+    description: "An autonomous actor (person, organization, or computational agent)\
+      \ that bears some form of responsibility for an activity taking place, for the\
+      \ existence of an entity, or for another agent\u2019s activity."
+    title: Agent
+    comments:
+    - This is a stub for a basic model of an Agent that may be developed in future
+      iterations of the specification.  At present, adopters can plug their own model
+      of Agents in here.
+    from_schema: https://w3id.org/ga4gh-va-core-im
+    exact_mappings:
+    - CAM:Agent
+    is_a: Entity
+    slots:
+    - subtype
+    - name
+    slot_usage:
+      subtype:
+        description: A specific type of agent the Agent object represents. Must be
+          one of {Person, Organization, Software Agent}
+        comments:
+        - At present, there are no named subtypes representing the three high level
+          subtypes of Agent (Person, Organization, or Software Agent). If it is determined
+          that there are enough unique properties that need to be defined for these
+          subtypes, separate classes may be created.
+        multivalued: false
+        range: Coding
+        required: false
+  Proposition:
+    description: An abstract entity representing the sharable meaning that can be
+      put forth as true or false in a Statement made by an Agent.
+    title: Proposition
+    comments:
+    - "Propositions are taken to represent the semantic content of sentences or larger\
+      \ lexical entities formulated in some natural or artificial language. As primary\
+      \ bearers of truth, they are either true or false. They are abstract entities\
+      \ whose identity and existence are independent of space and time, and of whether\
+      \ they are ever asserted to be true by some agent. Propositions are \u2018sharable\u2019\
+      \ in the sense that the same Proposition instance can be put forth as true or\
+      \ false in many different Statements, as made by different Agents and/or on\
+      \ different occasions."
+    from_schema: https://w3id.org/ga4gh-va-core-im
+    exact_mappings:
+    - SEPIO:0000000
+    is_a: Entity
+    slots:
+    - subtype
+    - propositionText
+    - subject
+    - predicate
+    - object
+    - qualifiers
+    - negated
+    slot_usage:
+      subtype:
+        description: A specific type of proposition the Proposition object represents
+          (e.g. a 'Variant Pathogenicity Proposition', or 'Molecular Consequence Proposition')
+        comments:
+        - Use only if a profile does not define formal Proposition subclasses as part
+          of the schema (in which case the generic "type" property will hold the name
+          of this class that indicates the specific type of Proposition).
+        multivalued: false
+        range: Coding
+        required: false
+      propositionText:
+        description: A natural-language expression of the Proposition's meaning.
+      subject:
+        description: The Entity about which the Proposition is made.
+        comments:
+        - The VA Core model is domain-agnostic, and supports statements about any
+          type of Entity.  For most VA use cases, the subject will be a genetic variation
+          - but data creators may want to make statements about other entities or
+          concepts that represent evidence for a Statement about variation (e.g. a
+          statement that a gene is valid for some disease is one type of evidence
+          that may support the pathogenicity of a variant that affects that gene).
+        multivalued: false
+        range: Element
+        required: true
+      predicate:
+        description: The relationship asserted to hold between the subject and the
+          object of the Proposition.
+        comments:
+        - The VA-Spec uses value sets to hold the types of relationships that may
+          be described in a particular type of Statement. The core specification itself
+          is domain agnostic, and does not define Codings for any specific types of
+          relationships.  When applied to represent a particular type of Proposition
+          (via 'Profiling'), implementers can define predicates for the relationships
+          relevant in the domain. For example, in a Proposition concerning the pathogenicity
+          of a variant, the predicate value set might include codings for 'pathogenic
+          for', 'benign for', and 'uncertain significance for' relationships.
+        multivalued: false
+        range: Coding
+        required: true
+      object:
+        description: An Entity, concept, or value that is related to the subject of
+          a Proposition via its predicate.
+        comments:
+        - The object of a Proposition can be an Entity that describes or is related
+          to the subject Variation (e.g. a Drug, a Genetic Condition, a Study Result),
+          a Coding from a value set representing some concept in the domain of discourse,
+          or some quantitative value about the Variation.  'Element' covers any type
+          of element in the model.
+        multivalued: false
+        range: Element
+        required: true
+      qualifiers:
+        description: A value or concept that extends or refines the meaning of the
+          Proposition expressed by the core subject - predicate - object 'triple'
+          - e.g. by providing additional information/detail, or constraining the claim
+          to apply in a particular context.
+        comments:
+        - 'The qualifier attribute allows representation of more complex, n-ary expressions
+          that may not be accommodated by a simple subject-predicate-object (SPO)
+          triple. For example, if this triple asserts that ''Variant X'' - predicts
+          sensitivity to - ''Treatment Y'', a qualifier can be used to indicate that
+          this applies in the context of a particular ''Disease Z''.  Qualifiers can
+          also add information that ''quantifies'' a Statement - e.g. for a Statement
+          triple asserting that a ''Variant X''- causes - ''Phenotype Y'', a qualifier
+          can be used to add penetrance information that quantifies the percentage
+          of carriers in which the phenotype is observed to manifest.
+
+
+          In practice, this attribute will be specialized when defining Statement
+          Profiles to represent specific types of qualifying information relevant
+          to a given Statement type. Some statement types may require more than one
+          qualifier  specialization - each capturing a different type of information
+          that refines or extends the core SPO triple. For example, a TherapeuticEfficacyStatement
+          with a subject ''Variation'' and object ''Treatment''  may define a ''diseaseContextQualifier''
+          and ''populationContextQualifier'' attributes to represent the disease or
+          population context in which the core SPO statement applies.'
+        multivalued: true
+        range: Element
+        required: false
+      negated:
+        description: A boolean flag set to 'true' if the statement expressed by the
+          subject, predicate, object, and qualifier(s) is explicitly asserted to be
+          false.
+        comments:
+        - Along with the 'subject', predicate', 'object', and 'qualifier' attributes,
+          the 'negated' element contributes to the semantics of the 'possible fact'
+          that a Proposition expresses.
+        multivalued: false
+        range: boolean
+        required: false
+  Utility:
+    description: An abstract organizational class that groups complex datatype-like
+      classes - which provide re-usable collections of fields that can be plugged
+      into other objects to capture related information.
+    comments:
+    - The Utility class itself is abstract and has no direct attributes. Implementers
+      would always use one of its concrete subtypes with specifically defined fields
+      (e.g. Coding, Expression, Extension).
+    from_schema: https://w3id.org/ga4gh-va-core-im
+    is_a: Element
+  Coding:
+    description: A structured representation of a coded/enumerated data value, that
+      may include additional metadata about the code and code system.
+    title: Coding
+    from_schema: https://w3id.org/ga4gh-va-core-im
+    exact_mappings:
+    - FHIR:Coding
+    is_a: Utility
+    slots:
+    - code
+    - label
+    - system
+    - systemURL
+    - systemVersion
+    slot_usage:
+      code:
+        description: "An identifier (preferably a CURIE) representing the identifier\
+          \ of the coded concept (e.g. \u2018SO:000704\u2019)."
+        comments:
+        - Either an id, label, or both must be provided.
+        multivalued: false
+        range: identifier
+        required: false
+      label:
+        description: "The human-readable name for the coded concept, as defined by\
+          \ the provisioning code system (e.g. \u2018gene\u2019)"
+        comments:
+        - Either an id, label, or both must be provided.
+        multivalued: false
+        range: string
+        required: false
+      system:
+        description: "The name of the code system where the coded concept is defined\
+          \ (e.g. \u2018Sequence Ontology\u2019)."
+        multivalued: false
+        range: string
+        required: false
+      systemURL:
+        description: A URL where the code system can be found.
+        multivalued: false
+        range: url
+        required: false
+      systemVersion:
+        description: The version of the code system.
+        multivalued: false
+        range: string
+        required: false
+  Expression:
+    description: A structure for labels representing systematic expressions that describe
+      an entity, as generated by formal nomenclatures (e.g. HGVS for genetic variants,
+      ISCN for karyotypes, HLA nomenclature for HLA genes/alleles).
+    title: Expression
+    comments:
+    - Similar to the 'Coding' data type, which provides the same fields but for coded
+      values, as opposed to human-readable names.
+    from_schema: https://w3id.org/ga4gh-va-core-im
+    is_a: Utility
+    slots:
+    - value
+    - system
+    - systemURL
+    - systemVersion
+    slot_usage:
+      value:
+        description: A free-text rendering of the expression used as a label for the
+          entity
+        multivalued: false
+        range: string
+        required: true
+      system:
+        description: The nomenclature system that created and assigned the expression.
+        comments:
+        - This should be provided whenever the expression comes from a formal nomenclature
+          system.
+        multivalued: false
+        range: string
+        required: true
+      systemURL:
+        description: A URL for the nomenclature system
+        multivalued: false
+        range: url
+        required: false
+      systemVersion:
+        description: The version of the nomenclature system.
+        multivalued: false
+        range: string
+        required: false
+  Extension:
+    description: A data structure that allows implementations to define and create
+      custom fields within an Entity to capture information not supported by the core
+      specification.
+    title: Extension
+    comments:
+    - The modeling pattern and use of Extensions is based on that defined by the FHIR
+      Speciufication - see https://build.fhir.org/extensibility.html
+    from_schema: https://w3id.org/ga4gh-va-core-im
+    exact_mappings:
+    - FHIR:Extension
+    is_a: Utility
+    slots:
+    - description
+    - name
+    - value
+    slot_usage:
+      description:
+        description: A free text description of the intended semantics and use of
+          this extension element (i.e. they types of values it takes, and how to interpret
+          these values in the context of the parent Class)
+        multivalued: false
+        range: string
+        required: false
+      value:
+        description: The value of the extension element
+        multivalued: false
+        range: Element
+        required: true
+  RecordMetadata:
+    description: A data structure that encapsulates provenance metadata that applies
+      to a specific concrete record/encoding of information, as opposed to provenance
+      of the abstract information content/knowledge the record represents.
+    title: Record Metadata
+    comments:
+    - Record-level metadata applies to a specific concrete encoding/serialization
+      of knowledge  (e.g as a record in a specific database, or an online digital
+      resource). A RecordMetadata object can capture provenance and other metadata,
+      including when, how, and by whom a specific record was generated or modified;
+      what upstream resources it was derived/retrieved from; and record-level administrative
+      information such as versioning and system / lifecycle status.
+    from_schema: https://w3id.org/ga4gh-va-core-im
+    is_a: Utility
+    slots:
+    - recordIdentifier
+    - recordVersion
+    - derivedFrom
+    - dateRecordCreated
+    - contributions
+    slot_usage:
+      recordIdentifier:
+        description: The business identifier of the record described in the RecordMetadata
+          object (required when the record described is not the one in the present
+          system)
+        comments:
+        - This is needed only when the RecordMetadata object describes an upstream
+          source record, as opposed to the record in the present system, so it is
+          clear what the metadata it contains is about.  e.g. when ClinGen ingests
+          and transfroms ClinVar data, it wants to maintain a record of when the source
+          ClinVar record was submitted and by whom.  A RecordMetadata object could
+          be created that describes this upstream source recrod, including infromation
+          about its submission to ClinVar.
+        multivalued: false
+        range: identifier
+        required: false
+      recordVersion:
+        description: The version number of the record-level artifact the object describes
+        multivalued: false
+        range: string
+        required: false
+      derivedFrom:
+        description: Another data record from which the record described here was
+          derived.
+        comments:
+        - Value should be a string representing the identifier of the source record.
+        multivalued: true
+        range: identifier
+        required: false
+      dateRecordCreated:
+        description: The date the record was initially created.
+        multivalued: false
+        range: dateTime
+        required: false
+      contributions:
+        description: Links to a 'Contribution' object allowing richer representation
+          of specific types of contributions made by an agent to the creation, modification,
+          or administrative management of a record.
+        multivalued: true
+        range: Contribution
+        required: false
