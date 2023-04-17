@@ -27,7 +27,7 @@ types:
       a resource is desired.  Common URL protocols are http{s}:, ftp:, mailto: and
       mllp:, though many others are defined.'
     from_schema: https://w3id.org/ga4gh-va-core-im
-    base: string
+    base: str
     uri: xsd:string
   Class:
     description: A string representing a class in a VA model used to type an object
@@ -38,7 +38,7 @@ types:
       (e.g. 'Statement'), or a specialization of such a class in a profile defined
       by a particular implementation (e.g. TherapeuticEfficacyStatement').
     from_schema: https://w3id.org/ga4gh-va-core-im
-    base: string
+    base: str
     uri: xsd:string
   DateTime:
     description: "A string value that specifies a date and time of day comprised of\
@@ -53,7 +53,7 @@ types:
       \ seconds must still be provided due to schema constraints, but can all be set\
       \ to \u201C00\u201D and ignored at the instruction of the message sender."
     from_schema: https://w3id.org/ga4gh-va-core-im
-    base: string
+    base: str
     uri: xsd:string
   Identifier:
     description: A string value that uniquely identifies a specific instance of an
@@ -77,7 +77,7 @@ types:
       \ is strongly recommended, as a way to ensure that a given identifier is unique\
       \ within its intended scope of use."
     from_schema: https://w3id.org/ga4gh-va-core-im
-    base: string
+    base: str
     uri: xsd:string
 slots:
   type:

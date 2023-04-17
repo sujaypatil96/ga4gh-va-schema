@@ -63,7 +63,7 @@
         "Used in place of a plain string datatype when a resolvable web address for a resource is desired.  Common URL protocols are http{s}:, ftp:, mailto: and mllp:, though many others are defined."
       ],
       "from_schema": "https://w3id.org/ga4gh-va-core-im",
-      "base": "string",
+      "base": "str",
       "uri": "http://www.w3.org/2001/XMLSchema#string",
       "@type": "TypeDefinition"
     },
@@ -76,7 +76,7 @@
         "This string must be the name of a concrete class from the core VA specification (e.g. 'Statement'), or a specialization of such a class in a profile defined by a particular implementation (e.g. TherapeuticEfficacyStatement')."
       ],
       "from_schema": "https://w3id.org/ga4gh-va-core-im",
-      "base": "string",
+      "base": "str",
       "uri": "http://www.w3.org/2001/XMLSchema#string",
       "@type": "TypeDefinition"
     },
@@ -89,7 +89,7 @@
         "Conventions for representing date + time defined here are based on the ISO 8601 standard. Hours of the day should use 24-hour time (e.g. 2PM = 14:00:00). A time zone can be specified as described for \u2018dates\u2019 above, e.g. \"1978-01-20T05:15:00Z, and \"1978-01-20T05:15:00+5:00\".\n\nIf precision down to time of day is not possible or necessary, the hours, minutes, and seconds must still be provided due to schema constraints, but can all be set to \u201c00\u201d and ignored at the instruction of the message sender."
       ],
       "from_schema": "https://w3id.org/ga4gh-va-core-im",
-      "base": "string",
+      "base": "str",
       "uri": "http://www.w3.org/2001/XMLSchema#string",
       "@type": "TypeDefinition"
     },
@@ -102,7 +102,7 @@
         "We distinguish between two types of identifiers depending on their intended scope of use. \u2018Logical identifiers\u2019 are used to identify a data object within a given system, where it is used as a reference from other objects within the same system (i.e. primary and foreign keys). The same data object copied to a different system will likely have a different logical identifier in that new system. \u2018Business identifiers\u2019 are typically provided by an external system or authority, and are meant to be globally unique and persist across implementing systems. A given entity or concept may have many business identifiers associated with it, which can all be captured in a given data system. In the VA model, we follow FHIR naming conventions and use an  id  attribute to hold the logical identifier of a data object, and an identifier attribute to hold any business identifiers that the data creator may also want to provide.\nUse of the W3C Compact URI (CURIE) syntax to structure identifiers is strongly recommended, as a way to ensure that a given identifier is unique within its intended scope of use."
       ],
       "from_schema": "https://w3id.org/ga4gh-va-core-im",
-      "base": "string",
+      "base": "str",
       "uri": "http://www.w3.org/2001/XMLSchema#string",
       "@type": "TypeDefinition"
     },
@@ -3323,9 +3323,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "ga4gh_va_schema.yaml",
-  "source_file_date": "2023-04-17T13:43:45",
-  "source_file_size": 62480,
-  "generation_date": "2023-04-17T13:43:48",
+  "source_file_date": "2023-04-17T14:04:44",
+  "source_file_size": 62468,
+  "generation_date": "2023-04-17T14:04:48",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/ga4gh_va_schema.context.jsonld",

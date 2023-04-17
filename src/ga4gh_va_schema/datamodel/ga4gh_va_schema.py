@@ -1,5 +1,5 @@
 # Auto generated from ga4gh_va_schema.yaml by pythongen.py version: 0.9.0
-# Generation date: 2023-04-17T13:44:03
+# Generation date: 2023-04-17T14:05:03
 # Schema: GA4GH-VA-Core-IM
 #
 # id: https://w3id.org/ga4gh-va-core-im
@@ -23,7 +23,7 @@ from linkml_runtime.utils.enumerations import EnumDefinitionImpl
 from rdflib import Namespace, URIRef
 from linkml_runtime.utils.curienamespace import CurieNamespace
 from linkml_runtime.linkml_model.types import Boolean, String
-from linkml_runtime.utils.metamodelcore import Bool, string
+from linkml_runtime.utils.metamodelcore import Bool
 
 metamodel_version = "1.7.0"
 version = None
@@ -48,7 +48,7 @@ DEFAULT_ = VACOREIM
 
 
 # Types
-class Url(string):
+class Url(str):
     """ A string representing a Uniform Resource Locator (RFC 1738), specifying a web address where a resource can be found or information about the resource discovered. """
     type_class_uri = XSD.string
     type_class_curie = "xsd:string"
@@ -56,7 +56,7 @@ class Url(string):
     type_model_uri = VACOREIM.Url
 
 
-class Class(string):
+class Class(str):
     """ A string representing a class in a VA model used to type an object in the data. """
     type_class_uri = XSD.string
     type_class_curie = "xsd:string"
@@ -64,7 +64,7 @@ class Class(string):
     type_model_uri = VACOREIM.Class
 
 
-class DateTime(string):
+class DateTime(str):
     """ A string value that specifies a date and time of day comprised of a year, month, day, hour, minute, and second, following the form “YYYY-MM-DDThh:mm:ss” """
     type_class_uri = XSD.string
     type_class_curie = "xsd:string"
@@ -72,7 +72,7 @@ class DateTime(string):
     type_model_uri = VACOREIM.DateTime
 
 
-class Identifier(string):
+class Identifier(str):
     """ A string value that uniquely identifies a specific instance of an object in a dataset or document. Identifiers should be persistent, machine-resolvable, and unique within their intended scope of use. """
     type_class_uri = XSD.string
     type_class_curie = "xsd:string"
@@ -96,15 +96,15 @@ class Element(YAMLRoot):
     class_name: ClassVar[str] = "Element"
     class_model_uri: ClassVar[URIRef] = VACOREIM.Element
 
-    type: string = None
+    type: str = None
     description: Optional[str] = None
     extensions: Optional[Union[Union[dict, "Extension"], List[Union[dict, "Extension"]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.type):
             self.MissingRequiredField("type")
-        if not isinstance(self.type, string):
-            self.type = string(self.type)
+        if not isinstance(self.type, str):
+            self.type = str(self.type)
 
         if self.description is not None and not isinstance(self.description, str):
             self.description = str(self.description)
@@ -126,30 +126,30 @@ class Entity(Element):
     class_name: ClassVar[str] = "Entity"
     class_model_uri: ClassVar[URIRef] = VACOREIM.Entity
 
-    type: string = None
-    id: string = None
-    identifiers: Optional[Union[string, List[string]]] = empty_list()
+    type: str = None
+    id: str = None
+    identifiers: Optional[Union[str, List[str]]] = empty_list()
     label: Optional[str] = None
-    urls: Optional[Union[string, List[string]]] = empty_list()
+    urls: Optional[Union[str, List[str]]] = empty_list()
     xrefs: Optional[Union[str, List[str]]] = empty_list()
     recordMetadata: Optional[Union[dict, "RecordMetadata"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
             self.MissingRequiredField("id")
-        if not isinstance(self.id, string):
-            self.id = string(self.id)
+        if not isinstance(self.id, str):
+            self.id = str(self.id)
 
         if not isinstance(self.identifiers, list):
             self.identifiers = [self.identifiers] if self.identifiers is not None else []
-        self.identifiers = [v if isinstance(v, string) else string(v) for v in self.identifiers]
+        self.identifiers = [v if isinstance(v, str) else str(v) for v in self.identifiers]
 
         if self.label is not None and not isinstance(self.label, str):
             self.label = str(self.label)
 
         if not isinstance(self.urls, list):
             self.urls = [self.urls] if self.urls is not None else []
-        self.urls = [v if isinstance(v, string) else string(v) for v in self.urls]
+        self.urls = [v if isinstance(v, str) else str(v) for v in self.urls]
 
         if not isinstance(self.xrefs, list):
             self.xrefs = [self.xrefs] if self.xrefs is not None else []
@@ -173,10 +173,10 @@ class InformationEntity(Entity):
     class_name: ClassVar[str] = "InformationEntity"
     class_model_uri: ClassVar[URIRef] = VACOREIM.InformationEntity
 
-    type: string = None
-    id: string = None
+    type: str = None
+    id: str = None
     contributions: Optional[Union[Union[dict, "Contribution"], List[Union[dict, "Contribution"]]]] = empty_list()
-    dateAuthored: Optional[string] = None
+    dateAuthored: Optional[str] = None
     specifiedBy: Optional[Union[Union[dict, "Method"], List[Union[dict, "Method"]]]] = empty_list()
     derivedFrom: Optional[Union[Union[dict, "InformationEntity"], List[Union[dict, "InformationEntity"]]]] = empty_list()
     reportedIn: Optional[Union[Union[dict, "Document"], List[Union[dict, "Document"]]]] = empty_list()
@@ -184,8 +184,8 @@ class InformationEntity(Entity):
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         self._normalize_inlined_as_dict(slot_name="contributions", slot_type=Contribution, key_name="type", keyed=False)
 
-        if self.dateAuthored is not None and not isinstance(self.dateAuthored, string):
-            self.dateAuthored = string(self.dateAuthored)
+        if self.dateAuthored is not None and not isinstance(self.dateAuthored, str):
+            self.dateAuthored = str(self.dateAuthored)
 
         self._normalize_inlined_as_dict(slot_name="specifiedBy", slot_type=Method, key_name="type", keyed=False)
 
@@ -209,8 +209,8 @@ class DataItem(InformationEntity):
     class_name: ClassVar[str] = "DataItem"
     class_model_uri: ClassVar[URIRef] = VACOREIM.DataItem
 
-    type: string = None
-    id: string = None
+    type: str = None
+    id: str = None
     subtype: Optional[Union[dict, "Coding"]] = None
     value: Optional[str] = None
     unit: Optional[Union[dict, "Coding"]] = None
@@ -241,10 +241,10 @@ class DataSet(InformationEntity):
     class_name: ClassVar[str] = "DataSet"
     class_model_uri: ClassVar[URIRef] = VACOREIM.DataSet
 
-    type: string = None
-    id: string = None
+    type: str = None
+    id: str = None
     subtype: Optional[Union[dict, "Coding"]] = None
-    releaseDate: Optional[string] = None
+    releaseDate: Optional[str] = None
     license: Optional[str] = None
     version: Optional[str] = None
 
@@ -252,8 +252,8 @@ class DataSet(InformationEntity):
         if self.subtype is not None and not isinstance(self.subtype, Coding):
             self.subtype = Coding(**as_dict(self.subtype))
 
-        if self.releaseDate is not None and not isinstance(self.releaseDate, string):
-            self.releaseDate = string(self.releaseDate)
+        if self.releaseDate is not None and not isinstance(self.releaseDate, str):
+            self.releaseDate = str(self.releaseDate)
 
         if self.license is not None and not isinstance(self.license, str):
             self.license = str(self.license)
@@ -277,8 +277,8 @@ class Document(InformationEntity):
     class_name: ClassVar[str] = "Document"
     class_model_uri: ClassVar[URIRef] = VACOREIM.Document
 
-    type: string = None
-    id: string = None
+    type: str = None
+    id: str = None
     subtype: Optional[Union[dict, "Coding"]] = None
     title: Optional[str] = None
     license: Optional[str] = None
@@ -312,8 +312,8 @@ class Statement(InformationEntity):
     class_name: ClassVar[str] = "Statement"
     class_model_uri: ClassVar[URIRef] = VACOREIM.Statement
 
-    type: string = None
-    id: string = None
+    type: str = None
+    id: str = None
     subtype: Optional[Union[dict, "Coding"]] = None
     statementText: Optional[str] = None
     confidenceDirection: Optional[Union[dict, "Coding"]] = None
@@ -377,8 +377,8 @@ class StudyResult(InformationEntity):
     class_name: ClassVar[str] = "StudyResult"
     class_model_uri: ClassVar[URIRef] = VACOREIM.StudyResult
 
-    type: string = None
-    id: string = None
+    type: str = None
+    id: str = None
     subtype: Optional[Union[dict, "Coding"]] = None
     focus: Optional[Union[dict, Entity]] = None
     dataItems: Optional[Union[Union[dict, DataItem], List[Union[dict, DataItem]]]] = empty_list()
@@ -415,8 +415,8 @@ class EvidenceLine(InformationEntity):
     class_name: ClassVar[str] = "EvidenceLine"
     class_model_uri: ClassVar[URIRef] = VACOREIM.EvidenceLine
 
-    type: string = None
-    id: string = None
+    type: str = None
+    id: str = None
     subtype: Optional[Union[dict, "Coding"]] = None
     targetProposition: Optional[Union[dict, "Proposition"]] = None
     evidenceItems: Optional[Union[Union[dict, InformationEntity], List[Union[dict, InformationEntity]]]] = empty_list()
@@ -454,8 +454,8 @@ class Method(InformationEntity):
     class_name: ClassVar[str] = "Method"
     class_model_uri: ClassVar[URIRef] = VACOREIM.Method
 
-    type: string = None
-    id: string = None
+    type: str = None
+    id: str = None
     subtype: Optional[Union[dict, "Coding"]] = None
     license: Optional[str] = None
 
@@ -482,10 +482,10 @@ class Activity(Entity):
     class_name: ClassVar[str] = "Activity"
     class_model_uri: ClassVar[URIRef] = VACOREIM.Activity
 
-    type: string = None
-    id: string = None
+    type: str = None
+    id: str = None
     subtype: Optional[Union[dict, "Coding"]] = None
-    date: Optional[string] = None
+    date: Optional[str] = None
     performedBy: Optional[Union[Union[dict, "Agent"], List[Union[dict, "Agent"]]]] = empty_list()
     input: Optional[Union[Union[dict, Entity], List[Union[dict, Entity]]]] = empty_list()
     output: Optional[Union[Union[dict, Entity], List[Union[dict, Entity]]]] = empty_list()
@@ -495,8 +495,8 @@ class Activity(Entity):
         if self.subtype is not None and not isinstance(self.subtype, Coding):
             self.subtype = Coding(**as_dict(self.subtype))
 
-        if self.date is not None and not isinstance(self.date, string):
-            self.date = string(self.date)
+        if self.date is not None and not isinstance(self.date, str):
+            self.date = str(self.date)
 
         self._normalize_inlined_as_dict(slot_name="performedBy", slot_type=Agent, key_name="type", keyed=False)
 
@@ -522,8 +522,8 @@ class Contribution(Activity):
     class_name: ClassVar[str] = "Contribution"
     class_model_uri: ClassVar[URIRef] = VACOREIM.Contribution
 
-    type: string = None
-    id: string = None
+    type: str = None
+    id: str = None
     contributionMadeTo: Optional[Union[dict, InformationEntity]] = None
     activity: Optional[Union[Union[dict, "Coding"], List[Union[dict, "Coding"]]]] = empty_list()
 
@@ -549,8 +549,8 @@ class Agent(Entity):
     class_name: ClassVar[str] = "Agent"
     class_model_uri: ClassVar[URIRef] = VACOREIM.Agent
 
-    type: string = None
-    id: string = None
+    type: str = None
+    id: str = None
     subtype: Optional[Union[dict, "Coding"]] = None
     name: Optional[str] = None
 
@@ -577,8 +577,8 @@ class Proposition(Entity):
     class_name: ClassVar[str] = "Proposition"
     class_model_uri: ClassVar[URIRef] = VACOREIM.Proposition
 
-    type: string = None
-    id: string = None
+    type: str = None
+    id: str = None
     subject: Union[dict, Element] = None
     predicate: Union[dict, "Coding"] = None
     object: Union[dict, Element] = None
@@ -630,7 +630,7 @@ class Utility(Element):
     class_name: ClassVar[str] = "Utility"
     class_model_uri: ClassVar[URIRef] = VACOREIM.Utility
 
-    type: string = None
+    type: str = None
 
 @dataclass
 class Coding(Utility):
@@ -645,16 +645,16 @@ class Coding(Utility):
     class_name: ClassVar[str] = "Coding"
     class_model_uri: ClassVar[URIRef] = VACOREIM.Coding
 
-    type: string = None
-    code: Optional[string] = None
+    type: str = None
+    code: Optional[str] = None
     label: Optional[str] = None
     system: Optional[str] = None
-    systemURL: Optional[string] = None
+    systemURL: Optional[str] = None
     systemVersion: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.code is not None and not isinstance(self.code, string):
-            self.code = string(self.code)
+        if self.code is not None and not isinstance(self.code, str):
+            self.code = str(self.code)
 
         if self.label is not None and not isinstance(self.label, str):
             self.label = str(self.label)
@@ -662,8 +662,8 @@ class Coding(Utility):
         if self.system is not None and not isinstance(self.system, str):
             self.system = str(self.system)
 
-        if self.systemURL is not None and not isinstance(self.systemURL, string):
-            self.systemURL = string(self.systemURL)
+        if self.systemURL is not None and not isinstance(self.systemURL, str):
+            self.systemURL = str(self.systemURL)
 
         if self.systemVersion is not None and not isinstance(self.systemVersion, str):
             self.systemVersion = str(self.systemVersion)
@@ -684,10 +684,10 @@ class Expression(Utility):
     class_name: ClassVar[str] = "Expression"
     class_model_uri: ClassVar[URIRef] = VACOREIM.Expression
 
-    type: string = None
+    type: str = None
     value: str = None
     system: str = None
-    systemURL: Optional[string] = None
+    systemURL: Optional[str] = None
     systemVersion: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -701,8 +701,8 @@ class Expression(Utility):
         if not isinstance(self.system, str):
             self.system = str(self.system)
 
-        if self.systemURL is not None and not isinstance(self.systemURL, string):
-            self.systemURL = string(self.systemURL)
+        if self.systemURL is not None and not isinstance(self.systemURL, str):
+            self.systemURL = str(self.systemURL)
 
         if self.systemVersion is not None and not isinstance(self.systemVersion, str):
             self.systemVersion = str(self.systemVersion)
@@ -723,7 +723,7 @@ class Extension(Utility):
     class_name: ClassVar[str] = "Extension"
     class_model_uri: ClassVar[URIRef] = VACOREIM.Extension
 
-    type: string = None
+    type: str = None
     value: Union[dict, Element] = None
     description: Optional[str] = None
     name: Optional[str] = None
@@ -759,26 +759,26 @@ class RecordMetadata(Utility):
     class_name: ClassVar[str] = "RecordMetadata"
     class_model_uri: ClassVar[URIRef] = VACOREIM.RecordMetadata
 
-    type: string = None
-    recordIdentifier: Optional[string] = None
+    type: str = None
+    recordIdentifier: Optional[str] = None
     recordVersion: Optional[str] = None
-    derivedFrom: Optional[Union[string, List[string]]] = empty_list()
-    dateRecordCreated: Optional[string] = None
+    derivedFrom: Optional[Union[str, List[str]]] = empty_list()
+    dateRecordCreated: Optional[str] = None
     contributions: Optional[Union[Union[dict, Contribution], List[Union[dict, Contribution]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.recordIdentifier is not None and not isinstance(self.recordIdentifier, string):
-            self.recordIdentifier = string(self.recordIdentifier)
+        if self.recordIdentifier is not None and not isinstance(self.recordIdentifier, str):
+            self.recordIdentifier = str(self.recordIdentifier)
 
         if self.recordVersion is not None and not isinstance(self.recordVersion, str):
             self.recordVersion = str(self.recordVersion)
 
         if not isinstance(self.derivedFrom, list):
             self.derivedFrom = [self.derivedFrom] if self.derivedFrom is not None else []
-        self.derivedFrom = [v if isinstance(v, string) else string(v) for v in self.derivedFrom]
+        self.derivedFrom = [v if isinstance(v, str) else str(v) for v in self.derivedFrom]
 
-        if self.dateRecordCreated is not None and not isinstance(self.dateRecordCreated, string):
-            self.dateRecordCreated = string(self.dateRecordCreated)
+        if self.dateRecordCreated is not None and not isinstance(self.dateRecordCreated, str):
+            self.dateRecordCreated = str(self.dateRecordCreated)
 
         self._normalize_inlined_as_dict(slot_name="contributions", slot_type=Contribution, key_name="type", keyed=False)
 
@@ -967,7 +967,7 @@ slots.dateRecordCreated = Slot(uri=VACOREIM.dateRecordCreated, name="dateRecordC
                    model_uri=VACOREIM.dateRecordCreated, domain=None, range=Optional[str])
 
 slots.Element_type = Slot(uri=VACOREIM.type, name="Element_type", curie=VACOREIM.curie('type'),
-                   model_uri=VACOREIM.Element_type, domain=Element, range=string)
+                   model_uri=VACOREIM.Element_type, domain=Element, range=str)
 
 slots.Element_description = Slot(uri=VACOREIM.description, name="Element_description", curie=VACOREIM.curie('description'),
                    model_uri=VACOREIM.Element_description, domain=Element, range=Optional[str])
@@ -976,16 +976,16 @@ slots.Element_extensions = Slot(uri=VACOREIM.extensions, name="Element_extension
                    model_uri=VACOREIM.Element_extensions, domain=Element, range=Optional[Union[Union[dict, "Extension"], List[Union[dict, "Extension"]]]])
 
 slots.Entity_id = Slot(uri=VACOREIM.id, name="Entity_id", curie=VACOREIM.curie('id'),
-                   model_uri=VACOREIM.Entity_id, domain=Entity, range=string)
+                   model_uri=VACOREIM.Entity_id, domain=Entity, range=str)
 
 slots.Entity_identifiers = Slot(uri=VACOREIM.identifiers, name="Entity_identifiers", curie=VACOREIM.curie('identifiers'),
-                   model_uri=VACOREIM.Entity_identifiers, domain=Entity, range=Optional[Union[string, List[string]]])
+                   model_uri=VACOREIM.Entity_identifiers, domain=Entity, range=Optional[Union[str, List[str]]])
 
 slots.Entity_label = Slot(uri=VACOREIM.label, name="Entity_label", curie=VACOREIM.curie('label'),
                    model_uri=VACOREIM.Entity_label, domain=Entity, range=Optional[str])
 
 slots.Entity_urls = Slot(uri=VACOREIM.urls, name="Entity_urls", curie=VACOREIM.curie('urls'),
-                   model_uri=VACOREIM.Entity_urls, domain=Entity, range=Optional[Union[string, List[string]]])
+                   model_uri=VACOREIM.Entity_urls, domain=Entity, range=Optional[Union[str, List[str]]])
 
 slots.Entity_xrefs = Slot(uri=VACOREIM.xrefs, name="Entity_xrefs", curie=VACOREIM.curie('xrefs'),
                    model_uri=VACOREIM.Entity_xrefs, domain=Entity, range=Optional[Union[str, List[str]]])
@@ -997,7 +997,7 @@ slots.InformationEntity_contributions = Slot(uri=VACOREIM.contributions, name="I
                    model_uri=VACOREIM.InformationEntity_contributions, domain=InformationEntity, range=Optional[Union[Union[dict, "Contribution"], List[Union[dict, "Contribution"]]]])
 
 slots.InformationEntity_dateAuthored = Slot(uri=VACOREIM.dateAuthored, name="InformationEntity_dateAuthored", curie=VACOREIM.curie('dateAuthored'),
-                   model_uri=VACOREIM.InformationEntity_dateAuthored, domain=InformationEntity, range=Optional[string])
+                   model_uri=VACOREIM.InformationEntity_dateAuthored, domain=InformationEntity, range=Optional[str])
 
 slots.InformationEntity_specifiedBy = Slot(uri=VACOREIM.specifiedBy, name="InformationEntity_specifiedBy", curie=VACOREIM.curie('specifiedBy'),
                    model_uri=VACOREIM.InformationEntity_specifiedBy, domain=InformationEntity, range=Optional[Union[Union[dict, "Method"], List[Union[dict, "Method"]]]])
@@ -1021,7 +1021,7 @@ slots.DataSet_subtype = Slot(uri=VACOREIM.subtype, name="DataSet_subtype", curie
                    model_uri=VACOREIM.DataSet_subtype, domain=DataSet, range=Optional[Union[dict, "Coding"]])
 
 slots.DataSet_releaseDate = Slot(uri=VACOREIM.releaseDate, name="DataSet_releaseDate", curie=VACOREIM.curie('releaseDate'),
-                   model_uri=VACOREIM.DataSet_releaseDate, domain=DataSet, range=Optional[string])
+                   model_uri=VACOREIM.DataSet_releaseDate, domain=DataSet, range=Optional[str])
 
 slots.DataSet_license = Slot(uri=VACOREIM.license, name="DataSet_license", curie=VACOREIM.curie('license'),
                    model_uri=VACOREIM.DataSet_license, domain=DataSet, range=Optional[str])
@@ -1114,7 +1114,7 @@ slots.Activity_subtype = Slot(uri=VACOREIM.subtype, name="Activity_subtype", cur
                    model_uri=VACOREIM.Activity_subtype, domain=Activity, range=Optional[Union[dict, "Coding"]])
 
 slots.Activity_date = Slot(uri=VACOREIM.date, name="Activity_date", curie=VACOREIM.curie('date'),
-                   model_uri=VACOREIM.Activity_date, domain=Activity, range=Optional[string])
+                   model_uri=VACOREIM.Activity_date, domain=Activity, range=Optional[str])
 
 slots.Activity_performedBy = Slot(uri=VACOREIM.performedBy, name="Activity_performedBy", curie=VACOREIM.curie('performedBy'),
                    model_uri=VACOREIM.Activity_performedBy, domain=Activity, range=Optional[Union[Union[dict, "Agent"], List[Union[dict, "Agent"]]]])
@@ -1159,7 +1159,7 @@ slots.Proposition_negated = Slot(uri=VACOREIM.negated, name="Proposition_negated
                    model_uri=VACOREIM.Proposition_negated, domain=Proposition, range=Optional[Union[bool, Bool]])
 
 slots.Coding_code = Slot(uri=VACOREIM.code, name="Coding_code", curie=VACOREIM.curie('code'),
-                   model_uri=VACOREIM.Coding_code, domain=Coding, range=Optional[string])
+                   model_uri=VACOREIM.Coding_code, domain=Coding, range=Optional[str])
 
 slots.Coding_label = Slot(uri=VACOREIM.label, name="Coding_label", curie=VACOREIM.curie('label'),
                    model_uri=VACOREIM.Coding_label, domain=Coding, range=Optional[str])
@@ -1168,7 +1168,7 @@ slots.Coding_system = Slot(uri=VACOREIM.system, name="Coding_system", curie=VACO
                    model_uri=VACOREIM.Coding_system, domain=Coding, range=Optional[str])
 
 slots.Coding_systemURL = Slot(uri=VACOREIM.systemURL, name="Coding_systemURL", curie=VACOREIM.curie('systemURL'),
-                   model_uri=VACOREIM.Coding_systemURL, domain=Coding, range=Optional[string])
+                   model_uri=VACOREIM.Coding_systemURL, domain=Coding, range=Optional[str])
 
 slots.Coding_systemVersion = Slot(uri=VACOREIM.systemVersion, name="Coding_systemVersion", curie=VACOREIM.curie('systemVersion'),
                    model_uri=VACOREIM.Coding_systemVersion, domain=Coding, range=Optional[str])
@@ -1180,7 +1180,7 @@ slots.Expression_system = Slot(uri=VACOREIM.system, name="Expression_system", cu
                    model_uri=VACOREIM.Expression_system, domain=Expression, range=str)
 
 slots.Expression_systemURL = Slot(uri=VACOREIM.systemURL, name="Expression_systemURL", curie=VACOREIM.curie('systemURL'),
-                   model_uri=VACOREIM.Expression_systemURL, domain=Expression, range=Optional[string])
+                   model_uri=VACOREIM.Expression_systemURL, domain=Expression, range=Optional[str])
 
 slots.Expression_systemVersion = Slot(uri=VACOREIM.systemVersion, name="Expression_systemVersion", curie=VACOREIM.curie('systemVersion'),
                    model_uri=VACOREIM.Expression_systemVersion, domain=Expression, range=Optional[str])
@@ -1192,16 +1192,16 @@ slots.Extension_value = Slot(uri=VACOREIM.value, name="Extension_value", curie=V
                    model_uri=VACOREIM.Extension_value, domain=Extension, range=Union[dict, Element])
 
 slots.RecordMetadata_recordIdentifier = Slot(uri=VACOREIM.recordIdentifier, name="RecordMetadata_recordIdentifier", curie=VACOREIM.curie('recordIdentifier'),
-                   model_uri=VACOREIM.RecordMetadata_recordIdentifier, domain=RecordMetadata, range=Optional[string])
+                   model_uri=VACOREIM.RecordMetadata_recordIdentifier, domain=RecordMetadata, range=Optional[str])
 
 slots.RecordMetadata_recordVersion = Slot(uri=VACOREIM.recordVersion, name="RecordMetadata_recordVersion", curie=VACOREIM.curie('recordVersion'),
                    model_uri=VACOREIM.RecordMetadata_recordVersion, domain=RecordMetadata, range=Optional[str])
 
 slots.RecordMetadata_derivedFrom = Slot(uri=VACOREIM.derivedFrom, name="RecordMetadata_derivedFrom", curie=VACOREIM.curie('derivedFrom'),
-                   model_uri=VACOREIM.RecordMetadata_derivedFrom, domain=RecordMetadata, range=Optional[Union[string, List[string]]])
+                   model_uri=VACOREIM.RecordMetadata_derivedFrom, domain=RecordMetadata, range=Optional[Union[str, List[str]]])
 
 slots.RecordMetadata_dateRecordCreated = Slot(uri=VACOREIM.dateRecordCreated, name="RecordMetadata_dateRecordCreated", curie=VACOREIM.curie('dateRecordCreated'),
-                   model_uri=VACOREIM.RecordMetadata_dateRecordCreated, domain=RecordMetadata, range=Optional[string])
+                   model_uri=VACOREIM.RecordMetadata_dateRecordCreated, domain=RecordMetadata, range=Optional[str])
 
 slots.RecordMetadata_contributions = Slot(uri=VACOREIM.contributions, name="RecordMetadata_contributions", curie=VACOREIM.curie('contributions'),
                    model_uri=VACOREIM.RecordMetadata_contributions, domain=RecordMetadata, range=Optional[Union[Union[dict, Contribution], List[Union[dict, Contribution]]]])
