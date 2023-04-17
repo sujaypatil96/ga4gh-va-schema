@@ -15,7 +15,7 @@
     
     
       
-        <title>Type: Date - ga4gh-va-schema</title>
+        <title>Slot: date - ga4gh-va-schema</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#type-date" class="md-skip">
+        <a href="#slot-date" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Type: Date
+              Slot: date
             
           </span>
         </div>
@@ -222,7 +222,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../about/" class="md-nav__link">
+      <a href="../about.md" class="md-nav__link">
         About
       </a>
     </li>
@@ -256,6 +256,20 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#applicable-classes" class="md-nav__link">
+    Applicable Classes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    Properties
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#identifier-and-mapping-information" class="md-nav__link">
     Identifier and Mapping Information
   </a>
@@ -272,6 +286,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linkml-source" class="md-nav__link">
+    LinkML Source
+  </a>
   
 </li>
       
@@ -295,25 +316,52 @@
   </a>
 
 
-<h1 id="type-date">Type: Date</h1>
-<p><em>a date (year, month and day) in an idealized calendar</em></p>
-<p>URI: <a href="http://www.w3.org/2001/XMLSchema#date">xsd:date</a></p>
+<h1 id="slot-date">Slot: date</h1>
+<p>URI: <a href="https://example.org/vacoreim/date">vacoreim:date</a></p>
+<!-- no inheritance hierarchy -->
+
+<h2 id="applicable-classes">Applicable Classes</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../Activity/">Activity</a></td>
+<td>An action or set of actions performed by an agent, that occurs over a period ...</td>
+</tr>
+<tr>
+<td><a href="../Contribution/">Contribution</a></td>
+<td>The actions taken by a particular agent in the creation, modification, assess...</td>
+</tr>
+</tbody>
+</table>
+<h2 id="properties">Properties</h2>
 <ul>
-<li>
-<p><a href="https://w3id.org/linkml/base">base</a>: XSDDate</p>
-</li>
-<li>
-<p><a href="https://w3id.org/linkml/uri">uri</a>: xsd:date</p>
-</li>
-<li>
-<p><a href="https://w3id.org/linkml/repr">repr</a>: str</p>
-</li>
+<li>Range: <a href="../String/">String</a></li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
 <li>from schema: https://w3id.org/ga4gh-va-core-im</li>
 </ul>
+<h2 id="linkml-source">LinkML Source</h2>
+<details>
+
+<pre><code class="language-yaml">name: date
+from_schema: https://w3id.org/ga4gh-va-core-im
+rank: 1000
+alias: date
+domain_of:
+- Activity
+range: string
+
+</code></pre>
+
+</details>
 
 
 

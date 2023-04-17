@@ -51,12 +51,22 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://sujaypatil96.github.io/ga4gh-va-schema/Date/</loc>
+         <lastmod>2023-04-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/DateOrDatetime/</loc>
          <lastmod>2023-04-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/DateTime/</loc>
+         <lastmod>2023-04-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sujaypatil96.github.io/ga4gh-va-schema/Datetime/</loc>
          <lastmod>2023-04-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -196,7 +206,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sujaypatil96.github.io/ga4gh-va-schema/about/</loc>
+         <loc>https://sujaypatil96.github.io/ga4gh-va-schema/activity/</loc>
          <lastmod>2023-04-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -382,6 +392,11 @@
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/recordIdentifier/</loc>
+         <lastmod>2023-04-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sujaypatil96.github.io/ga4gh-va-schema/recordMetadata/</loc>
          <lastmod>2023-04-17</lastmod>
          <changefreq>daily</changefreq>
     </url>

@@ -15,7 +15,7 @@
     
     
       
-        <title>Type: Datetime - ga4gh-va-schema</title>
+        <title>Type: DateTime - ga4gh-va-schema</title>
       
     
     
@@ -97,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Type: Datetime
+              Type: DateTime
             
           </span>
         </div>
@@ -222,7 +222,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../about/" class="md-nav__link">
+      <a href="../about.md" class="md-nav__link">
         About
       </a>
     </li>
@@ -254,6 +254,13 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#comments" class="md-nav__link">
+    Comments
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#identifier-and-mapping-information" class="md-nav__link">
@@ -295,20 +302,22 @@
   </a>
 
 
-<h1 id="type-datetime">Type: Datetime</h1>
-<p><em>The combination of a date and time</em></p>
-<p>URI: <a href="http://www.w3.org/2001/XMLSchema#dateTime">xsd:dateTime</a></p>
+<h1 id="type-datetime">Type: DateTime</h1>
+<p><em>A string value that specifies a date and time of day comprised of a year, month, day, hour, minute, and second, following the form “YYYY-MM-DDThh:mm:ss”</em></p>
+<p>URI: <a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></p>
 <ul>
 <li>
-<p><a href="https://w3id.org/linkml/base">base</a>: XSDDateTime</p>
+<p><a href="https://w3id.org/linkml/base">base</a>: str</p>
 </li>
 <li>
-<p><a href="https://w3id.org/linkml/uri">uri</a>: xsd:dateTime</p>
-</li>
-<li>
-<p><a href="https://w3id.org/linkml/repr">repr</a>: str</p>
+<p><a href="https://w3id.org/linkml/uri">uri</a>: xsd:string</p>
 </li>
 </ul>
+<h2 id="comments">Comments</h2>
+<ul>
+<li>Conventions for representing date + time defined here are based on the ISO 8601 standard. Hours of the day should use 24-hour time (e.g. 2PM = 14:00:00). A time zone can be specified as described for ‘dates’ above, e.g. "1978-01-20T05:15:00Z, and "1978-01-20T05:15:00+5:00".</li>
+</ul>
+<p>If precision down to time of day is not possible or necessary, the hours, minutes, and seconds must still be provided due to schema constraints, but can all be set to “00” and ignored at the instruction of the message sender.</p>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>

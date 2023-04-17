@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://sujaypatil96.github.io/ga4gh-va-schema/Time/">
+        <link rel="canonical" href="https://sujaypatil96.github.io/ga4gh-va-schema/recordMetadata/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
     
     
       
-        <title>Type: Time - ga4gh-va-schema</title>
+        <title>Slot: recordMetadata - ga4gh-va-schema</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#type-time" class="md-skip">
+        <a href="#slot-recordmetadata" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Type: Time
+              Slot: recordMetadata
             
           </span>
         </div>
@@ -256,6 +256,20 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#applicable-classes" class="md-nav__link">
+    Applicable Classes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    Properties
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#identifier-and-mapping-information" class="md-nav__link">
     Identifier and Mapping Information
   </a>
@@ -275,6 +289,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#linkml-source" class="md-nav__link">
+    LinkML Source
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -289,31 +310,102 @@
                 
                   
 
-  <a href="https://github.com/sujaypatil96/ga4gh-va-schema/edit/master/docs/Time.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/sujaypatil96/ga4gh-va-schema/edit/master/docs/recordMetadata.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-<h1 id="type-time">Type: Time</h1>
-<p><em>A time object represents a (local) time of day, independent of any particular day</em></p>
-<p>URI: <a href="http://www.w3.org/2001/XMLSchema#dateTime">xsd:dateTime</a></p>
+<h1 id="slot-recordmetadata">Slot: recordMetadata</h1>
+<p>URI: <a href="https://example.org/vacoreim/recordMetadata">vacoreim:recordMetadata</a></p>
+<!-- no inheritance hierarchy -->
+
+<h2 id="applicable-classes">Applicable Classes</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../Entity/">Entity</a></td>
+<td>Anything that exists, has existed, or will exist</td>
+</tr>
+<tr>
+<td><a href="../InformationEntity/">InformationEntity</a></td>
+<td>An abstract (non-physical) entity that is about something</td>
+</tr>
+<tr>
+<td><a href="../DataItem/">DataItem</a></td>
+<td>An InformationEntity representing an individual piece of data, generated/acqu...</td>
+</tr>
+<tr>
+<td><a href="../DataSet/">DataSet</a></td>
+<td>A collection of related data items or records that are organized together in ...</td>
+</tr>
+<tr>
+<td><a href="../Document/">Document</a></td>
+<td>A collection of information, usually in human-readable form, intended to be r...</td>
+</tr>
+<tr>
+<td><a href="../Statement/">Statement</a></td>
+<td>An information entity expressing a declarative sentence that is either true o...</td>
+</tr>
+<tr>
+<td><a href="../StudyResult/">StudyResult</a></td>
+<td>A collection of data items from a single study that are about a particular su...</td>
+</tr>
+<tr>
+<td><a href="../EvidenceLine/">EvidenceLine</a></td>
+<td>A discrete, independent argument relevant to the validity of the Proposition ...</td>
+</tr>
+<tr>
+<td><a href="../Method/">Method</a></td>
+<td>A set of instructions that specify how to achieve some objective (e</td>
+</tr>
+<tr>
+<td><a href="../Activity/">Activity</a></td>
+<td>An action or set of actions performed by an agent, that occurs over a period ...</td>
+</tr>
+<tr>
+<td><a href="../Contribution/">Contribution</a></td>
+<td>The actions taken by a particular agent in the creation, modification, assess...</td>
+</tr>
+<tr>
+<td><a href="../Agent/">Agent</a></td>
+<td>An autonomous actor (person, organization, or computational agent) that bears...</td>
+</tr>
+<tr>
+<td><a href="../Proposition/">Proposition</a></td>
+<td>An abstract entity representing the sharable meaning that can be put forth as...</td>
+</tr>
+</tbody>
+</table>
+<h2 id="properties">Properties</h2>
 <ul>
-<li>
-<p><a href="https://w3id.org/linkml/base">base</a>: XSDTime</p>
-</li>
-<li>
-<p><a href="https://w3id.org/linkml/uri">uri</a>: xsd:dateTime</p>
-</li>
-<li>
-<p><a href="https://w3id.org/linkml/repr">repr</a>: str</p>
-</li>
+<li>Range: <a href="../String/">String</a></li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
 <li>from schema: https://w3id.org/ga4gh-va-core-im</li>
 </ul>
+<h2 id="linkml-source">LinkML Source</h2>
+<details>
+
+<pre><code class="language-yaml">name: recordMetadata
+from_schema: https://w3id.org/ga4gh-va-core-im
+rank: 1000
+alias: recordMetadata
+domain_of:
+- Entity
+range: string
+
+</code></pre>
+
+</details>
 
 
 
