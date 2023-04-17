@@ -14,8 +14,8 @@ nav:
   # - Home: home.md
   - Index: index.md
   - About: about.md
-site_url: https://my-org.github.io/ga4gh-va-schema
-repo_url: https://github.com/my-org/ga4gh-va-schema
+site_url: https://sujaypatil96.github.io/ga4gh-va-schema
+repo_url: https://github.com/sujaypatil96/ga4gh-va-schema
 
 # Uncomment this block to enable use of Google Analytics.
 # Replace the property value with your own ID.

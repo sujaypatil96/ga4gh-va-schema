@@ -6,7 +6,7 @@
     "cookiecutter": {
       "project_name": "ga4gh-va-schema",
       "__project_slug": "ga4gh_va_schema",
-      "github_org": "my-org",
+      "github_org": "sujaypatil96",
       "__source_path": "src/ga4gh_va_schema/schema/ga4gh_va_schema.yaml",
       "project_description": "Data model for variant annotation in the GA4GH consortium.",
       "full_name": "Matthew Brush",

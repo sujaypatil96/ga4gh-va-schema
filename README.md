@@ -4,7 +4,7 @@ This is the project description.
 
 ## Website
 
-[https://my-org.github.io/ga4gh-va-schema](https://my-org.github.io/ga4gh-va-schema)
+[https://sujaypatil96.github.io/ga4gh-va-schema](https://sujaypatil96.github.io/ga4gh-va-schema)
 
 ## Repository Structure
 

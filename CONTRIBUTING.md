@@ -71,5 +71,5 @@ and make your changes on a [new branch][about-branches].
 [about-branches]: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches
 [about-issues]: https://docs.github.com/en/issues/tracking-your-work-with-issues/about-issues
 [about-pulls]: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
-[issues]: https://github.com/my-org/ga4gh-va-schema/issues/
-[pulls]: https://github.com/my-org/ga4gh-va-schema/pulls/
+[issues]: https://github.com/sujaypatil96/ga4gh-va-schema/issues/
+[pulls]: https://github.com/sujaypatil96/ga4gh-va-schema/pulls/
