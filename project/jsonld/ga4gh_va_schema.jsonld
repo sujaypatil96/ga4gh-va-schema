@@ -55,10 +55,10 @@
   "default_range": "string",
   "types": [
     {
-      "name": "url",
+      "name": "Url",
       "definition_uri": "https://example.org/vacoreim/Url",
       "description": "A string representing a Uniform Resource Locator (RFC 1738), specifying a web address where a resource can be found or information about the resource discovered.",
-      "title": "url",
+      "title": "Url",
       "comments": [
         "Used in place of a plain string datatype when a resolvable web address for a resource is desired.  Common URL protocols are http{s}:, ftp:, mailto: and mllp:, though many others are defined."
       ],
@@ -68,10 +68,10 @@
       "@type": "TypeDefinition"
     },
     {
-      "name": "class",
+      "name": "Class",
       "definition_uri": "https://example.org/vacoreim/Class",
       "description": "A string representing a class in a VA model used to type an object in the data.",
-      "title": "class",
+      "title": "Class",
       "comments": [
         "This string must be the name of a concrete class from the core VA specification (e.g. 'Statement'), or a specialization of such a class in a profile defined by a particular implementation (e.g. TherapeuticEfficacyStatement')."
       ],
@@ -81,10 +81,10 @@
       "@type": "TypeDefinition"
     },
     {
-      "name": "dateTime",
+      "name": "DateTime",
       "definition_uri": "https://example.org/vacoreim/DateTime",
       "description": "A string value that specifies a date and time of day comprised of a year, month, day, hour, minute, and second, following the form \u201cYYYY-MM-DDThh:mm:ss\u201d",
-      "title": "dateTime",
+      "title": "DateTime",
       "comments": [
         "Conventions for representing date + time defined here are based on the ISO 8601 standard. Hours of the day should use 24-hour time (e.g. 2PM = 14:00:00). A time zone can be specified as described for \u2018dates\u2019 above, e.g. \"1978-01-20T05:15:00Z, and \"1978-01-20T05:15:00+5:00\".\n\nIf precision down to time of day is not possible or necessary, the hours, minutes, and seconds must still be provided due to schema constraints, but can all be set to \u201c00\u201d and ignored at the instruction of the message sender."
       ],
@@ -94,10 +94,10 @@
       "@type": "TypeDefinition"
     },
     {
-      "name": "identifier",
+      "name": "Identifier",
       "definition_uri": "https://example.org/vacoreim/Identifier",
       "description": "A string value that uniquely identifies a specific instance of an object in a dataset or document. Identifiers should be persistent, machine-resolvable, and unique within their intended scope of use.",
-      "title": "identifier",
+      "title": "Identifier",
       "comments": [
         "We distinguish between two types of identifiers depending on their intended scope of use. \u2018Logical identifiers\u2019 are used to identify a data object within a given system, where it is used as a reference from other objects within the same system (i.e. primary and foreign keys). The same data object copied to a different system will likely have a different logical identifier in that new system. \u2018Business identifiers\u2019 are typically provided by an external system or authority, and are meant to be globally unique and persist across implementing systems. A given entity or concept may have many business identifiers associated with it, which can all be captured in a given data system. In the VA model, we follow FHIR naming conventions and use an  id  attribute to hold the logical identifier of a data object, and an identifier attribute to hold any business identifiers that the data creator may also want to provide.\nUse of the W3C Compact URI (CURIE) syntax to structure identifiers is strongly recommended, as a way to ensure that a given identifier is unique within its intended scope of use."
       ],
@@ -1062,7 +1062,7 @@
       ],
       "is_usage_slot": true,
       "usage_slot_name": "type",
-      "range": "class",
+      "range": "Class",
       "required": true,
       "@type": "SlotDefinition"
     },
@@ -1128,7 +1128,7 @@
       ],
       "is_usage_slot": true,
       "usage_slot_name": "id",
-      "range": "identifier",
+      "range": "Identifier",
       "required": true,
       "@type": "SlotDefinition"
     },
@@ -1154,7 +1154,7 @@
       ],
       "is_usage_slot": true,
       "usage_slot_name": "identifiers",
-      "range": "identifier",
+      "range": "Identifier",
       "@type": "SlotDefinition"
     },
     {
@@ -1194,7 +1194,7 @@
       ],
       "is_usage_slot": true,
       "usage_slot_name": "urls",
-      "range": "url",
+      "range": "Url",
       "@type": "SlotDefinition"
     },
     {
@@ -1282,7 +1282,7 @@
       ],
       "is_usage_slot": true,
       "usage_slot_name": "dateAuthored",
-      "range": "dateTime",
+      "range": "DateTime",
       "@type": "SlotDefinition"
     },
     {
@@ -1453,7 +1453,7 @@
       ],
       "is_usage_slot": true,
       "usage_slot_name": "releaseDate",
-      "range": "dateTime",
+      "range": "DateTime",
       "@type": "SlotDefinition"
     },
     {
@@ -2104,7 +2104,7 @@
       ],
       "is_usage_slot": true,
       "usage_slot_name": "date",
-      "range": "dateTime",
+      "range": "DateTime",
       "@type": "SlotDefinition"
     },
     {
@@ -2422,7 +2422,7 @@
       ],
       "is_usage_slot": true,
       "usage_slot_name": "code",
-      "range": "identifier",
+      "range": "Identifier",
       "@type": "SlotDefinition"
     },
     {
@@ -2479,7 +2479,7 @@
       ],
       "is_usage_slot": true,
       "usage_slot_name": "systemURL",
-      "range": "url",
+      "range": "Url",
       "@type": "SlotDefinition"
     },
     {
@@ -2556,7 +2556,7 @@
       ],
       "is_usage_slot": true,
       "usage_slot_name": "systemURL",
-      "range": "url",
+      "range": "Url",
       "@type": "SlotDefinition"
     },
     {
@@ -2633,7 +2633,7 @@
       ],
       "is_usage_slot": true,
       "usage_slot_name": "recordIdentifier",
-      "range": "identifier",
+      "range": "Identifier",
       "@type": "SlotDefinition"
     },
     {
@@ -2673,7 +2673,7 @@
       ],
       "is_usage_slot": true,
       "usage_slot_name": "derivedFrom",
-      "range": "identifier",
+      "range": "Identifier",
       "@type": "SlotDefinition"
     },
     {
@@ -2691,7 +2691,7 @@
       ],
       "is_usage_slot": true,
       "usage_slot_name": "dateRecordCreated",
-      "range": "dateTime",
+      "range": "DateTime",
       "@type": "SlotDefinition"
     },
     {
@@ -3323,9 +3323,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "ga4gh_va_schema.yaml",
-  "source_file_date": "2023-04-17T12:38:51",
+  "source_file_date": "2023-04-17T13:43:45",
   "source_file_size": 62480,
-  "generation_date": "2023-04-17T12:38:54",
+  "generation_date": "2023-04-17T13:43:48",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/ga4gh_va_schema.context.jsonld",

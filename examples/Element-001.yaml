@@ -1,0 +1,5 @@
+# Example Element data object
+---
+id: example:Element001
+type: Element
+description: Foo description

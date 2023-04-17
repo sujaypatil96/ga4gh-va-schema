@@ -1,5 +1,5 @@
 # Auto generated from ga4gh_va_schema.yaml by pythongen.py version: 0.9.0
-# Generation date: 2023-04-17T12:39:09
+# Generation date: 2023-04-17T13:44:03
 # Schema: GA4GH-VA-Core-IM
 #
 # id: https://w3id.org/ga4gh-va-core-im
@@ -52,7 +52,7 @@ class Url(string):
     """ A string representing a Uniform Resource Locator (RFC 1738), specifying a web address where a resource can be found or information about the resource discovered. """
     type_class_uri = XSD.string
     type_class_curie = "xsd:string"
-    type_name = "url"
+    type_name = "Url"
     type_model_uri = VACOREIM.Url
 
 
@@ -60,7 +60,7 @@ class Class(string):
     """ A string representing a class in a VA model used to type an object in the data. """
     type_class_uri = XSD.string
     type_class_curie = "xsd:string"
-    type_name = "class"
+    type_name = "Class"
     type_model_uri = VACOREIM.Class
 
 
@@ -68,7 +68,7 @@ class DateTime(string):
     """ A string value that specifies a date and time of day comprised of a year, month, day, hour, minute, and second, following the form “YYYY-MM-DDThh:mm:ss” """
     type_class_uri = XSD.string
     type_class_curie = "xsd:string"
-    type_name = "dateTime"
+    type_name = "DateTime"
     type_model_uri = VACOREIM.DateTime
 
 
@@ -76,7 +76,7 @@ class Identifier(string):
     """ A string value that uniquely identifies a specific instance of an object in a dataset or document. Identifiers should be persistent, machine-resolvable, and unique within their intended scope of use. """
     type_class_uri = XSD.string
     type_class_curie = "xsd:string"
-    type_name = "identifier"
+    type_name = "Identifier"
     type_model_uri = VACOREIM.Identifier
 
 

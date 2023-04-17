@@ -17,11 +17,11 @@ prefixes:
 default_prefix: vacoreim
 default_range: string
 types:
-  url:
+  Url:
     description: A string representing a Uniform Resource Locator (RFC 1738), specifying
       a web address where a resource can be found or information about the resource
       discovered.
-    title: url
+    title: Url
     comments:
     - 'Used in place of a plain string datatype when a resolvable web address for
       a resource is desired.  Common URL protocols are http{s}:, ftp:, mailto: and
@@ -29,10 +29,10 @@ types:
     from_schema: https://w3id.org/ga4gh-va-core-im
     base: string
     uri: xsd:string
-  class:
+  Class:
     description: A string representing a class in a VA model used to type an object
       in the data.
-    title: class
+    title: Class
     comments:
     - This string must be the name of a concrete class from the core VA specification
       (e.g. 'Statement'), or a specialization of such a class in a profile defined
@@ -40,10 +40,10 @@ types:
     from_schema: https://w3id.org/ga4gh-va-core-im
     base: string
     uri: xsd:string
-  dateTime:
+  DateTime:
     description: "A string value that specifies a date and time of day comprised of\
       \ a year, month, day, hour, minute, and second, following the form \u201CYYYY-MM-DDThh:mm:ss\u201D"
-    title: dateTime
+    title: DateTime
     comments:
     - "Conventions for representing date + time defined here are based on the ISO\
       \ 8601 standard. Hours of the day should use 24-hour time (e.g. 2PM = 14:00:00).\
@@ -55,11 +55,11 @@ types:
     from_schema: https://w3id.org/ga4gh-va-core-im
     base: string
     uri: xsd:string
-  identifier:
+  Identifier:
     description: A string value that uniquely identifies a specific instance of an
       object in a dataset or document. Identifiers should be persistent, machine-resolvable,
       and unique within their intended scope of use.
-    title: identifier
+    title: Identifier
     comments:
     - "We distinguish between two types of identifiers depending on their intended\
       \ scope of use. \u2018Logical identifiers\u2019 are used to identify a data\
@@ -218,7 +218,7 @@ classes:
         description: The schema class that is instantiated by the data object.  Must
           be the name of a class from the VA schema.
         multivalued: false
-        range: class
+        range: Class
         required: true
       description:
         description: A free text description of the Element.
@@ -267,7 +267,7 @@ classes:
         exact_mappings:
         - FHIR:id
         multivalued: false
-        range: identifier
+        range: Identifier
         required: true
       identifiers:
         description: A business identifier or accession number for the entity, typically
@@ -281,7 +281,7 @@ classes:
         exact_mappings:
         - FHIR:identifier
         multivalued: true
-        range: identifier
+        range: Identifier
         required: false
       label:
         description: A primary name for the Entity.
@@ -295,7 +295,7 @@ classes:
         - This attribute is meant to point directly to locations on the web where
           more information about the Entity can be found.
         multivalued: true
-        range: url
+        range: Url
         required: false
       xrefs:
         description: Cross-references to database identifier(s) representing the same
@@ -365,7 +365,7 @@ classes:
           (e.g. as a VA-based json object) would live in a RecordMetadata object attached
           to the Information Entity).
         multivalued: false
-        range: dateTime
+        range: DateTime
         required: false
       specifiedBy:
         description: A particular plan specification that describes all or part of
@@ -480,7 +480,7 @@ classes:
         comments:
         - This attribute may apply to version and distribution-level Data Set representations.
         multivalued: false
-        range: dateTime
+        range: DateTime
         required: false
       license:
         description: The type of license that dictates legal permissions for how the
@@ -969,7 +969,7 @@ classes:
         - A simple 'date' attribute is used when data creators do not care to capture
           specific start and end dates or times for an Activity.
         multivalued: false
-        range: dateTime
+        range: DateTime
         required: false
       performedBy:
         description: An Agent who participated in executing the Activity.
@@ -1207,7 +1207,7 @@ classes:
         comments:
         - Either an id, label, or both must be provided.
         multivalued: false
-        range: identifier
+        range: Identifier
         required: false
       label:
         description: "The human-readable name for the coded concept, as defined by\
@@ -1226,7 +1226,7 @@ classes:
       systemURL:
         description: A URL where the code system can be found.
         multivalued: false
-        range: url
+        range: Url
         required: false
       systemVersion:
         description: The version of the code system.
@@ -1266,7 +1266,7 @@ classes:
       systemURL:
         description: A URL for the nomenclature system
         multivalued: false
-        range: url
+        range: Url
         required: false
       systemVersion:
         description: The version of the nomenclature system.
@@ -1336,7 +1336,7 @@ classes:
           be created that describes this upstream source recrod, including infromation
           about its submission to ClinVar.
         multivalued: false
-        range: identifier
+        range: Identifier
         required: false
       recordVersion:
         description: The version number of the record-level artifact the object describes
@@ -1349,12 +1349,12 @@ classes:
         comments:
         - Value should be a string representing the identifier of the source record.
         multivalued: true
-        range: identifier
+        range: Identifier
         required: false
       dateRecordCreated:
         description: The date the record was initially created.
         multivalued: false
-        range: dateTime
+        range: DateTime
         required: false
       contributions:
         description: Links to a 'Contribution' object allowing richer representation
