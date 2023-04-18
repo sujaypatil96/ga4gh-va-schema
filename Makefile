@@ -20,6 +20,7 @@ SHEET_MODULE = ga4gh_va_schema
 SHEET_ID = $(shell ${SHELL} ./utils/get-value.sh google_sheet_id)
 SHEET_TABS = $(shell ${SHELL} ./utils/get-value.sh google_sheet_tabs)
 SHEET_MODULE_PATH = $(SOURCE_SCHEMA_DIR)/$(SHEET_MODULE).yaml
+DOC_TEMPLATES = src/doc-templates
 
 # environment variables
 GEN_PARGS =
@@ -154,7 +155,7 @@ $(DOCDIR):
 
 gendoc: $(DOCDIR)
 	cp $(SRC)/docs/*md $(DOCDIR) ; \
-	$(RUN) gen-doc ${GEN_DARGS} -d $(DOCDIR) $(SOURCE_SCHEMA_PATH)
+	$(RUN) gen-doc ${GEN_DARGS} -d $(DOCDIR) $(SOURCE_SCHEMA_PATH) --template-directory $(DOC_TEMPLATES)
 
 testdoc: gendoc serve
 
