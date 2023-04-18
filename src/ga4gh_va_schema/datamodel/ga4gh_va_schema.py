@@ -1,5 +1,5 @@
 # Auto generated from ga4gh_va_schema.yaml by pythongen.py version: 0.9.0
-# Generation date: 2023-04-18T09:41:30
+# Generation date: 2023-04-18T09:42:11
 # Schema: GA4GH-VA-Core-IM
 #
 # id: https://w3id.org/ga4gh-va-core-im

@@ -3267,9 +3267,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "ga4gh_va_schema.yaml",
-  "source_file_date": "2023-04-18T09:41:11",
+  "source_file_date": "2023-04-18T09:41:51",
   "source_file_size": 62338,
-  "generation_date": "2023-04-18T09:41:15",
+  "generation_date": "2023-04-18T09:41:54",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/ga4gh_va_schema.context.jsonld",
