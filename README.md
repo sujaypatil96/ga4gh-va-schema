@@ -1,6 +1,8 @@
-# ga4gh-va-schema
+# GA4GH Variant Annotation Schema
 
-This is the project description.
+The GA4GH Variant Annotation Schema, also called the *GA4GH Variant Annotation Core Information Model* is a data model that describes the structure of the metadata that the GA4GH expects for variant annotation tasks.
+
+The core schema, or *data model* is written in the [linkml](https://github.com/linkml/linkml) framework. There are multiple artifacts that are generated from the linkml schema which can be found in [project](project/). The data model can also be used by importing the Python dataclasses that are generated [here](src/ga4gh_va_schema/datamodel/).
 
 ## Website
 
