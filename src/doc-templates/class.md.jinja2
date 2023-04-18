@@ -34,7 +34,7 @@ URI: {{ gen.uri_link(element) }}
 | ---  | --- | --- | --- |
 {% if gen.get_direct_slots(element)|length > 0 %}
 {%- for slot in gen.get_direct_slots(element) -%}
-| {{ gen.link(slot) }} | {{ gen.cardinality(slot) }} <br/> {{ gen.link(slot.range) }} | {{ slot.description }} | direct |
+| {{ gen.link(slot) }} | {{ gen.cardinality(schemaview.induced_slot(slot.name, element.name)) }} <br/> {{ gen.link(schemaview.induced_slot(slot.name, element.name).range) }} | {{ schemaview.induced_slot(slot.name, element.name).description }} | direct |
 {% endfor -%}
 {% endif -%}
 {% if gen.get_indirect_slots(element)|length > 0 %}
