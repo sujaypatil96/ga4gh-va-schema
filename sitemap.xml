@@ -206,6 +206,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://sujaypatil96.github.io/ga4gh-va-schema/about/</loc>
+         <lastmod>2023-04-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/activity/</loc>
          <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
