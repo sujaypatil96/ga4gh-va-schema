@@ -304,32 +304,32 @@
 <tbody>
 <tr>
 <td><a href="../subtype/">subtype</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>None</td>
+<td>0..1 <br/> <a href="../Coding/">Coding</a></td>
+<td>A specific type of evidence the EvidenceLine object represents (e.g. 'mutant phenotype evidence', 'evidence from manual interpretation', 'ACMG PM2 evidence')</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../targetProposition/">targetProposition</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>None</td>
+<td>0..1 <br/> <a href="../Proposition/">Proposition</a></td>
+<td>The proposition against which the evidence items were evaluated, in determining the overall strength and direction of evidence they provide (as captured in the Evidence Line)</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../evidenceItems/">evidenceItems</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>None</td>
+<td>0..* <br/> <a href="../InformationEntity/">InformationEntity</a></td>
+<td>An Information Entity that was evaluated in making the argument represented by the Evidence Lines.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../directionOfEvidenceProvided/">directionOfEvidenceProvided</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>None</td>
+<td>0..1 <br/> <a href="../Coding/">Coding</a></td>
+<td>The direction of support that the Evidence Line is determined to provide for its target Proposition (can be supporting, disputing, or neutral)</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../strengthOfEvidenceProvided/">strengthOfEvidenceProvided</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>None</td>
+<td>0..1 <br/> <a href="../Coding/">Coding</a></td>
+<td>The strength of support that an Evidence Line is determined to provide for or against its target Proposition.</td>
 <td>direct</td>
 </tr>
 <tr>

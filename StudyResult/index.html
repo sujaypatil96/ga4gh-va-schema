@@ -291,26 +291,26 @@
 <tbody>
 <tr>
 <td><a href="../subtype/">subtype</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>None</td>
+<td>0..1 <br/> <a href="../Coding/">Coding</a></td>
+<td>A specific type of result the StudyResult object represents (e.g. an 'Population Allele Frequency Study Result')</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../focus/">focus</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>None</td>
+<td>0..1 <br/> <a href="../Entity/">Entity</a></td>
+<td>The specific subject or experimental unit in the Research Study that data in the Result is about, and which guides the selection of data that is included within a single Study Result object.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../dataItems/">dataItems</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>None</td>
+<td>0..* <br/> <a href="../DataItem/">DataItem</a></td>
+<td>A piece of data from the source Study that is included in the Result, and pertains to the entity that is the 'focus'. Can be data directly about the focus, or metadata relevant to how this data was generated.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../derivedFrom/">derivedFrom</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>None</td>
+<td>0..1 <br/> <a href="../DataSet/">DataSet</a></td>
+<td>A larger Data Set from which the content of the Result was derived.</td>
 <td>direct</td>
 </tr>
 <tr>

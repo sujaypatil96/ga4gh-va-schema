@@ -261,32 +261,32 @@
 <tbody>
 <tr>
 <td><a href="../recordIdentifier/">recordIdentifier</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>None</td>
+<td>0..1 <br/> <a href="../Identifier/">Identifier</a></td>
+<td>The business identifier of the record described in the RecordMetadata object (required when the record described is not the one in the present system)</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../recordVersion/">recordVersion</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td>None</td>
+<td>The version number of the record-level artifact the object describes</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../derivedFrom/">derivedFrom</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>None</td>
+<td>0..* <br/> <a href="../Identifier/">Identifier</a></td>
+<td>Another data record from which the record described here was derived.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../dateRecordCreated/">dateRecordCreated</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>None</td>
+<td>0..1 <br/> <a href="../DateTime/">DateTime</a></td>
+<td>The date the record was initially created.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../contributions/">contributions</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>None</td>
+<td>0..* <br/> <a href="../Contribution/">Contribution</a></td>
+<td>Links to a 'Contribution' object allowing richer representation of specific types of contributions made by an agent to the creation, modification, or administrative management of a record.</td>
 <td>direct</td>
 </tr>
 <tr>

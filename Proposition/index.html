@@ -287,44 +287,44 @@
 <tbody>
 <tr>
 <td><a href="../subtype/">subtype</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>None</td>
+<td>0..1 <br/> <a href="../Coding/">Coding</a></td>
+<td>A specific type of proposition the Proposition object represents (e.g. a 'Variant Pathogenicity Proposition', or 'Molecular Consequence Proposition')</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../propositionText/">propositionText</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td>None</td>
+<td>A natural-language expression of the Proposition's meaning.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../subject/">subject</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>None</td>
+<td>1..1 <br/> <a href="../Element/">Element</a></td>
+<td>The Entity about which the Proposition is made.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../predicate/">predicate</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>None</td>
+<td>1..1 <br/> <a href="../Coding/">Coding</a></td>
+<td>The relationship asserted to hold between the subject and the object of the Proposition.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../object/">object</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>None</td>
+<td>1..1 <br/> <a href="../Element/">Element</a></td>
+<td>An Entity, concept, or value that is related to the subject of a Proposition via its predicate.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../qualifiers/">qualifiers</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>None</td>
+<td>0..* <br/> <a href="../Element/">Element</a></td>
+<td>A value or concept that extends or refines the meaning of the Proposition expressed by the core subject - predicate - object 'triple' - e.g. by providing additional information/detail, or constraining the claim to apply in a particular context.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../negated/">negated</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>None</td>
+<td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
+<td>A boolean flag set to 'true' if the statement expressed by the subject, predicate, object, and qualifier(s) is explicitly asserted to be false.</td>
 <td>direct</td>
 </tr>
 <tr>

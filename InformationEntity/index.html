@@ -305,32 +305,32 @@
 <tbody>
 <tr>
 <td><a href="../contributions/">contributions</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>None</td>
+<td>0..* <br/> <a href="../Contribution/">Contribution</a></td>
+<td>A specific contribution made by some Agent to the creation, modification, or validation of the information represented in the Information Entity.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../dateAuthored/">dateAuthored</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>None</td>
+<td>0..1 <br/> <a href="../DateTime/">DateTime</a></td>
+<td>The date the information content expressed in this entity was generated.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../specifiedBy/">specifiedBy</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>None</td>
+<td>0..* <br/> <a href="../Method/">Method</a></td>
+<td>A particular plan specification that describes all or part of the process that led to creation of the reported information (e.g. a specific experimental protocol, analysis specification, cohort selection criteria, interpretation guideline, etc.).</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../derivedFrom/">derivedFrom</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>None</td>
+<td>0..* <br/> <a href="./">InformationEntity</a></td>
+<td>An information resource from which the Information Entity is derived, in whole or in part</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../reportedIn/">reportedIn</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>None</td>
+<td>0..* <br/> <a href="../Document/">Document</a></td>
+<td>A document in which the information content carried by the Information Entity is expressed</td>
 <td>direct</td>
 </tr>
 <tr>

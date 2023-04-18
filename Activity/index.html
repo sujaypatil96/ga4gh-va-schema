@@ -287,38 +287,38 @@
 <tbody>
 <tr>
 <td><a href="../subtype/">subtype</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>None</td>
+<td>0..1 <br/> <a href="../Coding/">Coding</a></td>
+<td>A specific type of activity this Activity object may represent</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../date/">date</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>None</td>
+<td>0..1 <br/> <a href="../DateTime/">DateTime</a></td>
+<td>The date (or a specifiec time on a date) that the Activitywas performed</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../performedBy/">performedBy</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>None</td>
+<td>0..* <br/> <a href="../Agent/">Agent</a></td>
+<td>An Agent who participated in executing the Activity.</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../input/">input</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>None</td>
+<td>0..* <br/> <a href="../Entity/">Entity</a></td>
+<td>An entity that was input into the Activity (could be material or information)</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../output/">output</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>None</td>
+<td>0..* <br/> <a href="../Entity/">Entity</a></td>
+<td>An entity that was output from the Activity (could be material or information)</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../specifiedBy/">specifiedBy</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>None</td>
+<td>0..* <br/> <a href="../Method/">Method</a></td>
+<td>A directive specification followed in performing an Activity, that describes how it should be executed.</td>
 <td>direct</td>
 </tr>
 <tr>
