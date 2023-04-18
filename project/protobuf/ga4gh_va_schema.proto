@@ -282,10 +282,11 @@ message Statement
  repeated  document reportedIn = 0
   coding subtype = 0
   string statementText = 0
+  proposition proposition = 0
   coding confidenceDirection = 0
   coding confidenceLevel = 0
   dataItem confidenceScore = 0
-  string evidenceDirection = 0
+  coding evidenceDirection = 0
   coding evidenceLevel = 0
   dataItem evidenceScore = 0
   coding conclusion = 0

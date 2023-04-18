@@ -282,6 +282,7 @@ CREATE TABLE "Statement" (
 	"reportedIn" TEXT, 
 	subtype TEXT, 
 	"statementText" TEXT, 
+	proposition TEXT, 
 	"confidenceDirection" TEXT, 
 	"confidenceLevel" TEXT, 
 	"confidenceScore" TEXT, 
@@ -292,7 +293,7 @@ CREATE TABLE "Statement" (
 	"hasEvidence" TEXT, 
 	"hasEvidenceLines" TEXT, 
 	"hasEvidenceOfTypes" TEXT, 
-	PRIMARY KEY (type, description, extensions, id, identifiers, label, urls, xrefs, "recordMetadata", contributions, "dateAuthored", "specifiedBy", "derivedFrom", "reportedIn", subtype, "statementText", "confidenceDirection", "confidenceLevel", "confidenceScore", "evidenceDirection", "evidenceLevel", "evidenceScore", conclusion, "hasEvidence", "hasEvidenceLines", "hasEvidenceOfTypes")
+	PRIMARY KEY (type, description, extensions, id, identifiers, label, urls, xrefs, "recordMetadata", contributions, "dateAuthored", "specifiedBy", "derivedFrom", "reportedIn", subtype, "statementText", proposition, "confidenceDirection", "confidenceLevel", "confidenceScore", "evidenceDirection", "evidenceLevel", "evidenceScore", conclusion, "hasEvidence", "hasEvidenceLines", "hasEvidenceOfTypes")
 );
 
 CREATE TABLE "StudyResult" (

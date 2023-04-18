@@ -8,7 +8,15 @@ vacoreim:Activity a sh:NodeShape ;
     sh:description "An action or set of actions performed by an agent, that occurs over a period of time. Activities may use, generate, modify, move, or destroy one or more entities." ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:name "Activity" ;
-    sh:property [ sh:class vacoreim:Entity ;
+    sh:property [ sh:description "Cross-references to database identifier(s) representing the same (or a closely related) entity or concept as the Entity." ;
+            sh:order 10 ;
+            sh:path vacoreim:xrefs ],
+        [ sh:class vacoreim:Extension ;
+            sh:description "A key-value data structure that allows definition of custom fields to capture information not directly supported by the VA specification." ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 14 ;
+            sh:path vacoreim:extensions ],
+        [ sh:class vacoreim:Entity ;
             sh:description "An entity that was output from the Activity (could be material or information)" ;
             sh:nodeKind sh:BlankNode ;
             sh:order 4 ;
@@ -17,31 +25,32 @@ vacoreim:Activity a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:order 1 ;
             sh:path vacoreim:date ],
+        [ sh:description "The logical identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 6 ;
+            sh:path vacoreim:id ],
         [ sh:description "A free text description of the Element." ;
             sh:maxCount 1 ;
             sh:order 13 ;
             sh:path vacoreim:description ],
+        [ sh:description "The URL/web address of a digital resource representing the entity, or providing information about it." ;
+            sh:order 9 ;
+            sh:path vacoreim:urls ],
+        [ sh:description "The schema class that is instantiated by the data object.  Must be the name of a class from the VA schema." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 12 ;
+            sh:path vacoreim:type ],
         [ sh:class vacoreim:RecordMetadata ;
             sh:description "A reusable structure that encapsulates provenance metadata about the present record/data object  (as opposed to provenance information about the real world entity this record/data object represents)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
             sh:order 11 ;
             sh:path vacoreim:recordMetadata ],
-        [ sh:description "A primary name for the Entity." ;
-            sh:maxCount 1 ;
-            sh:order 8 ;
-            sh:path vacoreim:label ],
         [ sh:description "A business identifier or accession number for the entity, typically as provided by an external system or authority, that is globally unique and persists across implementing systems." ;
             sh:order 7 ;
             sh:path vacoreim:identifiers ],
-        [ sh:description "The logical identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 6 ;
-            sh:path vacoreim:id ],
-        [ sh:description "Cross-references to database identifier(s) representing the same (or a closely related) entity or concept as the Entity." ;
-            sh:order 10 ;
-            sh:path vacoreim:xrefs ],
         [ sh:class vacoreim:Entity ;
             sh:description "An entity that was input into the Activity (could be material or information)" ;
             sh:nodeKind sh:BlankNode ;
@@ -52,30 +61,21 @@ vacoreim:Activity a sh:NodeShape ;
             sh:nodeKind sh:BlankNode ;
             sh:order 2 ;
             sh:path vacoreim:performedBy ],
-        [ sh:class vacoreim:Extension ;
-            sh:description "A key-value data structure that allows definition of custom fields to capture information not directly supported by the VA specification." ;
+        [ sh:class vacoreim:Method ;
+            sh:description "A directive specification followed in performing an Activity, that describes how it should be executed." ;
             sh:nodeKind sh:BlankNode ;
-            sh:order 14 ;
-            sh:path vacoreim:extensions ],
-        [ sh:description "The schema class that is instantiated by the data object.  Must be the name of a class from the VA schema." ;
+            sh:order 5 ;
+            sh:path vacoreim:specifiedBy ],
+        [ sh:description "A primary name for the Entity." ;
             sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 12 ;
-            sh:path vacoreim:type ],
-        [ sh:description "The URL/web address of a digital resource representing the entity, or providing information about it." ;
-            sh:order 9 ;
-            sh:path vacoreim:urls ],
+            sh:order 8 ;
+            sh:path vacoreim:label ],
         [ sh:class vacoreim:Coding ;
             sh:description "A specific type of activity this Activity object may represent" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
             sh:order 0 ;
-            sh:path vacoreim:subtype ],
-        [ sh:class vacoreim:Method ;
-            sh:description "A directive specification followed in performing an Activity, that describes how it should be executed." ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 5 ;
-            sh:path vacoreim:specifiedBy ] ;
+            sh:path vacoreim:subtype ] ;
     sh:targetClass vacoreim:Activity .
 
 vacoreim:Expression a sh:NodeShape ;
@@ -88,33 +88,33 @@ vacoreim:Expression a sh:NodeShape ;
             sh:minCount 1 ;
             sh:order 0 ;
             sh:path vacoreim:value ],
-        [ sh:description "A URL for the nomenclature system" ;
-            sh:maxCount 1 ;
-            sh:order 2 ;
-            sh:path vacoreim:systemURL ],
-        [ sh:class vacoreim:Extension ;
-            sh:description "A key-value data structure that allows definition of custom fields to capture information not directly supported by the VA specification." ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 6 ;
-            sh:path vacoreim:extensions ],
-        [ sh:description "The version of the nomenclature system." ;
-            sh:maxCount 1 ;
-            sh:order 3 ;
-            sh:path vacoreim:systemVersion ],
-        [ sh:description "The schema class that is instantiated by the data object.  Must be the name of a class from the VA schema." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 4 ;
-            sh:path vacoreim:type ],
         [ sh:description "The nomenclature system that created and assigned the expression." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 1 ;
             sh:path vacoreim:system ],
+        [ sh:description "The schema class that is instantiated by the data object.  Must be the name of a class from the VA schema." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 4 ;
+            sh:path vacoreim:type ],
         [ sh:description "A free text description of the Element." ;
             sh:maxCount 1 ;
             sh:order 5 ;
-            sh:path vacoreim:description ] ;
+            sh:path vacoreim:description ],
+        [ sh:description "A URL for the nomenclature system" ;
+            sh:maxCount 1 ;
+            sh:order 2 ;
+            sh:path vacoreim:systemURL ],
+        [ sh:description "The version of the nomenclature system." ;
+            sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path vacoreim:systemVersion ],
+        [ sh:class vacoreim:Extension ;
+            sh:description "A key-value data structure that allows definition of custom fields to capture information not directly supported by the VA specification." ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 6 ;
+            sh:path vacoreim:extensions ] ;
     sh:targetClass vacoreim:Expression .
 
 vacoreim:Statement a sh:NodeShape ;
@@ -122,133 +122,141 @@ vacoreim:Statement a sh:NodeShape ;
     sh:description "An information entity expressing a declarative sentence that is either true or false." ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:name "Statement" ;
-    sh:property [ sh:class vacoreim:EvidenceLine ;
-            sh:description "A discrete, independent argument relevant to the validity of the Proposition put forth in the Statement, which is based on the interpretation of one or more pieces of information as evidence." ;
+    sh:property [ sh:class vacoreim:Extension ;
+            sh:description "A key-value data structure that allows definition of custom fields to capture information not directly supported by the VA specification." ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 26 ;
+            sh:path vacoreim:extensions ],
+        [ sh:class vacoreim:InformationEntity ;
+            sh:description "A piece of information that represents or contributes to an argument for or against the validity of the Proposition put forth in a Statement." ;
             sh:nodeKind sh:BlankNode ;
             sh:order 10 ;
-            sh:path vacoreim:hasEvidenceLines ],
+            sh:path vacoreim:hasEvidence ],
+        [ sh:description "Cross-references to database identifier(s) representing the same (or a closely related) entity or concept as the Entity." ;
+            sh:order 22 ;
+            sh:path vacoreim:xrefs ],
+        [ sh:description "A business identifier or accession number for the entity, typically as provided by an external system or authority, that is globally unique and persists across implementing systems." ;
+            sh:order 19 ;
+            sh:path vacoreim:identifiers ],
+        [ sh:class vacoreim:Coding ;
+            sh:description "A term describing the asserting agent's level of confidence about the Statement's proposition (i.e. how confident they are that it is true or false)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 4 ;
+            sh:path vacoreim:confidenceLevel ],
+        [ sh:class vacoreim:RecordMetadata ;
+            sh:description "A reusable structure that encapsulates provenance metadata about the present record/data object  (as opposed to provenance information about the real world entity this record/data object represents)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 23 ;
+            sh:path vacoreim:recordMetadata ],
+        [ sh:class vacoreim:Method ;
+            sh:description "A particular plan specification that describes all or part of the process that led to creation of the reported information (e.g. a specific experimental protocol, analysis specification, cohort selection criteria, interpretation guideline, etc.)." ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 15 ;
+            sh:path vacoreim:specifiedBy ],
+        [ sh:class vacoreim:InformationEntity ;
+            sh:description "An information resource from which the Information Entity is derived, in whole or in part" ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 16 ;
+            sh:path vacoreim:derivedFrom ],
+        [ sh:class vacoreim:Coding ;
+            sh:description "A term indicating the overall strength of support for or against the Statement's proposition, as provided by all evidence evaluated." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 7 ;
+            sh:path vacoreim:evidenceLevel ],
+        [ sh:class vacoreim:Coding ;
+            sh:description "A term indicating the net direction of all evidence assessed against the Statement's proposition." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 6 ;
+            sh:path vacoreim:evidenceDirection ],
         [ sh:class vacoreim:Coding ;
             sh:description "A specific type of statement the Statement object represents (e.g. a 'Variant Pathogenicity Statement', or 'Therapeutic Response Evidence Level Statement')" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
             sh:order 0 ;
             sh:path vacoreim:subtype ],
-        [ sh:class vacoreim:Coding ;
-            sh:description "A term indicating the overall strength of support for or against the Statement's proposition, as provided by all evidence evaluated." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 6 ;
-            sh:path vacoreim:evidenceLevel ],
-        [ sh:description "The URL/web address of a digital resource representing the entity, or providing information about it." ;
-            sh:order 20 ;
-            sh:path vacoreim:urls ],
-        [ sh:class vacoreim:Coding ;
-            sh:description "A term describing the asserting agent's level of confidence about the Statement's proposition (i.e. how confident they are that it is true or false)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 3 ;
-            sh:path vacoreim:confidenceLevel ],
-        [ sh:class vacoreim:RecordMetadata ;
-            sh:description "A reusable structure that encapsulates provenance metadata about the present record/data object  (as opposed to provenance information about the real world entity this record/data object represents)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 22 ;
-            sh:path vacoreim:recordMetadata ],
-        [ sh:class vacoreim:Coding ;
-            sh:description "A term describing a type of evidence used to assess the validity of Statement's proposition (e.g. 'sequence similarity evidence', 'in vitro assay evidence')." ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 11 ;
-            sh:path vacoreim:hasEvidenceOfTypes ],
-        [ sh:class vacoreim:Extension ;
-            sh:description "A key-value data structure that allows definition of custom fields to capture information not directly supported by the VA specification." ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 25 ;
-            sh:path vacoreim:extensions ],
-        [ sh:description "A primary name for the Entity." ;
-            sh:maxCount 1 ;
-            sh:order 19 ;
-            sh:path vacoreim:label ],
-        [ sh:class vacoreim:Document ;
-            sh:description "A document in which the information content carried by the Information Entity is expressed" ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 16 ;
-            sh:path vacoreim:reportedIn ],
-        [ sh:class vacoreim:InformationEntity ;
-            sh:description "An information resource from which the Information Entity is derived, in whole or in part" ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 15 ;
-            sh:path vacoreim:derivedFrom ],
         [ sh:class vacoreim:DataItem ;
-            sh:description "A quantitative score reflecting the asserting agent's level of confidence in the Statement's proposition. For PropositionAssessmentStatements, the direction this confidence pertains to (i.e. the truth or falsehood of the proposition) is captured in the confidenceDirection attribute." ;
+            sh:description "A quantitative score the asserting agent's level of confidence about the Statement's proposition (i.e. how confident they are that it is true or false)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
-            sh:order 4 ;
+            sh:order 5 ;
             sh:path vacoreim:confidenceScore ],
-        [ sh:class vacoreim:Coding ;
-            sh:description "A term indicating whether the confidenceLevel and/or confidenceScore values reflect confidence that the statement's proposition is true or false." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 2 ;
-            sh:path vacoreim:confidenceDirection ],
-        [ sh:class vacoreim:InformationEntity ;
-            sh:description "A piece of information that represents or contributes to an argument for or against the validity of the Proposition put forth in a Statement." ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 9 ;
-            sh:path vacoreim:hasEvidence ],
-        [ sh:description "The logical identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 17 ;
-            sh:path vacoreim:id ],
-        [ sh:class vacoreim:Method ;
-            sh:description "A particular plan specification that describes all or part of the process that led to creation of the reported information (e.g. a specific experimental protocol, analysis specification, cohort selection criteria, interpretation guideline, etc.)." ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 14 ;
-            sh:path vacoreim:specifiedBy ],
-        [ sh:description "A business identifier or accession number for the entity, typically as provided by an external system or authority, that is globally unique and persists across implementing systems." ;
-            sh:order 18 ;
-            sh:path vacoreim:identifiers ],
-        [ sh:description "A free text description of the Element." ;
-            sh:maxCount 1 ;
-            sh:order 24 ;
-            sh:path vacoreim:description ],
         [ sh:class vacoreim:DataItem ;
             sh:description "A quantitative score reflecting the overall strength of support for or against the Statement's proposition, as provided by all evidence evaluated." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
-            sh:order 7 ;
+            sh:order 8 ;
             sh:path vacoreim:evidenceScore ],
-        [ sh:class vacoreim:Contribution ;
-            sh:description "A specific contribution made by some Agent to the creation, modification, or validation of the information represented in the Information Entity." ;
+        [ sh:class vacoreim:Coding ;
+            sh:description "A term describing a type of evidence used to assess the validity of Statement's proposition (e.g. 'sequence similarity evidence', 'in vitro assay evidence')." ;
             sh:nodeKind sh:BlankNode ;
             sh:order 12 ;
-            sh:path vacoreim:contributions ],
-        [ sh:description "The schema class that is instantiated by the data object.  Must be the name of a class from the VA schema." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 23 ;
-            sh:path vacoreim:type ],
-        [ sh:description "The date the information content expressed in this entity was generated." ;
-            sh:maxCount 1 ;
-            sh:order 13 ;
-            sh:path vacoreim:dateAuthored ],
-        [ sh:class vacoreim:Coding ;
-            sh:description "A term that describes a final conclusion about the subject of a Statement's proposition, based on what the proposition claims, and confidence and evidence level and direction assessments." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 8 ;
-            sh:path vacoreim:conclusion ],
+            sh:path vacoreim:hasEvidenceOfTypes ],
         [ sh:description "A natural-language expression of what the Statement asserts to be true." ;
             sh:maxCount 1 ;
             sh:order 1 ;
             sh:path vacoreim:statementText ],
-        [ sh:description "Cross-references to database identifier(s) representing the same (or a closely related) entity or concept as the Entity." ;
-            sh:order 21 ;
-            sh:path vacoreim:xrefs ],
-        [ sh:description "A term indicating the net direction of all evidence assessed against the Statement's proposition." ;
+        [ sh:class vacoreim:Coding ;
+            sh:description "A term indicating whether the confidenceLevel and/or confidenceScore values reflect confidence that the statement's proposition is true or false." ;
             sh:maxCount 1 ;
-            sh:order 5 ;
-            sh:path vacoreim:evidenceDirection ] ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 3 ;
+            sh:path vacoreim:confidenceDirection ],
+        [ sh:class vacoreim:Proposition ;
+            sh:description "A possible fact (Proposition) that the Statement is about.  A Statement may say any or all of the following about its Proposition: (1) simply report its as being true; (2) describe the author's degree of confidence in the its truth; (3) report the author's assessment of the level and direction of evidence backing it." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 2 ;
+            sh:path vacoreim:proposition ],
+        [ sh:description "The date the information content expressed in this entity was generated." ;
+            sh:maxCount 1 ;
+            sh:order 14 ;
+            sh:path vacoreim:dateAuthored ],
+        [ sh:description "A primary name for the Entity." ;
+            sh:maxCount 1 ;
+            sh:order 20 ;
+            sh:path vacoreim:label ],
+        [ sh:description "The logical identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 18 ;
+            sh:path vacoreim:id ],
+        [ sh:class vacoreim:Document ;
+            sh:description "A document in which the information content carried by the Information Entity is expressed" ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 17 ;
+            sh:path vacoreim:reportedIn ],
+        [ sh:class vacoreim:EvidenceLine ;
+            sh:description "A discrete, independent argument relevant to the validity of the Proposition put forth in the Statement, which is based on the interpretation of one or more pieces of information as evidence." ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 11 ;
+            sh:path vacoreim:hasEvidenceLines ],
+        [ sh:class vacoreim:Coding ;
+            sh:description "A term that describes a final conclusion about the subject of a Statement's proposition, based on what the proposition claims, and confidence and evidence level and direction assessments." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 9 ;
+            sh:path vacoreim:conclusion ],
+        [ sh:class vacoreim:Contribution ;
+            sh:description "A specific contribution made by some Agent to the creation, modification, or validation of the information represented in the Information Entity." ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 13 ;
+            sh:path vacoreim:contributions ],
+        [ sh:description "A free text description of the Element." ;
+            sh:maxCount 1 ;
+            sh:order 25 ;
+            sh:path vacoreim:description ],
+        [ sh:description "The URL/web address of a digital resource representing the entity, or providing information about it." ;
+            sh:order 21 ;
+            sh:path vacoreim:urls ],
+        [ sh:description "The schema class that is instantiated by the data object.  Must be the name of a class from the VA schema." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 24 ;
+            sh:path vacoreim:type ] ;
     sh:targetClass vacoreim:Statement .
 
 vacoreim:StudyResult a sh:NodeShape ;
@@ -256,102 +264,102 @@ vacoreim:StudyResult a sh:NodeShape ;
     sh:description "A collection of data items from a single study that are about a particular subject or experimental unit in the study  (along with optional provenance metadata describing how these data items were generated)." ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:name "Study Result" ;
-    sh:property [ sh:description "A primary name for the Entity." ;
+    sh:property [ sh:description "The logical identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system." ;
             sh:maxCount 1 ;
-            sh:order 10 ;
-            sh:path vacoreim:label ],
+            sh:minCount 1 ;
+            sh:order 8 ;
+            sh:path vacoreim:id ],
+        [ sh:description "A business identifier or accession number for the entity, typically as provided by an external system or authority, that is globally unique and persists across implementing systems." ;
+            sh:order 9 ;
+            sh:path vacoreim:identifiers ],
         [ sh:class vacoreim:Contribution ;
             sh:description "A specific contribution made by some Agent to the creation, modification, or validation of the information represented in the Information Entity." ;
             sh:nodeKind sh:BlankNode ;
             sh:order 4 ;
             sh:path vacoreim:contributions ],
-        [ sh:description "The logical identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system." ;
+        [ sh:description "Cross-references to database identifier(s) representing the same (or a closely related) entity or concept as the Entity." ;
+            sh:order 12 ;
+            sh:path vacoreim:xrefs ],
+        [ sh:class vacoreim:Method ;
+            sh:description "A particular plan specification that describes all or part of the process that led to creation of the reported information (e.g. a specific experimental protocol, analysis specification, cohort selection criteria, interpretation guideline, etc.)." ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 6 ;
+            sh:path vacoreim:specifiedBy ],
+        [ sh:class vacoreim:Extension ;
+            sh:description "A key-value data structure that allows definition of custom fields to capture information not directly supported by the VA specification." ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 16 ;
+            sh:path vacoreim:extensions ],
+        [ sh:description "The URL/web address of a digital resource representing the entity, or providing information about it." ;
+            sh:order 11 ;
+            sh:path vacoreim:urls ],
+        [ sh:description "The schema class that is instantiated by the data object.  Must be the name of a class from the VA schema." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
-            sh:order 8 ;
-            sh:path vacoreim:id ],
+            sh:order 14 ;
+            sh:path vacoreim:type ],
+        [ sh:description "The date the information content expressed in this entity was generated." ;
+            sh:maxCount 1 ;
+            sh:order 5 ;
+            sh:path vacoreim:dateAuthored ],
+        [ sh:description "A primary name for the Entity." ;
+            sh:maxCount 1 ;
+            sh:order 10 ;
+            sh:path vacoreim:label ],
         [ sh:class vacoreim:Coding ;
             sh:description "A specific type of result the StudyResult object represents (e.g. an 'Population Allele Frequency Study Result')" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
             sh:order 0 ;
             sh:path vacoreim:subtype ],
-        [ sh:class vacoreim:RecordMetadata ;
-            sh:description "A reusable structure that encapsulates provenance metadata about the present record/data object  (as opposed to provenance information about the real world entity this record/data object represents)." ;
+        [ sh:description "A free text description of the Element." ;
             sh:maxCount 1 ;
+            sh:order 15 ;
+            sh:path vacoreim:description ],
+        [ sh:class vacoreim:DataItem ;
+            sh:description "A piece of data from the source Study that is included in the Result, and pertains to the entity that is the 'focus'. Can be data directly about the focus, or metadata relevant to how this data was generated." ;
             sh:nodeKind sh:BlankNode ;
-            sh:order 13 ;
-            sh:path vacoreim:recordMetadata ],
-        [ sh:class vacoreim:Method ;
-            sh:description "A particular plan specification that describes all or part of the process that led to creation of the reported information (e.g. a specific experimental protocol, analysis specification, cohort selection criteria, interpretation guideline, etc.)." ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 6 ;
-            sh:path vacoreim:specifiedBy ],
-        [ sh:description "The date the information content expressed in this entity was generated." ;
-            sh:maxCount 1 ;
-            sh:order 5 ;
-            sh:path vacoreim:dateAuthored ],
-        [ sh:class vacoreim:Extension ;
-            sh:description "A key-value data structure that allows definition of custom fields to capture information not directly supported by the VA specification." ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 16 ;
-            sh:path vacoreim:extensions ],
-        [ sh:class vacoreim:DataSet ;
-            sh:description "A larger Data Set from which the content of the Result was derived." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 3 ;
-            sh:path vacoreim:derivedFrom ],
+            sh:order 2 ;
+            sh:path vacoreim:dataItems ],
         [ sh:class vacoreim:Entity ;
             sh:description "The specific subject or experimental unit in the Research Study that data in the Result is about, and which guides the selection of data that is included within a single Study Result object." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
             sh:order 1 ;
             sh:path vacoreim:focus ],
-        [ sh:description "The URL/web address of a digital resource representing the entity, or providing information about it." ;
-            sh:order 11 ;
-            sh:path vacoreim:urls ],
-        [ sh:class vacoreim:DataItem ;
-            sh:description "A piece of data from the source Study that is included in the Result, and pertains to the entity that is the 'focus'. Can be data directly about the focus, or metadata relevant to how this data was generated." ;
+        [ sh:class vacoreim:DataSet ;
+            sh:description "A larger Data Set from which the content of the Result was derived." ;
+            sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
-            sh:order 2 ;
-            sh:path vacoreim:dataItems ],
+            sh:order 3 ;
+            sh:path vacoreim:derivedFrom ],
+        [ sh:class vacoreim:RecordMetadata ;
+            sh:description "A reusable structure that encapsulates provenance metadata about the present record/data object  (as opposed to provenance information about the real world entity this record/data object represents)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 13 ;
+            sh:path vacoreim:recordMetadata ],
         [ sh:class vacoreim:Document ;
             sh:description "A document in which the information content carried by the Information Entity is expressed" ;
             sh:nodeKind sh:BlankNode ;
             sh:order 7 ;
-            sh:path vacoreim:reportedIn ],
-        [ sh:description "A business identifier or accession number for the entity, typically as provided by an external system or authority, that is globally unique and persists across implementing systems." ;
-            sh:order 9 ;
-            sh:path vacoreim:identifiers ],
-        [ sh:description "Cross-references to database identifier(s) representing the same (or a closely related) entity or concept as the Entity." ;
-            sh:order 12 ;
-            sh:path vacoreim:xrefs ],
-        [ sh:description "The schema class that is instantiated by the data object.  Must be the name of a class from the VA schema." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 14 ;
-            sh:path vacoreim:type ],
-        [ sh:description "A free text description of the Element." ;
-            sh:maxCount 1 ;
-            sh:order 15 ;
-            sh:path vacoreim:description ] ;
+            sh:path vacoreim:reportedIn ] ;
     sh:targetClass vacoreim:StudyResult .
 
 vacoreim:Utility a sh:NodeShape ;
     sh:closed true ;
     sh:description "An abstract organizational class that groups complex datatype-like classes - which provide re-usable collections of fields that can be plugged into other objects to capture related information." ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "The schema class that is instantiated by the data object.  Must be the name of a class from the VA schema." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 0 ;
-            sh:path vacoreim:type ],
-        [ sh:class vacoreim:Extension ;
+    sh:property [ sh:class vacoreim:Extension ;
             sh:description "A key-value data structure that allows definition of custom fields to capture information not directly supported by the VA specification." ;
             sh:nodeKind sh:BlankNode ;
             sh:order 2 ;
             sh:path vacoreim:extensions ],
+        [ sh:description "The schema class that is instantiated by the data object.  Must be the name of a class from the VA schema." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path vacoreim:type ],
         [ sh:description "A free text description of the Element." ;
             sh:maxCount 1 ;
             sh:order 1 ;
@@ -363,86 +371,86 @@ vacoreim:DataSet a sh:NodeShape ;
     sh:description "A collection of related data items or records that are organized together in a common format or structure, to enable their computational manipulation as a unit." ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:name "Data Set" ;
-    sh:property [ sh:description "A free text description of the Element." ;
+    sh:property [ sh:description "The version of the Data Set (use this field used in cases where version is not reflected in an identifier associated with the Data Set)" ;
             sh:maxCount 1 ;
-            sh:order 16 ;
-            sh:path vacoreim:description ],
+            sh:order 3 ;
+            sh:path vacoreim:version ],
+        [ sh:class vacoreim:Extension ;
+            sh:description "A key-value data structure that allows definition of custom fields to capture information not directly supported by the VA specification." ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 17 ;
+            sh:path vacoreim:extensions ],
+        [ sh:description "The logical identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 9 ;
+            sh:path vacoreim:id ],
         [ sh:description "The date when a version-level Data Set was released." ;
             sh:maxCount 1 ;
             sh:order 1 ;
             sh:path vacoreim:releaseDate ],
-        [ sh:class vacoreim:Method ;
-            sh:description "A particular plan specification that describes all or part of the process that led to creation of the reported information (e.g. a specific experimental protocol, analysis specification, cohort selection criteria, interpretation guideline, etc.)." ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 6 ;
-            sh:path vacoreim:specifiedBy ],
-        [ sh:description "The date the information content expressed in this entity was generated." ;
-            sh:maxCount 1 ;
-            sh:order 5 ;
-            sh:path vacoreim:dateAuthored ],
+        [ sh:description "Cross-references to database identifier(s) representing the same (or a closely related) entity or concept as the Entity." ;
+            sh:order 13 ;
+            sh:path vacoreim:xrefs ],
         [ sh:class vacoreim:RecordMetadata ;
             sh:description "A reusable structure that encapsulates provenance metadata about the present record/data object  (as opposed to provenance information about the real world entity this record/data object represents)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
             sh:order 14 ;
             sh:path vacoreim:recordMetadata ],
-        [ sh:class vacoreim:Contribution ;
-            sh:description "A specific contribution made by some Agent to the creation, modification, or validation of the information represented in the Information Entity." ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 4 ;
-            sh:path vacoreim:contributions ],
-        [ sh:description "Cross-references to database identifier(s) representing the same (or a closely related) entity or concept as the Entity." ;
-            sh:order 13 ;
-            sh:path vacoreim:xrefs ],
+        [ sh:description "The type of license that dictates legal permissions for how the Data Set can be used - typically referenced by its URL." ;
+            sh:maxCount 1 ;
+            sh:order 2 ;
+            sh:path vacoreim:license ],
+        [ sh:description "A free text description of the Element." ;
+            sh:maxCount 1 ;
+            sh:order 16 ;
+            sh:path vacoreim:description ],
         [ sh:description "A business identifier or accession number for the entity, typically as provided by an external system or authority, that is globally unique and persists across implementing systems." ;
             sh:order 10 ;
             sh:path vacoreim:identifiers ],
-        [ sh:description "The URL/web address of a digital resource representing the entity, or providing information about it." ;
-            sh:order 12 ;
-            sh:path vacoreim:urls ],
-        [ sh:description "A primary name for the Entity." ;
-            sh:maxCount 1 ;
-            sh:order 11 ;
-            sh:path vacoreim:label ],
-        [ sh:description "The version of the Data Set (use this field used in cases where version is not reflected in an identifier associated with the Data Set)" ;
-            sh:maxCount 1 ;
-            sh:order 3 ;
-            sh:path vacoreim:version ],
-        [ sh:description "The logical identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 9 ;
-            sh:path vacoreim:id ],
-        [ sh:class vacoreim:InformationEntity ;
-            sh:description "An information resource from which the Information Entity is derived, in whole or in part" ;
+        [ sh:class vacoreim:Method ;
+            sh:description "A particular plan specification that describes all or part of the process that led to creation of the reported information (e.g. a specific experimental protocol, analysis specification, cohort selection criteria, interpretation guideline, etc.)." ;
             sh:nodeKind sh:BlankNode ;
-            sh:order 7 ;
-            sh:path vacoreim:derivedFrom ],
-        [ sh:description "The schema class that is instantiated by the data object.  Must be the name of a class from the VA schema." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 15 ;
-            sh:path vacoreim:type ],
+            sh:order 6 ;
+            sh:path vacoreim:specifiedBy ],
         [ sh:class vacoreim:Document ;
             sh:description "A document in which the information content carried by the Information Entity is expressed" ;
             sh:nodeKind sh:BlankNode ;
             sh:order 8 ;
             sh:path vacoreim:reportedIn ],
-        [ sh:class vacoreim:Extension ;
-            sh:description "A key-value data structure that allows definition of custom fields to capture information not directly supported by the VA specification." ;
+        [ sh:class vacoreim:Contribution ;
+            sh:description "A specific contribution made by some Agent to the creation, modification, or validation of the information represented in the Information Entity." ;
             sh:nodeKind sh:BlankNode ;
-            sh:order 17 ;
-            sh:path vacoreim:extensions ],
+            sh:order 4 ;
+            sh:path vacoreim:contributions ],
+        [ sh:class vacoreim:InformationEntity ;
+            sh:description "An information resource from which the Information Entity is derived, in whole or in part" ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 7 ;
+            sh:path vacoreim:derivedFrom ],
+        [ sh:description "A primary name for the Entity." ;
+            sh:maxCount 1 ;
+            sh:order 11 ;
+            sh:path vacoreim:label ],
         [ sh:class vacoreim:Coding ;
             sh:description "A specific type of data set the DataSet object represents." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
             sh:order 0 ;
             sh:path vacoreim:subtype ],
-        [ sh:description "The type of license that dictates legal permissions for how the Data Set can be used - typically referenced by its URL." ;
+        [ sh:description "The schema class that is instantiated by the data object.  Must be the name of a class from the VA schema." ;
             sh:maxCount 1 ;
-            sh:order 2 ;
-            sh:path vacoreim:license ] ;
+            sh:minCount 1 ;
+            sh:order 15 ;
+            sh:path vacoreim:type ],
+        [ sh:description "The date the information content expressed in this entity was generated." ;
+            sh:maxCount 1 ;
+            sh:order 5 ;
+            sh:path vacoreim:dateAuthored ],
+        [ sh:description "The URL/web address of a digital resource representing the entity, or providing information about it." ;
+            sh:order 12 ;
+            sh:path vacoreim:urls ] ;
     sh:targetClass vacoreim:DataSet .
 
 vacoreim:EvidenceLine a sh:NodeShape ;
@@ -450,98 +458,152 @@ vacoreim:EvidenceLine a sh:NodeShape ;
     sh:description "A discrete, independent argument relevant to the validity of the Proposition put forth as true in the Statement,  that is based on the interpretation of one or more pieces of information as evidence." ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:name "Evidence Line" ;
-    sh:property [ sh:class vacoreim:InformationEntity ;
-            sh:description "An information resource from which the Information Entity is derived, in whole or in part" ;
+    sh:property [ sh:description "A business identifier or accession number for the entity, typically as provided by an external system or authority, that is globally unique and persists across implementing systems." ;
+            sh:order 11 ;
+            sh:path vacoreim:identifiers ],
+        [ sh:class vacoreim:Extension ;
+            sh:description "A key-value data structure that allows definition of custom fields to capture information not directly supported by the VA specification." ;
             sh:nodeKind sh:BlankNode ;
-            sh:order 8 ;
-            sh:path vacoreim:derivedFrom ],
-        [ sh:class vacoreim:Method ;
-            sh:description "A particular plan specification that describes all or part of the process that led to creation of the reported information (e.g. a specific experimental protocol, analysis specification, cohort selection criteria, interpretation guideline, etc.)." ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 7 ;
-            sh:path vacoreim:specifiedBy ],
-        [ sh:description "The schema class that is instantiated by the data object.  Must be the name of a class from the VA schema." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 16 ;
-            sh:path vacoreim:type ],
-        [ sh:description "A free text description of the Element." ;
-            sh:maxCount 1 ;
-            sh:order 17 ;
-            sh:path vacoreim:description ],
-        [ sh:class vacoreim:Coding ;
-            sh:description "The strength of support that an Evidence Line is determined to provide for or against its target Proposition." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 4 ;
-            sh:path vacoreim:strengthOfEvidenceProvided ],
-        [ sh:description "The logical identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 10 ;
-            sh:path vacoreim:id ],
-        [ sh:class vacoreim:Coding ;
-            sh:description "A specific type of evidence the EvidenceLine object represents (e.g. 'mutant phenotype evidence', 'evidence from manual interpretation', 'ACMG PM2 evidence')" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 0 ;
-            sh:path vacoreim:subtype ],
+            sh:order 18 ;
+            sh:path vacoreim:extensions ],
         [ sh:class vacoreim:Contribution ;
             sh:description "A specific contribution made by some Agent to the creation, modification, or validation of the information represented in the Information Entity." ;
             sh:nodeKind sh:BlankNode ;
             sh:order 5 ;
             sh:path vacoreim:contributions ],
-        [ sh:class vacoreim:Document ;
-            sh:description "A document in which the information content carried by the Information Entity is expressed" ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 9 ;
-            sh:path vacoreim:reportedIn ],
-        [ sh:description "The URL/web address of a digital resource representing the entity, or providing information about it." ;
-            sh:order 13 ;
-            sh:path vacoreim:urls ],
-        [ sh:description "The date the information content expressed in this entity was generated." ;
+        [ sh:description "The logical identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system." ;
             sh:maxCount 1 ;
-            sh:order 6 ;
-            sh:path vacoreim:dateAuthored ],
-        [ sh:description "A business identifier or accession number for the entity, typically as provided by an external system or authority, that is globally unique and persists across implementing systems." ;
-            sh:order 11 ;
-            sh:path vacoreim:identifiers ],
-        [ sh:class vacoreim:Coding ;
-            sh:description "The direction of support that the Evidence Line is determined to provide for its target Proposition (can be supporting, disputing, or neutral)" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 3 ;
-            sh:path vacoreim:directionOfEvidenceProvided ],
-        [ sh:description "A primary name for the Entity." ;
-            sh:maxCount 1 ;
-            sh:order 12 ;
-            sh:path vacoreim:label ],
+            sh:minCount 1 ;
+            sh:order 10 ;
+            sh:path vacoreim:id ],
         [ sh:class vacoreim:RecordMetadata ;
             sh:description "A reusable structure that encapsulates provenance metadata about the present record/data object  (as opposed to provenance information about the real world entity this record/data object represents)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
             sh:order 15 ;
             sh:path vacoreim:recordMetadata ],
+        [ sh:class vacoreim:Method ;
+            sh:description "A particular plan specification that describes all or part of the process that led to creation of the reported information (e.g. a specific experimental protocol, analysis specification, cohort selection criteria, interpretation guideline, etc.)." ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 7 ;
+            sh:path vacoreim:specifiedBy ],
+        [ sh:class vacoreim:Coding ;
+            sh:description "The direction of support that the Evidence Line is determined to provide for its target Proposition (can be supporting, disputing, or neutral)" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 3 ;
+            sh:path vacoreim:directionOfEvidenceProvided ],
+        [ sh:class vacoreim:InformationEntity ;
+            sh:description "An information resource from which the Information Entity is derived, in whole or in part" ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 8 ;
+            sh:path vacoreim:derivedFrom ],
+        [ sh:description "The URL/web address of a digital resource representing the entity, or providing information about it." ;
+            sh:order 13 ;
+            sh:path vacoreim:urls ],
+        [ sh:description "A primary name for the Entity." ;
+            sh:maxCount 1 ;
+            sh:order 12 ;
+            sh:path vacoreim:label ],
+        [ sh:description "A free text description of the Element." ;
+            sh:maxCount 1 ;
+            sh:order 17 ;
+            sh:path vacoreim:description ],
+        [ sh:class vacoreim:InformationEntity ;
+            sh:description "An Information Entity that was evaluated in making the argument represented by the Evidence Lines." ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 2 ;
+            sh:path vacoreim:evidenceItems ],
         [ sh:class vacoreim:Proposition ;
             sh:description "The proposition against which the evidence items were evaluated, in determining the overall strength and direction of evidence they provide (as captured in the Evidence Line)" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
             sh:order 1 ;
             sh:path vacoreim:targetProposition ],
-        [ sh:class vacoreim:Extension ;
-            sh:description "A key-value data structure that allows definition of custom fields to capture information not directly supported by the VA specification." ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 18 ;
-            sh:path vacoreim:extensions ],
+        [ sh:description "The date the information content expressed in this entity was generated." ;
+            sh:maxCount 1 ;
+            sh:order 6 ;
+            sh:path vacoreim:dateAuthored ],
         [ sh:description "Cross-references to database identifier(s) representing the same (or a closely related) entity or concept as the Entity." ;
             sh:order 14 ;
             sh:path vacoreim:xrefs ],
-        [ sh:class vacoreim:InformationEntity ;
-            sh:description "An Information Entity that was evaluated in making the argument represented by the Evidence Lines." ;
+        [ sh:class vacoreim:Coding ;
+            sh:description "A specific type of evidence the EvidenceLine object represents (e.g. 'mutant phenotype evidence', 'evidence from manual interpretation', 'ACMG PM2 evidence')" ;
+            sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
-            sh:order 2 ;
-            sh:path vacoreim:evidenceItems ] ;
+            sh:order 0 ;
+            sh:path vacoreim:subtype ],
+        [ sh:class vacoreim:Coding ;
+            sh:description "The strength of support that an Evidence Line is determined to provide for or against its target Proposition." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 4 ;
+            sh:path vacoreim:strengthOfEvidenceProvided ],
+        [ sh:class vacoreim:Document ;
+            sh:description "A document in which the information content carried by the Information Entity is expressed" ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 9 ;
+            sh:path vacoreim:reportedIn ],
+        [ sh:description "The schema class that is instantiated by the data object.  Must be the name of a class from the VA schema." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 16 ;
+            sh:path vacoreim:type ] ;
     sh:targetClass vacoreim:EvidenceLine .
+
+vacoreim:Agent a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "An autonomous actor (person, organization, or computational agent) that bears some form of responsibility for an activity taking place, for the existence of an entity, or for another agent’s activity." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:name "Agent" ;
+    sh:property [ sh:class vacoreim:RecordMetadata ;
+            sh:description "A reusable structure that encapsulates provenance metadata about the present record/data object  (as opposed to provenance information about the real world entity this record/data object represents)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 7 ;
+            sh:path vacoreim:recordMetadata ],
+        [ sh:description "A primary name for the Entity." ;
+            sh:maxCount 1 ;
+            sh:order 4 ;
+            sh:path vacoreim:label ],
+        [ sh:description "The schema class that is instantiated by the data object.  Must be the name of a class from the VA schema." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 8 ;
+            sh:path vacoreim:type ],
+        [ sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path vacoreim:name ],
+        [ sh:description "Cross-references to database identifier(s) representing the same (or a closely related) entity or concept as the Entity." ;
+            sh:order 6 ;
+            sh:path vacoreim:xrefs ],
+        [ sh:description "The logical identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 2 ;
+            sh:path vacoreim:id ],
+        [ sh:class vacoreim:Coding ;
+            sh:description "A specific type of agent the Agent object represents. Must be one of {Person, Organization, Software Agent}" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 0 ;
+            sh:path vacoreim:subtype ],
+        [ sh:class vacoreim:Extension ;
+            sh:description "A key-value data structure that allows definition of custom fields to capture information not directly supported by the VA specification." ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 10 ;
+            sh:path vacoreim:extensions ],
+        [ sh:description "A business identifier or accession number for the entity, typically as provided by an external system or authority, that is globally unique and persists across implementing systems." ;
+            sh:order 3 ;
+            sh:path vacoreim:identifiers ],
+        [ sh:description "A free text description of the Element." ;
+            sh:maxCount 1 ;
+            sh:order 9 ;
+            sh:path vacoreim:description ],
+        [ sh:description "The URL/web address of a digital resource representing the entity, or providing information about it." ;
+            sh:order 5 ;
+            sh:path vacoreim:urls ] ;
+    sh:targetClass vacoreim:Agent .
 
 vacoreim:Proposition a sh:NodeShape ;
     sh:closed true ;
@@ -555,48 +617,21 @@ vacoreim:Proposition a sh:NodeShape ;
             sh:nodeKind sh:BlankNode ;
             sh:order 3 ;
             sh:path vacoreim:predicate ],
-        [ sh:description "A boolean flag set to 'true' if the statement expressed by the subject, predicate, object, and qualifier(s) is explicitly asserted to be false." ;
-            sh:maxCount 1 ;
-            sh:order 6 ;
-            sh:path vacoreim:negated ],
-        [ sh:class vacoreim:RecordMetadata ;
-            sh:description "A reusable structure that encapsulates provenance metadata about the present record/data object  (as opposed to provenance information about the real world entity this record/data object represents)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 12 ;
-            sh:path vacoreim:recordMetadata ],
-        [ sh:description "Cross-references to database identifier(s) representing the same (or a closely related) entity or concept as the Entity." ;
-            sh:order 11 ;
-            sh:path vacoreim:xrefs ],
-        [ sh:class vacoreim:Element ;
-            sh:description "A value or concept that extends or refines the meaning of the Proposition expressed by the core subject - predicate - object 'triple' - e.g. by providing additional information/detail, or constraining the claim to apply in a particular context." ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 5 ;
-            sh:path vacoreim:qualifiers ],
-        [ sh:description "The schema class that is instantiated by the data object.  Must be the name of a class from the VA schema." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 13 ;
-            sh:path vacoreim:type ],
-        [ sh:description "A natural-language expression of the Proposition's meaning." ;
-            sh:maxCount 1 ;
-            sh:order 1 ;
-            sh:path vacoreim:propositionText ],
         [ sh:class vacoreim:Coding ;
             sh:description "A specific type of proposition the Proposition object represents (e.g. a 'Variant Pathogenicity Proposition', or 'Molecular Consequence Proposition')" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
             sh:order 0 ;
             sh:path vacoreim:subtype ],
-        [ sh:description "A primary name for the Entity." ;
+        [ sh:description "A free text description of the Element." ;
             sh:maxCount 1 ;
-            sh:order 9 ;
-            sh:path vacoreim:label ],
-        [ sh:description "The logical identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system." ;
+            sh:order 14 ;
+            sh:path vacoreim:description ],
+        [ sh:description "The schema class that is instantiated by the data object.  Must be the name of a class from the VA schema." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
-            sh:order 7 ;
-            sh:path vacoreim:id ],
+            sh:order 13 ;
+            sh:path vacoreim:type ],
         [ sh:class vacoreim:Extension ;
             sh:description "A key-value data structure that allows definition of custom fields to capture information not directly supported by the VA specification." ;
             sh:nodeKind sh:BlankNode ;
@@ -609,16 +644,43 @@ vacoreim:Proposition a sh:NodeShape ;
             sh:nodeKind sh:BlankNode ;
             sh:order 4 ;
             sh:path vacoreim:object ],
-        [ sh:description "A business identifier or accession number for the entity, typically as provided by an external system or authority, that is globally unique and persists across implementing systems." ;
-            sh:order 8 ;
-            sh:path vacoreim:identifiers ],
+        [ sh:class vacoreim:RecordMetadata ;
+            sh:description "A reusable structure that encapsulates provenance metadata about the present record/data object  (as opposed to provenance information about the real world entity this record/data object represents)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 12 ;
+            sh:path vacoreim:recordMetadata ],
+        [ sh:description "The logical identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 7 ;
+            sh:path vacoreim:id ],
         [ sh:description "The URL/web address of a digital resource representing the entity, or providing information about it." ;
             sh:order 10 ;
             sh:path vacoreim:urls ],
-        [ sh:description "A free text description of the Element." ;
+        [ sh:description "A boolean flag set to 'true' if the statement expressed by the subject, predicate, object, and qualifier(s) is explicitly asserted to be false." ;
             sh:maxCount 1 ;
-            sh:order 14 ;
-            sh:path vacoreim:description ],
+            sh:order 6 ;
+            sh:path vacoreim:negated ],
+        [ sh:description "A business identifier or accession number for the entity, typically as provided by an external system or authority, that is globally unique and persists across implementing systems." ;
+            sh:order 8 ;
+            sh:path vacoreim:identifiers ],
+        [ sh:description "Cross-references to database identifier(s) representing the same (or a closely related) entity or concept as the Entity." ;
+            sh:order 11 ;
+            sh:path vacoreim:xrefs ],
+        [ sh:description "A natural-language expression of the Proposition's meaning." ;
+            sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path vacoreim:propositionText ],
+        [ sh:class vacoreim:Element ;
+            sh:description "A value or concept that extends or refines the meaning of the Proposition expressed by the core subject - predicate - object 'triple' - e.g. by providing additional information/detail, or constraining the claim to apply in a particular context." ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 5 ;
+            sh:path vacoreim:qualifiers ],
+        [ sh:description "A primary name for the Entity." ;
+            sh:maxCount 1 ;
+            sh:order 9 ;
+            sh:path vacoreim:label ],
         [ sh:class vacoreim:Element ;
             sh:description "The Entity about which the Proposition is made." ;
             sh:maxCount 1 ;
@@ -628,116 +690,62 @@ vacoreim:Proposition a sh:NodeShape ;
             sh:path vacoreim:subject ] ;
     sh:targetClass vacoreim:Proposition .
 
-vacoreim:Agent a sh:NodeShape ;
-    sh:closed true ;
-    sh:description "An autonomous actor (person, organization, or computational agent) that bears some form of responsibility for an activity taking place, for the existence of an entity, or for another agent’s activity." ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:name "Agent" ;
-    sh:property [ sh:maxCount 1 ;
-            sh:order 1 ;
-            sh:path vacoreim:name ],
-        [ sh:description "The URL/web address of a digital resource representing the entity, or providing information about it." ;
-            sh:order 5 ;
-            sh:path vacoreim:urls ],
-        [ sh:description "Cross-references to database identifier(s) representing the same (or a closely related) entity or concept as the Entity." ;
-            sh:order 6 ;
-            sh:path vacoreim:xrefs ],
-        [ sh:description "A business identifier or accession number for the entity, typically as provided by an external system or authority, that is globally unique and persists across implementing systems." ;
-            sh:order 3 ;
-            sh:path vacoreim:identifiers ],
-        [ sh:class vacoreim:Extension ;
-            sh:description "A key-value data structure that allows definition of custom fields to capture information not directly supported by the VA specification." ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 10 ;
-            sh:path vacoreim:extensions ],
-        [ sh:description "A primary name for the Entity." ;
-            sh:maxCount 1 ;
-            sh:order 4 ;
-            sh:path vacoreim:label ],
-        [ sh:class vacoreim:RecordMetadata ;
-            sh:description "A reusable structure that encapsulates provenance metadata about the present record/data object  (as opposed to provenance information about the real world entity this record/data object represents)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 7 ;
-            sh:path vacoreim:recordMetadata ],
-        [ sh:description "A free text description of the Element." ;
-            sh:maxCount 1 ;
-            sh:order 9 ;
-            sh:path vacoreim:description ],
-        [ sh:class vacoreim:Coding ;
-            sh:description "A specific type of agent the Agent object represents. Must be one of {Person, Organization, Software Agent}" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 0 ;
-            sh:path vacoreim:subtype ],
-        [ sh:description "The schema class that is instantiated by the data object.  Must be the name of a class from the VA schema." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 8 ;
-            sh:path vacoreim:type ],
-        [ sh:description "The logical identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 2 ;
-            sh:path vacoreim:id ] ;
-    sh:targetClass vacoreim:Agent .
-
 vacoreim:DataItem a sh:NodeShape ;
     sh:closed true ;
     sh:description "An InformationEntity representing an individual piece of data, generated/acquired through methods which reliably produce truthful information about something." ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:name "Data Item" ;
-    sh:property [ sh:class vacoreim:Method ;
-            sh:description "A particular plan specification that describes all or part of the process that led to creation of the reported information (e.g. a specific experimental protocol, analysis specification, cohort selection criteria, interpretation guideline, etc.)." ;
+    sh:property [ sh:class vacoreim:Coding ;
+            sh:description "A unit of measure for the value" ;
+            sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
-            sh:order 5 ;
-            sh:path vacoreim:specifiedBy ],
-        [ sh:description "The schema class that is instantiated by the data object.  Must be the name of a class from the VA schema." ;
+            sh:order 2 ;
+            sh:path vacoreim:unit ],
+        [ sh:class vacoreim:InformationEntity ;
+            sh:description "An information resource from which the Information Entity is derived, in whole or in part" ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 6 ;
+            sh:path vacoreim:derivedFrom ],
+        [ sh:description "The logical identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
-            sh:order 14 ;
-            sh:path vacoreim:type ],
-        [ sh:description "Cross-references to database identifier(s) representing the same (or a closely related) entity or concept as the Entity." ;
-            sh:order 12 ;
-            sh:path vacoreim:xrefs ],
-        [ sh:description "The value of the data item" ;
-            sh:maxCount 1 ;
-            sh:order 1 ;
-            sh:path vacoreim:value ],
-        [ sh:description "A free text description of the Element." ;
-            sh:maxCount 1 ;
-            sh:order 15 ;
-            sh:path vacoreim:description ],
+            sh:order 8 ;
+            sh:path vacoreim:id ],
         [ sh:class vacoreim:RecordMetadata ;
             sh:description "A reusable structure that encapsulates provenance metadata about the present record/data object  (as opposed to provenance information about the real world entity this record/data object represents)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
             sh:order 13 ;
             sh:path vacoreim:recordMetadata ],
-        [ sh:description "A business identifier or accession number for the entity, typically as provided by an external system or authority, that is globally unique and persists across implementing systems." ;
-            sh:order 9 ;
-            sh:path vacoreim:identifiers ],
-        [ sh:class vacoreim:Coding ;
-            sh:description "A unit of measure for the value" ;
-            sh:maxCount 1 ;
+        [ sh:class vacoreim:Document ;
+            sh:description "A document in which the information content carried by the Information Entity is expressed" ;
             sh:nodeKind sh:BlankNode ;
-            sh:order 2 ;
-            sh:path vacoreim:unit ],
+            sh:order 7 ;
+            sh:path vacoreim:reportedIn ],
+        [ sh:description "Cross-references to database identifier(s) representing the same (or a closely related) entity or concept as the Entity." ;
+            sh:order 12 ;
+            sh:path vacoreim:xrefs ],
+        [ sh:description "A free text description of the Element." ;
+            sh:maxCount 1 ;
+            sh:order 15 ;
+            sh:path vacoreim:description ],
         [ sh:description "The date the information content expressed in this entity was generated." ;
             sh:maxCount 1 ;
             sh:order 4 ;
             sh:path vacoreim:dateAuthored ],
-        [ sh:class vacoreim:Coding ;
-            sh:description "A specific type of data the DataItem object represents (e.g. a specimen count, a patient weight, an allele frequency, a p-value)" ;
-            sh:maxCount 1 ;
+        [ sh:class vacoreim:Method ;
+            sh:description "A particular plan specification that describes all or part of the process that led to creation of the reported information (e.g. a specific experimental protocol, analysis specification, cohort selection criteria, interpretation guideline, etc.)." ;
             sh:nodeKind sh:BlankNode ;
-            sh:order 0 ;
-            sh:path vacoreim:subtype ],
-        [ sh:description "The logical identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 8 ;
-            sh:path vacoreim:id ],
+            sh:order 5 ;
+            sh:path vacoreim:specifiedBy ],
+        [ sh:class vacoreim:Extension ;
+            sh:description "A key-value data structure that allows definition of custom fields to capture information not directly supported by the VA specification." ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 16 ;
+            sh:path vacoreim:extensions ],
+        [ sh:description "The URL/web address of a digital resource representing the entity, or providing information about it." ;
+            sh:order 11 ;
+            sh:path vacoreim:urls ],
         [ sh:class vacoreim:Contribution ;
             sh:description "A specific contribution made by some Agent to the creation, modification, or validation of the information represented in the Information Entity." ;
             sh:nodeKind sh:BlankNode ;
@@ -747,24 +755,24 @@ vacoreim:DataItem a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:order 10 ;
             sh:path vacoreim:label ],
-        [ sh:description "The URL/web address of a digital resource representing the entity, or providing information about it." ;
-            sh:order 11 ;
-            sh:path vacoreim:urls ],
-        [ sh:class vacoreim:InformationEntity ;
-            sh:description "An information resource from which the Information Entity is derived, in whole or in part" ;
+        [ sh:description "A business identifier or accession number for the entity, typically as provided by an external system or authority, that is globally unique and persists across implementing systems." ;
+            sh:order 9 ;
+            sh:path vacoreim:identifiers ],
+        [ sh:description "The schema class that is instantiated by the data object.  Must be the name of a class from the VA schema." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 14 ;
+            sh:path vacoreim:type ],
+        [ sh:description "The value of the data item" ;
+            sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path vacoreim:value ],
+        [ sh:class vacoreim:Coding ;
+            sh:description "A specific type of data the DataItem object represents (e.g. a specimen count, a patient weight, an allele frequency, a p-value)" ;
+            sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
-            sh:order 6 ;
-            sh:path vacoreim:derivedFrom ],
-        [ sh:class vacoreim:Extension ;
-            sh:description "A key-value data structure that allows definition of custom fields to capture information not directly supported by the VA specification." ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 16 ;
-            sh:path vacoreim:extensions ],
-        [ sh:class vacoreim:Document ;
-            sh:description "A document in which the information content carried by the Information Entity is expressed" ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 7 ;
-            sh:path vacoreim:reportedIn ] ;
+            sh:order 0 ;
+            sh:path vacoreim:subtype ] ;
     sh:targetClass vacoreim:DataItem .
 
 vacoreim:Element a sh:NodeShape ;
@@ -772,7 +780,11 @@ vacoreim:Element a sh:NodeShape ;
     sh:description "The base definition for all elements that comprise the model (core, domain entity, and utility classes, value sets)" ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:name "Element" ;
-    sh:property [ sh:description "The schema class that is instantiated by the data object.  Must be the name of a class from the VA schema." ;
+    sh:property [ sh:description "A free text description of the Element." ;
+            sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path vacoreim:description ],
+        [ sh:description "The schema class that is instantiated by the data object.  Must be the name of a class from the VA schema." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 0 ;
@@ -781,11 +793,7 @@ vacoreim:Element a sh:NodeShape ;
             sh:description "A key-value data structure that allows definition of custom fields to capture information not directly supported by the VA specification." ;
             sh:nodeKind sh:BlankNode ;
             sh:order 2 ;
-            sh:path vacoreim:extensions ],
-        [ sh:description "A free text description of the Element." ;
-            sh:maxCount 1 ;
-            sh:order 1 ;
-            sh:path vacoreim:description ] ;
+            sh:path vacoreim:extensions ] ;
     sh:targetClass vacoreim:Element .
 
 vacoreim:Entity a sh:NodeShape ;
@@ -793,44 +801,44 @@ vacoreim:Entity a sh:NodeShape ;
     sh:description "Anything that exists, has existed, or will exist." ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:name "Entity" ;
-    sh:property [ sh:description "The schema class that is instantiated by the data object.  Must be the name of a class from the VA schema." ;
+    sh:property [ sh:description "A business identifier or accession number for the entity, typically as provided by an external system or authority, that is globally unique and persists across implementing systems." ;
+            sh:order 1 ;
+            sh:path vacoreim:identifiers ],
+        [ sh:description "The schema class that is instantiated by the data object.  Must be the name of a class from the VA schema." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 6 ;
             sh:path vacoreim:type ],
+        [ sh:description "A primary name for the Entity." ;
+            sh:maxCount 1 ;
+            sh:order 2 ;
+            sh:path vacoreim:label ],
+        [ sh:description "A free text description of the Element." ;
+            sh:maxCount 1 ;
+            sh:order 7 ;
+            sh:path vacoreim:description ],
         [ sh:description "Cross-references to database identifier(s) representing the same (or a closely related) entity or concept as the Entity." ;
             sh:order 4 ;
             sh:path vacoreim:xrefs ],
-        [ sh:description "The logical identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 0 ;
-            sh:path vacoreim:id ],
         [ sh:class vacoreim:RecordMetadata ;
             sh:description "A reusable structure that encapsulates provenance metadata about the present record/data object  (as opposed to provenance information about the real world entity this record/data object represents)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
             sh:order 5 ;
             sh:path vacoreim:recordMetadata ],
+        [ sh:description "The URL/web address of a digital resource representing the entity, or providing information about it." ;
+            sh:order 3 ;
+            sh:path vacoreim:urls ],
+        [ sh:description "The logical identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path vacoreim:id ],
         [ sh:class vacoreim:Extension ;
             sh:description "A key-value data structure that allows definition of custom fields to capture information not directly supported by the VA specification." ;
             sh:nodeKind sh:BlankNode ;
             sh:order 8 ;
-            sh:path vacoreim:extensions ],
-        [ sh:description "A free text description of the Element." ;
-            sh:maxCount 1 ;
-            sh:order 7 ;
-            sh:path vacoreim:description ],
-        [ sh:description "A primary name for the Entity." ;
-            sh:maxCount 1 ;
-            sh:order 2 ;
-            sh:path vacoreim:label ],
-        [ sh:description "The URL/web address of a digital resource representing the entity, or providing information about it." ;
-            sh:order 3 ;
-            sh:path vacoreim:urls ],
-        [ sh:description "A business identifier or accession number for the entity, typically as provided by an external system or authority, that is globally unique and persists across implementing systems." ;
-            sh:order 1 ;
-            sh:path vacoreim:identifiers ] ;
+            sh:path vacoreim:extensions ] ;
     sh:targetClass vacoreim:Entity .
 
 vacoreim:Document a sh:NodeShape ;
@@ -838,61 +846,11 @@ vacoreim:Document a sh:NodeShape ;
     sh:description "A collection of information, usually in human-readable form, intended to be read and understood together as a whole." ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:name "Document" ;
-    sh:property [ sh:class vacoreim:RecordMetadata ;
-            sh:description "A reusable structure that encapsulates provenance metadata about the present record/data object  (as opposed to provenance information about the real world entity this record/data object represents)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 14 ;
-            sh:path vacoreim:recordMetadata ],
-        [ sh:description "A primary name for the Entity." ;
-            sh:maxCount 1 ;
-            sh:order 11 ;
-            sh:path vacoreim:label ],
-        [ sh:description "The URL/web address of a digital resource representing the entity, or providing information about it." ;
-            sh:order 12 ;
-            sh:path vacoreim:urls ],
-        [ sh:class vacoreim:Document ;
-            sh:description "A document in which the information content carried by the Information Entity is expressed" ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 8 ;
-            sh:path vacoreim:reportedIn ],
-        [ sh:description "The logical identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 9 ;
-            sh:path vacoreim:id ],
-        [ sh:description "The schema class that is instantiated by the data object.  Must be the name of a class from the VA schema." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 15 ;
-            sh:path vacoreim:type ],
-        [ sh:class vacoreim:Contribution ;
-            sh:description "A specific contribution made by some Agent to the creation, modification, or validation of the information represented in the Information Entity." ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 4 ;
-            sh:path vacoreim:contributions ],
-        [ sh:description "The type of license that dictates legal permissions for how the Document can be used - typically referenced by its URL." ;
-            sh:maxCount 1 ;
-            sh:order 2 ;
-            sh:path vacoreim:license ],
-        [ sh:class vacoreim:Method ;
-            sh:description "A particular plan specification that describes all or part of the process that led to creation of the reported information (e.g. a specific experimental protocol, analysis specification, cohort selection criteria, interpretation guideline, etc.)." ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 6 ;
-            sh:path vacoreim:specifiedBy ],
-        [ sh:class vacoreim:Extension ;
+    sh:property [ sh:class vacoreim:Extension ;
             sh:description "A key-value data structure that allows definition of custom fields to capture information not directly supported by the VA specification." ;
             sh:nodeKind sh:BlankNode ;
             sh:order 17 ;
             sh:path vacoreim:extensions ],
-        [ sh:description "The given title of the document." ;
-            sh:maxCount 1 ;
-            sh:order 1 ;
-            sh:path vacoreim:title ],
-        [ sh:description "The version of the Document (use this field used in cases where version is not reflected in an identifier associated with the Document)" ;
-            sh:maxCount 1 ;
-            sh:order 3 ;
-            sh:path vacoreim:version ],
         [ sh:description "Cross-references to database identifier(s) representing the same (or a closely related) entity or concept as the Entity." ;
             sh:order 13 ;
             sh:path vacoreim:xrefs ],
@@ -902,22 +860,72 @@ vacoreim:Document a sh:NodeShape ;
             sh:nodeKind sh:BlankNode ;
             sh:order 0 ;
             sh:path vacoreim:subtype ],
-        [ sh:description "A business identifier or accession number for the entity, typically as provided by an external system or authority, that is globally unique and persists across implementing systems." ;
-            sh:order 10 ;
-            sh:path vacoreim:identifiers ],
         [ sh:description "The date the information content expressed in this entity was generated." ;
             sh:maxCount 1 ;
             sh:order 5 ;
             sh:path vacoreim:dateAuthored ],
-        [ sh:description "A free text description of the Element." ;
-            sh:maxCount 1 ;
-            sh:order 16 ;
-            sh:path vacoreim:description ],
         [ sh:class vacoreim:InformationEntity ;
             sh:description "An information resource from which the Information Entity is derived, in whole or in part" ;
             sh:nodeKind sh:BlankNode ;
             sh:order 7 ;
-            sh:path vacoreim:derivedFrom ] ;
+            sh:path vacoreim:derivedFrom ],
+        [ sh:description "The given title of the document." ;
+            sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path vacoreim:title ],
+        [ sh:description "A primary name for the Entity." ;
+            sh:maxCount 1 ;
+            sh:order 11 ;
+            sh:path vacoreim:label ],
+        [ sh:class vacoreim:Contribution ;
+            sh:description "A specific contribution made by some Agent to the creation, modification, or validation of the information represented in the Information Entity." ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 4 ;
+            sh:path vacoreim:contributions ],
+        [ sh:class vacoreim:Document ;
+            sh:description "A document in which the information content carried by the Information Entity is expressed" ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 8 ;
+            sh:path vacoreim:reportedIn ],
+        [ sh:description "A free text description of the Element." ;
+            sh:maxCount 1 ;
+            sh:order 16 ;
+            sh:path vacoreim:description ],
+        [ sh:description "The type of license that dictates legal permissions for how the Document can be used - typically referenced by its URL." ;
+            sh:maxCount 1 ;
+            sh:order 2 ;
+            sh:path vacoreim:license ],
+        [ sh:class vacoreim:Method ;
+            sh:description "A particular plan specification that describes all or part of the process that led to creation of the reported information (e.g. a specific experimental protocol, analysis specification, cohort selection criteria, interpretation guideline, etc.)." ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 6 ;
+            sh:path vacoreim:specifiedBy ],
+        [ sh:description "The URL/web address of a digital resource representing the entity, or providing information about it." ;
+            sh:order 12 ;
+            sh:path vacoreim:urls ],
+        [ sh:description "The schema class that is instantiated by the data object.  Must be the name of a class from the VA schema." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 15 ;
+            sh:path vacoreim:type ],
+        [ sh:description "The version of the Document (use this field used in cases where version is not reflected in an identifier associated with the Document)" ;
+            sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path vacoreim:version ],
+        [ sh:description "A business identifier or accession number for the entity, typically as provided by an external system or authority, that is globally unique and persists across implementing systems." ;
+            sh:order 10 ;
+            sh:path vacoreim:identifiers ],
+        [ sh:description "The logical identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 9 ;
+            sh:path vacoreim:id ],
+        [ sh:class vacoreim:RecordMetadata ;
+            sh:description "A reusable structure that encapsulates provenance metadata about the present record/data object  (as opposed to provenance information about the real world entity this record/data object represents)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 14 ;
+            sh:path vacoreim:recordMetadata ] ;
     sh:targetClass vacoreim:Document .
 
 vacoreim:Contribution a sh:NodeShape ;
@@ -925,55 +933,67 @@ vacoreim:Contribution a sh:NodeShape ;
     sh:description "The actions taken by a particular agent in the creation, modification, assessment, or deprecation of some entity (e.g. a Statement, Evidence Line, Data Item, Publication, etc.)" ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:name "Contribution" ;
-    sh:property [ sh:description "A business identifier or accession number for the entity, typically as provided by an external system or authority, that is globally unique and persists across implementing systems." ;
-            sh:order 9 ;
-            sh:path vacoreim:identifiers ],
-        [ sh:description "The URL/web address of a digital resource representing the entity, or providing information about it." ;
-            sh:order 11 ;
-            sh:path vacoreim:urls ],
-        [ sh:class vacoreim:Coding ;
-            sh:description "The specific type of activity that was performed by the agent in making the contribution." ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 1 ;
-            sh:path vacoreim:activity ],
-        [ sh:description "The logical identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 8 ;
-            sh:path vacoreim:id ],
-        [ sh:class vacoreim:RecordMetadata ;
+    sh:property [ sh:class vacoreim:RecordMetadata ;
             sh:description "A reusable structure that encapsulates provenance metadata about the present record/data object  (as opposed to provenance information about the real world entity this record/data object represents)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
             sh:order 13 ;
             sh:path vacoreim:recordMetadata ],
-        [ sh:description "Cross-references to database identifier(s) representing the same (or a closely related) entity or concept as the Entity." ;
-            sh:order 12 ;
-            sh:path vacoreim:xrefs ],
+        [ sh:description "A free text description of the Element." ;
+            sh:maxCount 1 ;
+            sh:order 15 ;
+            sh:path vacoreim:description ],
+        [ sh:class vacoreim:InformationEntity ;
+            sh:description "The artifact toward which the contribution was made." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 0 ;
+            sh:path vacoreim:contributionMadeTo ],
+        [ sh:description "The logical identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 8 ;
+            sh:path vacoreim:id ],
+        [ sh:description "The URL/web address of a digital resource representing the entity, or providing information about it." ;
+            sh:order 11 ;
+            sh:path vacoreim:urls ],
         [ sh:class vacoreim:Entity ;
             sh:description "An entity that was input into the Activity (could be material or information)" ;
             sh:nodeKind sh:BlankNode ;
             sh:order 5 ;
             sh:path vacoreim:input ],
+        [ sh:description "The date (or a specifiec time on a date) that the Activitywas performed" ;
+            sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path vacoreim:date ],
+        [ sh:description "A primary name for the Entity." ;
+            sh:maxCount 1 ;
+            sh:order 10 ;
+            sh:path vacoreim:label ],
         [ sh:class vacoreim:Coding ;
             sh:description "A specific type of activity this Activity object may represent" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
             sh:order 2 ;
             sh:path vacoreim:subtype ],
-        [ sh:description "The date (or a specifiec time on a date) that the Activitywas performed" ;
-            sh:maxCount 1 ;
-            sh:order 3 ;
-            sh:path vacoreim:date ],
         [ sh:class vacoreim:Extension ;
             sh:description "A key-value data structure that allows definition of custom fields to capture information not directly supported by the VA specification." ;
             sh:nodeKind sh:BlankNode ;
             sh:order 16 ;
             sh:path vacoreim:extensions ],
-        [ sh:description "A primary name for the Entity." ;
+        [ sh:description "A business identifier or accession number for the entity, typically as provided by an external system or authority, that is globally unique and persists across implementing systems." ;
+            sh:order 9 ;
+            sh:path vacoreim:identifiers ],
+        [ sh:class vacoreim:Method ;
+            sh:description "A directive specification followed in performing an Activity, that describes how it should be executed." ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 7 ;
+            sh:path vacoreim:specifiedBy ],
+        [ sh:description "The schema class that is instantiated by the data object.  Must be the name of a class from the VA schema." ;
             sh:maxCount 1 ;
-            sh:order 10 ;
-            sh:path vacoreim:label ],
+            sh:minCount 1 ;
+            sh:order 14 ;
+            sh:path vacoreim:type ],
         [ sh:class vacoreim:Agent ;
             sh:description "An Agent who participated in executing the Activity." ;
             sh:nodeKind sh:BlankNode ;
@@ -984,26 +1004,14 @@ vacoreim:Contribution a sh:NodeShape ;
             sh:nodeKind sh:BlankNode ;
             sh:order 6 ;
             sh:path vacoreim:output ],
-        [ sh:class vacoreim:Method ;
-            sh:description "A directive specification followed in performing an Activity, that describes how it should be executed." ;
+        [ sh:description "Cross-references to database identifier(s) representing the same (or a closely related) entity or concept as the Entity." ;
+            sh:order 12 ;
+            sh:path vacoreim:xrefs ],
+        [ sh:class vacoreim:Coding ;
+            sh:description "The specific type of activity that was performed by the agent in making the contribution." ;
             sh:nodeKind sh:BlankNode ;
-            sh:order 7 ;
-            sh:path vacoreim:specifiedBy ],
-        [ sh:class vacoreim:InformationEntity ;
-            sh:description "The artifact toward which the contribution was made." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 0 ;
-            sh:path vacoreim:contributionMadeTo ],
-        [ sh:description "A free text description of the Element." ;
-            sh:maxCount 1 ;
-            sh:order 15 ;
-            sh:path vacoreim:description ],
-        [ sh:description "The schema class that is instantiated by the data object.  Must be the name of a class from the VA schema." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 14 ;
-            sh:path vacoreim:type ] ;
+            sh:order 1 ;
+            sh:path vacoreim:activity ] ;
     sh:targetClass vacoreim:Contribution .
 
 vacoreim:InformationEntity a sh:NodeShape ;
@@ -1011,68 +1019,68 @@ vacoreim:InformationEntity a sh:NodeShape ;
     sh:description "An abstract (non-physical) entity that is about something." ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:name "Information Entity" ;
-    sh:property [ sh:description "The date the information content expressed in this entity was generated." ;
-            sh:maxCount 1 ;
-            sh:order 1 ;
-            sh:path vacoreim:dateAuthored ],
-        [ sh:class vacoreim:Method ;
+    sh:property [ sh:class vacoreim:Method ;
             sh:description "A particular plan specification that describes all or part of the process that led to creation of the reported information (e.g. a specific experimental protocol, analysis specification, cohort selection criteria, interpretation guideline, etc.)." ;
             sh:nodeKind sh:BlankNode ;
             sh:order 2 ;
             sh:path vacoreim:specifiedBy ],
-        [ sh:description "The URL/web address of a digital resource representing the entity, or providing information about it." ;
-            sh:order 8 ;
-            sh:path vacoreim:urls ],
-        [ sh:description "Cross-references to database identifier(s) representing the same (or a closely related) entity or concept as the Entity." ;
-            sh:order 9 ;
-            sh:path vacoreim:xrefs ],
         [ sh:description "The schema class that is instantiated by the data object.  Must be the name of a class from the VA schema." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 11 ;
             sh:path vacoreim:type ],
-        [ sh:class vacoreim:Extension ;
-            sh:description "A key-value data structure that allows definition of custom fields to capture information not directly supported by the VA specification." ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 13 ;
-            sh:path vacoreim:extensions ],
+        [ sh:description "A primary name for the Entity." ;
+            sh:maxCount 1 ;
+            sh:order 7 ;
+            sh:path vacoreim:label ],
         [ sh:description "The logical identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 5 ;
             sh:path vacoreim:id ],
-        [ sh:description "A business identifier or accession number for the entity, typically as provided by an external system or authority, that is globally unique and persists across implementing systems." ;
-            sh:order 6 ;
-            sh:path vacoreim:identifiers ],
-        [ sh:description "A primary name for the Entity." ;
-            sh:maxCount 1 ;
-            sh:order 7 ;
-            sh:path vacoreim:label ],
         [ sh:description "A free text description of the Element." ;
             sh:maxCount 1 ;
             sh:order 12 ;
             sh:path vacoreim:description ],
-        [ sh:class vacoreim:InformationEntity ;
-            sh:description "An information resource from which the Information Entity is derived, in whole or in part" ;
+        [ sh:description "The date the information content expressed in this entity was generated." ;
+            sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path vacoreim:dateAuthored ],
+        [ sh:class vacoreim:Contribution ;
+            sh:description "A specific contribution made by some Agent to the creation, modification, or validation of the information represented in the Information Entity." ;
             sh:nodeKind sh:BlankNode ;
-            sh:order 3 ;
-            sh:path vacoreim:derivedFrom ],
+            sh:order 0 ;
+            sh:path vacoreim:contributions ],
+        [ sh:description "A business identifier or accession number for the entity, typically as provided by an external system or authority, that is globally unique and persists across implementing systems." ;
+            sh:order 6 ;
+            sh:path vacoreim:identifiers ],
+        [ sh:class vacoreim:Extension ;
+            sh:description "A key-value data structure that allows definition of custom fields to capture information not directly supported by the VA specification." ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 13 ;
+            sh:path vacoreim:extensions ],
         [ sh:class vacoreim:RecordMetadata ;
             sh:description "A reusable structure that encapsulates provenance metadata about the present record/data object  (as opposed to provenance information about the real world entity this record/data object represents)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
             sh:order 10 ;
             sh:path vacoreim:recordMetadata ],
-        [ sh:class vacoreim:Contribution ;
-            sh:description "A specific contribution made by some Agent to the creation, modification, or validation of the information represented in the Information Entity." ;
+        [ sh:class vacoreim:InformationEntity ;
+            sh:description "An information resource from which the Information Entity is derived, in whole or in part" ;
             sh:nodeKind sh:BlankNode ;
-            sh:order 0 ;
-            sh:path vacoreim:contributions ],
+            sh:order 3 ;
+            sh:path vacoreim:derivedFrom ],
+        [ sh:description "Cross-references to database identifier(s) representing the same (or a closely related) entity or concept as the Entity." ;
+            sh:order 9 ;
+            sh:path vacoreim:xrefs ],
         [ sh:class vacoreim:Document ;
             sh:description "A document in which the information content carried by the Information Entity is expressed" ;
             sh:nodeKind sh:BlankNode ;
             sh:order 4 ;
-            sh:path vacoreim:reportedIn ] ;
+            sh:path vacoreim:reportedIn ],
+        [ sh:description "The URL/web address of a digital resource representing the entity, or providing information about it." ;
+            sh:order 8 ;
+            sh:path vacoreim:urls ] ;
     sh:targetClass vacoreim:InformationEntity .
 
 vacoreim:Method a sh:NodeShape ;
@@ -1080,78 +1088,78 @@ vacoreim:Method a sh:NodeShape ;
     sh:description "A set of instructions that specify how to achieve some objective (e.g. study/experimental protocols, curation guidelines, rule sets, etc.)" ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:name "Method" ;
-    sh:property [ sh:description "A free text description of the Element." ;
+    sh:property [ sh:class vacoreim:Contribution ;
+            sh:description "A specific contribution made by some Agent to the creation, modification, or validation of the information represented in the Information Entity." ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 2 ;
+            sh:path vacoreim:contributions ],
+        [ sh:class vacoreim:Document ;
+            sh:description "A document in which the information content carried by the Information Entity is expressed" ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 6 ;
+            sh:path vacoreim:reportedIn ],
+        [ sh:description "The URL/web address of a digital resource representing the entity, or providing information about it." ;
+            sh:order 10 ;
+            sh:path vacoreim:urls ],
+        [ sh:description "A primary name for the Entity." ;
+            sh:maxCount 1 ;
+            sh:order 9 ;
+            sh:path vacoreim:label ],
+        [ sh:description "The schema class that is instantiated by the data object.  Must be the name of a class from the VA schema." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 13 ;
+            sh:path vacoreim:type ],
+        [ sh:class vacoreim:Extension ;
+            sh:description "A key-value data structure that allows definition of custom fields to capture information not directly supported by the VA specification." ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 15 ;
+            sh:path vacoreim:extensions ],
+        [ sh:description "A free text description of the Element." ;
             sh:maxCount 1 ;
             sh:order 14 ;
             sh:path vacoreim:description ],
-        [ sh:description "Cross-references to database identifier(s) representing the same (or a closely related) entity or concept as the Entity." ;
-            sh:order 11 ;
-            sh:path vacoreim:xrefs ],
-        [ sh:class vacoreim:RecordMetadata ;
-            sh:description "A reusable structure that encapsulates provenance metadata about the present record/data object  (as opposed to provenance information about the real world entity this record/data object represents)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 12 ;
-            sh:path vacoreim:recordMetadata ],
         [ sh:class vacoreim:Coding ;
             sh:description "A specific type of method that the Method object represents (e.g. 'Variant Interpretation Guideline', 'Experimental Protocol')" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
             sh:order 0 ;
             sh:path vacoreim:subtype ],
-        [ sh:class vacoreim:Extension ;
-            sh:description "A key-value data structure that allows definition of custom fields to capture information not directly supported by the VA specification." ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 15 ;
-            sh:path vacoreim:extensions ],
-        [ sh:description "The logical identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 7 ;
-            sh:path vacoreim:id ],
-        [ sh:description "The schema class that is instantiated by the data object.  Must be the name of a class from the VA schema." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 13 ;
-            sh:path vacoreim:type ],
-        [ sh:description "A primary name for the Entity." ;
-            sh:maxCount 1 ;
-            sh:order 9 ;
-            sh:path vacoreim:label ],
         [ sh:class vacoreim:Method ;
             sh:description "A particular plan specification that describes all or part of the process that led to creation of the reported information (e.g. a specific experimental protocol, analysis specification, cohort selection criteria, interpretation guideline, etc.)." ;
             sh:nodeKind sh:BlankNode ;
             sh:order 4 ;
             sh:path vacoreim:specifiedBy ],
+        [ sh:description "The logical identifier of the entity in the system of record, e.g. a UUID.  This 'id' is unique within a given system. The identified entity may have a different 'id' in a different system." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 7 ;
+            sh:path vacoreim:id ],
         [ sh:description "The type of license that dictates legal permissions for how a published method (e.g. an experimental protocol, workflow specification, curation guideline) can be used - typically referenced by its URL." ;
             sh:maxCount 1 ;
             sh:order 1 ;
             sh:path vacoreim:license ],
-        [ sh:class vacoreim:Document ;
-            sh:description "A document in which the information content carried by the Information Entity is expressed" ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 6 ;
-            sh:path vacoreim:reportedIn ],
         [ sh:description "A business identifier or accession number for the entity, typically as provided by an external system or authority, that is globally unique and persists across implementing systems." ;
             sh:order 8 ;
             sh:path vacoreim:identifiers ],
-        [ sh:description "The date the information content expressed in this entity was generated." ;
+        [ sh:class vacoreim:RecordMetadata ;
+            sh:description "A reusable structure that encapsulates provenance metadata about the present record/data object  (as opposed to provenance information about the real world entity this record/data object represents)." ;
             sh:maxCount 1 ;
-            sh:order 3 ;
-            sh:path vacoreim:dateAuthored ],
-        [ sh:class vacoreim:Contribution ;
-            sh:description "A specific contribution made by some Agent to the creation, modification, or validation of the information represented in the Information Entity." ;
             sh:nodeKind sh:BlankNode ;
-            sh:order 2 ;
-            sh:path vacoreim:contributions ],
+            sh:order 12 ;
+            sh:path vacoreim:recordMetadata ],
         [ sh:class vacoreim:InformationEntity ;
             sh:description "An information resource from which the Information Entity is derived, in whole or in part" ;
             sh:nodeKind sh:BlankNode ;
             sh:order 5 ;
             sh:path vacoreim:derivedFrom ],
-        [ sh:description "The URL/web address of a digital resource representing the entity, or providing information about it." ;
-            sh:order 10 ;
-            sh:path vacoreim:urls ] ;
+        [ sh:description "The date the information content expressed in this entity was generated." ;
+            sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path vacoreim:dateAuthored ],
+        [ sh:description "Cross-references to database identifier(s) representing the same (or a closely related) entity or concept as the Entity." ;
+            sh:order 11 ;
+            sh:path vacoreim:xrefs ] ;
     sh:targetClass vacoreim:Method .
 
 vacoreim:RecordMetadata a sh:NodeShape ;
@@ -1159,31 +1167,20 @@ vacoreim:RecordMetadata a sh:NodeShape ;
     sh:description "A data structure that encapsulates provenance metadata that applies to a specific concrete record/encoding of information, as opposed to provenance of the abstract information content/knowledge the record represents." ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:name "Record Metadata" ;
-    sh:property [ sh:class vacoreim:Contribution ;
+    sh:property [ sh:description "The date the record was initially created." ;
+            sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path vacoreim:dateRecordCreated ],
+        [ sh:class vacoreim:Contribution ;
             sh:description "Links to a 'Contribution' object allowing richer representation of specific types of contributions made by an agent to the creation, modification, or administrative management of a record." ;
             sh:nodeKind sh:BlankNode ;
             sh:order 4 ;
             sh:path vacoreim:contributions ],
-        [ sh:description "The version number of the record-level artifact the object describes" ;
-            sh:maxCount 1 ;
-            sh:order 1 ;
-            sh:path vacoreim:recordVersion ],
-        [ sh:description "A free text description of the Element." ;
-            sh:maxCount 1 ;
-            sh:order 6 ;
-            sh:path vacoreim:description ],
         [ sh:description "The schema class that is instantiated by the data object.  Must be the name of a class from the VA schema." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 5 ;
             sh:path vacoreim:type ],
-        [ sh:description "The date the record was initially created." ;
-            sh:maxCount 1 ;
-            sh:order 3 ;
-            sh:path vacoreim:dateRecordCreated ],
-        [ sh:description "Another data record from which the record described here was derived." ;
-            sh:order 2 ;
-            sh:path vacoreim:derivedFrom ],
         [ sh:class vacoreim:Extension ;
             sh:description "A key-value data structure that allows definition of custom fields to capture information not directly supported by the VA specification." ;
             sh:nodeKind sh:BlankNode ;
@@ -1192,7 +1189,18 @@ vacoreim:RecordMetadata a sh:NodeShape ;
         [ sh:description "The business identifier of the record described in the RecordMetadata object (required when the record described is not the one in the present system)" ;
             sh:maxCount 1 ;
             sh:order 0 ;
-            sh:path vacoreim:recordIdentifier ] ;
+            sh:path vacoreim:recordIdentifier ],
+        [ sh:description "A free text description of the Element." ;
+            sh:maxCount 1 ;
+            sh:order 6 ;
+            sh:path vacoreim:description ],
+        [ sh:description "Another data record from which the record described here was derived." ;
+            sh:order 2 ;
+            sh:path vacoreim:derivedFrom ],
+        [ sh:description "The version number of the record-level artifact the object describes" ;
+            sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path vacoreim:recordVersion ] ;
     sh:targetClass vacoreim:RecordMetadata .
 
 vacoreim:Extension a sh:NodeShape ;
@@ -1200,7 +1208,10 @@ vacoreim:Extension a sh:NodeShape ;
     sh:description "A data structure that allows implementations to define and create custom fields within an Entity to capture information not supported by the core specification." ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:name "Extension" ;
-    sh:property [ sh:class vacoreim:Element ;
+    sh:property [ sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path vacoreim:name ],
+        [ sh:class vacoreim:Element ;
             sh:description "The value of the extension element" ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
@@ -1216,9 +1227,6 @@ vacoreim:Extension a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:order 0 ;
             sh:path vacoreim:description ],
-        [ sh:maxCount 1 ;
-            sh:order 1 ;
-            sh:path vacoreim:name ],
         [ sh:class vacoreim:Extension ;
             sh:description "A key-value data structure that allows definition of custom fields to capture information not directly supported by the VA specification." ;
             sh:nodeKind sh:BlankNode ;
@@ -1231,39 +1239,39 @@ vacoreim:Coding a sh:NodeShape ;
     sh:description "A structured representation of a coded/enumerated data value, that may include additional metadata about the code and code system." ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:name "Coding" ;
-    sh:property [ sh:description "An identifier (preferably a CURIE) representing the identifier of the coded concept (e.g. ‘SO:000704’)." ;
-            sh:maxCount 1 ;
-            sh:order 0 ;
-            sh:path vacoreim:code ],
-        [ sh:description "The human-readable name for the coded concept, as defined by the provisioning code system (e.g. ‘gene’)" ;
+    sh:property [ sh:description "The human-readable name for the coded concept, as defined by the provisioning code system (e.g. ‘gene’)" ;
             sh:maxCount 1 ;
             sh:order 1 ;
             sh:path vacoreim:label ],
-        [ sh:description "The version of the code system." ;
+        [ sh:description "The name of the code system where the coded concept is defined (e.g. ‘Sequence Ontology’)." ;
             sh:maxCount 1 ;
-            sh:order 4 ;
-            sh:path vacoreim:systemVersion ],
+            sh:order 2 ;
+            sh:path vacoreim:system ],
+        [ sh:description "A URL where the code system can be found." ;
+            sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path vacoreim:systemURL ],
+        [ sh:description "An identifier (preferably a CURIE) representing the identifier of the coded concept (e.g. ‘SO:000704’)." ;
+            sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path vacoreim:code ],
+        [ sh:description "A free text description of the Element." ;
+            sh:maxCount 1 ;
+            sh:order 6 ;
+            sh:path vacoreim:description ],
+        [ sh:class vacoreim:Extension ;
+            sh:description "A key-value data structure that allows definition of custom fields to capture information not directly supported by the VA specification." ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 7 ;
+            sh:path vacoreim:extensions ],
         [ sh:description "The schema class that is instantiated by the data object.  Must be the name of a class from the VA schema." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 5 ;
             sh:path vacoreim:type ],
-        [ sh:description "The name of the code system where the coded concept is defined (e.g. ‘Sequence Ontology’)." ;
+        [ sh:description "The version of the code system." ;
             sh:maxCount 1 ;
-            sh:order 2 ;
-            sh:path vacoreim:system ],
-        [ sh:description "A free text description of the Element." ;
-            sh:maxCount 1 ;
-            sh:order 6 ;
-            sh:path vacoreim:description ],
-        [ sh:description "A URL where the code system can be found." ;
-            sh:maxCount 1 ;
-            sh:order 3 ;
-            sh:path vacoreim:systemURL ],
-        [ sh:class vacoreim:Extension ;
-            sh:description "A key-value data structure that allows definition of custom fields to capture information not directly supported by the VA specification." ;
-            sh:nodeKind sh:BlankNode ;
-            sh:order 7 ;
-            sh:path vacoreim:extensions ] ;
+            sh:order 4 ;
+            sh:path vacoreim:systemVersion ] ;
     sh:targetClass vacoreim:Coding .
 

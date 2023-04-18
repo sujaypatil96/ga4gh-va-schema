@@ -281,10 +281,11 @@ type Statement
     reportedIn: [Document]
     subtype: Coding
     statementText: String
+    proposition: Proposition
     confidenceDirection: Coding
     confidenceLevel: Coding
     confidenceScore: DataItem
-    evidenceDirection: String
+    evidenceDirection: Coding
     evidenceLevel: Coding
     evidenceScore: DataItem
     conclusion: Coding

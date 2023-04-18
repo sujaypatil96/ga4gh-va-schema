@@ -1,5 +1,5 @@
 # Auto generated from ga4gh_va_schema.yaml by pythongen.py version: 0.9.0
-# Generation date: 2023-04-17T14:05:03
+# Generation date: 2023-04-18T09:41:30
 # Schema: GA4GH-VA-Core-IM
 #
 # id: https://w3id.org/ga4gh-va-core-im
@@ -32,15 +32,6 @@ version = None
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs
 
 # Namespaces
-BFO = CurieNamespace('BFO', 'http://purl.obolibrary.org/obo/BFO_')
-CAM = CurieNamespace('CAM', 'http://example.org/CAM/')
-DC = CurieNamespace('DC', 'https://example.com/dc')
-FHIR = CurieNamespace('FHIR', 'http://example.org/FHIR/')
-FRBR = CurieNamespace('FRBR', 'https://vocab.org/frbr/core')
-IAO = CurieNamespace('IAO', 'http://purl.obolibrary.org/obo/IAO_')
-OBI = CurieNamespace('OBI', 'http://purl.obolibrary.org/obo/OBI_')
-PROV = CurieNamespace('PROV', 'http://www.w3.org/ns/prov#')
-SEPIO = CurieNamespace('SEPIO', 'http://purl.obolibrary.org/obo/SEPIO_')
 LINKML = CurieNamespace('linkml', 'https://w3id.org/linkml/')
 VACOREIM = CurieNamespace('vacoreim', 'https://example.org/vacoreim/')
 XSD = CurieNamespace('xsd', 'http://www.w3.org/2001/XMLSchema#')
@@ -316,10 +307,11 @@ class Statement(InformationEntity):
     id: str = None
     subtype: Optional[Union[dict, "Coding"]] = None
     statementText: Optional[str] = None
+    proposition: Optional[Union[dict, "Proposition"]] = None
     confidenceDirection: Optional[Union[dict, "Coding"]] = None
     confidenceLevel: Optional[Union[dict, "Coding"]] = None
     confidenceScore: Optional[Union[dict, DataItem]] = None
-    evidenceDirection: Optional[str] = None
+    evidenceDirection: Optional[Union[dict, "Coding"]] = None
     evidenceLevel: Optional[Union[dict, "Coding"]] = None
     evidenceScore: Optional[Union[dict, DataItem]] = None
     conclusion: Optional[Union[dict, "Coding"]] = None
@@ -334,6 +326,9 @@ class Statement(InformationEntity):
         if self.statementText is not None and not isinstance(self.statementText, str):
             self.statementText = str(self.statementText)
 
+        if self.proposition is not None and not isinstance(self.proposition, Proposition):
+            self.proposition = Proposition(**as_dict(self.proposition))
+
         if self.confidenceDirection is not None and not isinstance(self.confidenceDirection, Coding):
             self.confidenceDirection = Coding(**as_dict(self.confidenceDirection))
 
@@ -343,8 +338,8 @@ class Statement(InformationEntity):
         if self.confidenceScore is not None and not isinstance(self.confidenceScore, DataItem):
             self.confidenceScore = DataItem(**as_dict(self.confidenceScore))
 
-        if self.evidenceDirection is not None and not isinstance(self.evidenceDirection, str):
-            self.evidenceDirection = str(self.evidenceDirection)
+        if self.evidenceDirection is not None and not isinstance(self.evidenceDirection, Coding):
+            self.evidenceDirection = Coding(**as_dict(self.evidenceDirection))
 
         if self.evidenceLevel is not None and not isinstance(self.evidenceLevel, Coding):
             self.evidenceLevel = Coding(**as_dict(self.evidenceLevel))
@@ -858,6 +853,9 @@ slots.title = Slot(uri=VACOREIM.title, name="title", curie=VACOREIM.curie('title
 slots.statementText = Slot(uri=VACOREIM.statementText, name="statementText", curie=VACOREIM.curie('statementText'),
                    model_uri=VACOREIM.statementText, domain=None, range=Optional[str])
 
+slots.proposition = Slot(uri=VACOREIM.proposition, name="proposition", curie=VACOREIM.curie('proposition'),
+                   model_uri=VACOREIM.proposition, domain=None, range=Optional[str])
+
 slots.confidenceDirection = Slot(uri=VACOREIM.confidenceDirection, name="confidenceDirection", curie=VACOREIM.curie('confidenceDirection'),
                    model_uri=VACOREIM.confidenceDirection, domain=None, range=Optional[str])
 
@@ -1047,6 +1045,9 @@ slots.Statement_subtype = Slot(uri=VACOREIM.subtype, name="Statement_subtype", c
 slots.Statement_statementText = Slot(uri=VACOREIM.statementText, name="Statement_statementText", curie=VACOREIM.curie('statementText'),
                    model_uri=VACOREIM.Statement_statementText, domain=Statement, range=Optional[str])
 
+slots.Statement_proposition = Slot(uri=VACOREIM.proposition, name="Statement_proposition", curie=VACOREIM.curie('proposition'),
+                   model_uri=VACOREIM.Statement_proposition, domain=Statement, range=Optional[Union[dict, "Proposition"]])
+
 slots.Statement_confidenceDirection = Slot(uri=VACOREIM.confidenceDirection, name="Statement_confidenceDirection", curie=VACOREIM.curie('confidenceDirection'),
                    model_uri=VACOREIM.Statement_confidenceDirection, domain=Statement, range=Optional[Union[dict, "Coding"]])
 
@@ -1057,7 +1058,7 @@ slots.Statement_confidenceScore = Slot(uri=VACOREIM.confidenceScore, name="State
                    model_uri=VACOREIM.Statement_confidenceScore, domain=Statement, range=Optional[Union[dict, DataItem]])
 
 slots.Statement_evidenceDirection = Slot(uri=VACOREIM.evidenceDirection, name="Statement_evidenceDirection", curie=VACOREIM.curie('evidenceDirection'),
-                   model_uri=VACOREIM.Statement_evidenceDirection, domain=Statement, range=Optional[str])
+                   model_uri=VACOREIM.Statement_evidenceDirection, domain=Statement, range=Optional[Union[dict, "Coding"]])
 
 slots.Statement_evidenceLevel = Slot(uri=VACOREIM.evidenceLevel, name="Statement_evidenceLevel", curie=VACOREIM.curie('evidenceLevel'),
                    model_uri=VACOREIM.Statement_evidenceLevel, domain=Statement, range=Optional[Union[dict, "Coding"]])

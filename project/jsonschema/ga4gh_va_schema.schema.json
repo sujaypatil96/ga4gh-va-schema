@@ -1271,7 +1271,7 @@
                 },
                 "confidenceScore": {
                     "$ref": "#/$defs/DataItem",
-                    "description": "A quantitative score reflecting the asserting agent's level of confidence in the Statement's proposition. For PropositionAssessmentStatements, the direction this confidence pertains to (i.e. the truth or falsehood of the proposition) is captured in the confidenceDirection attribute."
+                    "description": "A quantitative score the asserting agent's level of confidence about the Statement's proposition (i.e. how confident they are that it is true or false)."
                 },
                 "contributions": {
                     "description": "A specific contribution made by some Agent to the creation, modification, or validation of the information represented in the Information Entity.",
@@ -1296,8 +1296,8 @@
                     "type": "string"
                 },
                 "evidenceDirection": {
-                    "description": "A term indicating the net direction of all evidence assessed against the Statement's proposition.",
-                    "type": "string"
+                    "$ref": "#/$defs/Coding",
+                    "description": "A term indicating the net direction of all evidence assessed against the Statement's proposition."
                 },
                 "evidenceLevel": {
                     "$ref": "#/$defs/Coding",
@@ -1349,6 +1349,10 @@
                 "label": {
                     "description": "A primary name for the Entity.",
                     "type": "string"
+                },
+                "proposition": {
+                    "$ref": "#/$defs/Proposition",
+                    "description": "A possible fact (Proposition) that the Statement is about.  A Statement may say any or all of the following about its Proposition: (1) simply report its as being true; (2) describe the author's degree of confidence in the its truth; (3) report the author's assessment of the level and direction of evidence backing it."
                 },
                 "recordMetadata": {
                     "$ref": "#/$defs/RecordMetadata",

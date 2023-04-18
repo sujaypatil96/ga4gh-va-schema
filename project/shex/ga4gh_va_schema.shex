@@ -249,10 +249,11 @@ linkml:Nodeidentifier NONLITERAL
           rdf:type [ <InformationEntity> ] ? ;
           <subtype> @<Coding> ? ;
           <statementText> @linkml:String ? ;
+          <proposition> @<Proposition> ? ;
           <confidenceDirection> @<Coding> ? ;
           <confidenceLevel> @<Coding> ? ;
           <confidenceScore> @<DataItem> ? ;
-          <evidenceDirection> @linkml:String ? ;
+          <evidenceDirection> @<Coding> ? ;
           <evidenceLevel> @<Coding> ? ;
           <evidenceScore> @<DataItem> ? ;
           <conclusion> @<Coding> ? ;

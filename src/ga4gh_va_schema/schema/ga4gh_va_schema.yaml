@@ -3,17 +3,8 @@ id: https://w3id.org/ga4gh-va-core-im
 imports:
 - linkml:types
 prefixes:
-  BFO: http://purl.obolibrary.org/obo/BFO_
-  FHIR: http://example.org/FHIR/
-  CAM: http://example.org/CAM/
-  IAO: http://purl.obolibrary.org/obo/IAO_
-  PROV: http://www.w3.org/ns/prov#
-  SEPIO: http://purl.obolibrary.org/obo/SEPIO_
-  FRBR: https://vocab.org/frbr/core
-  DC: https://example.com/dc
   linkml: https://w3id.org/linkml/
   vacoreim: https://example.org/vacoreim/
-  OBI: http://purl.obolibrary.org/obo/OBI_
 default_prefix: vacoreim
 default_range: string
 types:
@@ -62,20 +53,20 @@ types:
     title: Identifier
     comments:
     - "We distinguish between two types of identifiers depending on their intended\
-      \ scope of use. \u2018Logical identifiers\u2019 are used to identify a data\
+      \ scope of use: \n\n\u2018Logical identifiers\u2019 are used to identify a data\
       \ object within a given system, where it is used as a reference from other objects\
       \ within the same system (i.e. primary and foreign keys). The same data object\
       \ copied to a different system will likely have a different logical identifier\
-      \ in that new system. \u2018Business identifiers\u2019 are typically provided\
+      \ in that new system. \n\n\u2018Business identifiers\u2019 are typically provided\
       \ by an external system or authority, and are meant to be globally unique and\
       \ persist across implementing systems. A given entity or concept may have many\
       \ business identifiers associated with it, which can all be captured in a given\
-      \ data system. In the VA model, we follow FHIR naming conventions and use an\
-      \  id  attribute to hold the logical identifier of a data object, and an identifier\
+      \ data system. \n\nIn the VA model, we follow FHIR naming conventions and use\
+      \ id attribute to hold the logical identifier of a data object, and an identifier\
       \ attribute to hold any business identifiers that the data creator may also\
-      \ want to provide.\nUse of the W3C Compact URI (CURIE) syntax to structure identifiers\
-      \ is strongly recommended, as a way to ensure that a given identifier is unique\
-      \ within its intended scope of use."
+      \ want to provide.\n\nUse of the W3C Compact URI (CURIE) syntax to structure\
+      \ identifiers is strongly recommended, as a way to ensure that a given identifier\
+      \ is unique within its intended scope of use."
     from_schema: https://w3id.org/ga4gh-va-core-im
     base: str
     uri: xsd:string
@@ -123,6 +114,8 @@ slots:
   title:
     from_schema: https://w3id.org/ga4gh-va-core-im
   statementText:
+    from_schema: https://w3id.org/ga4gh-va-core-im
+  proposition:
     from_schema: https://w3id.org/ga4gh-va-core-im
   confidenceDirection:
     from_schema: https://w3id.org/ga4gh-va-core-im
@@ -207,8 +200,6 @@ classes:
       class ' Entity' holds additional generic metadata attributes that all core classes
       in the model inherit (e.g. things like ids/identifiers, labels,  xrefs, etc.)
     from_schema: https://w3id.org/ga4gh-va-core-im
-    exact_mappings:
-    - FHIR:Element
     slots:
     - type
     - description
@@ -244,8 +235,6 @@ classes:
     from_schema: https://w3id.org/ga4gh-va-core-im
     aliases:
     - Thing
-    exact_mappings:
-    - BFO:0000001
     is_a: Element
     slots:
     - id
@@ -264,8 +253,6 @@ classes:
           identifiers which are unique only within a given system, and an 'identifier'
           field holds business identifiers, which are globally unique and used to
           connect entities and share content across systems.
-        exact_mappings:
-        - FHIR:id
         multivalued: false
         range: Identifier
         required: true
@@ -278,8 +265,6 @@ classes:
           identifiers which are unique only within a given system, and an 'identifier'
           field holds business identifiers, which are globally unique and used to
           connect entities and share content across systems.
-        exact_mappings:
-        - FHIR:identifier
         multivalued: true
         range: Identifier
         required: false
@@ -332,9 +317,6 @@ classes:
     from_schema: https://w3id.org/ga4gh-va-core-im
     aliases:
     - Information Content Entity, ICE
-    exact_mappings:
-    - FRBR:Work
-    - IAO:0000030
     is_a: Entity
     slots:
     - contributions
@@ -384,8 +366,6 @@ classes:
       derivedFrom:
         description: An information resource from which the Information Entity is
           derived, in whole or in part
-        exact_mappings:
-        - DC:source
         multivalued: true
         range: InformationEntity
         required: false
@@ -414,8 +394,6 @@ classes:
       patient's weight, derived calculations such as frequency or mean, and computed
       statistical scores/metrics such as p-values and z-scores.
     from_schema: https://w3id.org/ga4gh-va-core-im
-    exact_mappings:
-    - IAO:0000027
     is_a: InformationEntity
     slots:
     - subtype
@@ -452,13 +430,12 @@ classes:
       gnomAD v3.1.2). At present, the model does not support ''Summary Level'' or
       ''Distribution Level'' representations (see https://www.w3.org/TR/hcls-dataset/#datasetdescriptionlevels).
 
+
       Examples include the Broad ExAC dataset on allele population frequency, or a
       SIFT dataset of computational predictions functional impact for a set of variants,
       or the contents of a VCF file that describes variations observed in a particular
       patient and various annotations made on them.'
     from_schema: https://w3id.org/ga4gh-va-core-im
-    exact_mappings:
-    - IAO:0000100
     is_a: InformationEntity
     slots:
     - subtype
@@ -515,8 +492,6 @@ classes:
       content it expresses, which can be concretized in different languages, formats,
       and physical mediums.
     from_schema: https://w3id.org/ga4gh-va-core-im
-    exact_mappings:
-    - IAO:0000310
     is_a: InformationEntity
     slots:
     - subtype
@@ -563,25 +538,22 @@ classes:
     - "In the VA model, each assertion of knowledge about a variant is captured in\
       \ a self-contained Statement object. Organization of variant knowledge into\
       \ discrete Statement objects allows clear and precise tracking of the evidence\
-      \ and provenance that supports each. \nThe VA model distinguishes two high-level\
-      \ categories of statements: (1) 'Domain Statements' put forth as true a specific\
-      \ proposition about the domain of discourse (e.g. that \"BRCA2 c.8023A>G is\
-      \ pathogenic for Breast Cancer\"); (2) 'Proposition Assessment Statements' describe\
+      \ and provenance that supports each. \n\nThe VA model allows Statemetns to simply\
+      \ put forth as true a specific proposition about the domain of discourse (e.g.\
+      \ that \"BRCA2 c.8023A>G is pathogenic for Breast Cancer\"), and/or describe\
       \ the overall state of evidence and/or confidence surrounding a particular proposition\
       \ (e.g. that \"there is moderate evidence supporting the pathogenicity of BRCA2\
-      \ c.8023A>G for Breast Cancer\", or that \"I have very high confidence that\
-      \ the proposition that BRCA2 c.8023A>G is pathogenic for Breast Cancer is true\"\
-      ) -  but does not directly express the proposition as true. The VA model provides\
-      \ distinct class structures for representing these different levels of Statements."
+      \ c.8023A>G for Breast Cancer\", or that \"I have very high confidence in the\
+      \ truth of the proposition that BRCA2 c.8023A>G is pathogenic for Breast Cancer\"\
+      )."
     from_schema: https://w3id.org/ga4gh-va-core-im
     aliases:
     - Assertion; Claim
-    exact_mappings:
-    - SEPIO:0000174
     is_a: InformationEntity
     slots:
     - subtype
     - statementText
+    - proposition
     - confidenceDirection
     - confidenceLevel
     - confidenceScore
@@ -613,6 +585,19 @@ classes:
         multivalued: false
         range: string
         required: false
+      proposition:
+        description: 'A possible fact (Proposition) that the Statement is about.  A
+          Statement may say any or all of the following about its Proposition: (1)
+          simply report its as being true; (2) describe the author''s degree of confidence
+          in the its truth; (3) report the author''s assessment of the level and direction
+          of evidence backing it.'
+        comments:
+        - This attribute provides the option of encapsulating the structured semantics
+          of the possible fact asserted or evaluated by a Statement in a separate
+          'Proposition' object.
+        multivalued: false
+        range: Proposition
+        required: false
       confidenceDirection:
         description: A term indicating whether the confidenceLevel and/or confidenceScore
           values reflect confidence that the statement's proposition is true or false.
@@ -639,10 +624,9 @@ classes:
         range: Coding
         required: false
       confidenceScore:
-        description: A quantitative score reflecting the asserting agent's level of
-          confidence in the Statement's proposition. For PropositionAssessmentStatements,
-          the direction this confidence pertains to (i.e. the truth or falsehood of
-          the proposition) is captured in the confidenceDirection attribute.
+        description: A quantitative score the asserting agent's level of confidence
+          about the Statement's proposition (i.e. how confident they are that it is
+          true or false).
         comments:
         - A Statement's proposition may ultimately be assessed by the agent to be
           true, false, or uncertain -  as indicated by the confidenceDirection attribute.
@@ -664,6 +648,9 @@ classes:
           argues against its validity), or remains 'inconclusive' (if conficting or
           insufficient evidence exists to assert one direction or the other). (Recommended
           values = 'supports', 'disputes', 'inconclusive'.)
+        multivalued: false
+        range: Coding
+        required: false
       evidenceLevel:
         description: A term indicating the overall strength of support for or against
           the Statement's proposition, as provided by all evidence evaluated.
@@ -763,13 +750,13 @@ classes:
       describing how these data items were generated).
     title: Study Result
     comments:
-    - StudyResult objects provide a flexible and useful way to summarize a subset
-      of data items from a larger study that are cited as evidence in curation workflows
-      that generate higher order knowledge about a particular variant or other entity.
-      For example, a specific subset of allele frequency data items about a particular
-      variant of interest in the gnomAD dataset can be captured in a Study Result
-      object, along with relevant provenance information, and referenced as evidence
-      for a higher-order Statement about the variant's pathogenicity.
+    - "StudyResult objects provide a flexible and useful way to summarize a subset\
+      \ of data items from a larger study that are cited as evidence in curation workflows\
+      \ that generate higher order knowledge about a particular variant or other entity.\
+      \ \n\nFor example, a specific subset of allele frequency data items about a\
+      \ particular variant of interest in the gnomAD dataset can be captured in a\
+      \ Study Result object, along with relevant provenance information, and referenced\
+      \ as evidence for a higher-order Statement about the variant's pathogenicity."
     from_schema: https://w3id.org/ga4gh-va-core-im
     is_a: InformationEntity
     slots:
@@ -819,22 +806,20 @@ classes:
       of one or more pieces of information as evidence.
     title: Evidence Line
     comments:
-    - 'Evidence Lines result from the interpretation of one or more pieces of information
-      (Evidence Items) to build an argument for or against a particular Proposition
-      (possible fact). The Evidence Line that results can be considered a special
-      kind of Statement that asserts the direction and strength such an argument provides
-      for some target Proposition. For example, The various allele counts and frequency
-      calculations for the BRCA2 c.8023A>G variant found in the ExAC database are
-      Evidence Items  that might be collectively assessed by a ClinGen curator to
-      build an Evidence Line that is deemed to ''support'' with ''moderate'' strength
-      a target proposition that the variant is pathogenic for Breast Cancer.  The
-      narrative form of the Statement represented by this Evidence Line is roughly:
-      "ExAC allele frequency data for BRCA2 c.8023A>G {0.0000021, 0.0000034, ...}
-      provides evidence of moderate strength supporting the proposition that BRCA2
-      c.8023A>G is pathogenic for Breast Cancer".'
+    - "Evidence Lines result from the interpretation of one or more pieces of information\
+      \ (Evidence Items) to build an argument for or against a particular Proposition\
+      \ (possible fact). The Evidence Line that results can be considered a special\
+      \ kind of Statement that asserts the direction and strength such an argument\
+      \ provides for some target Proposition. \n\nFor example, the various allele\
+      \ counts and frequency calculations for the BRCA2 c.8023A>G variant found in\
+      \ the ExAC database are Evidence Items  that might be collectively assessed\
+      \ by a ClinGen curator to build an Evidence Line that is deemed to 'support'\
+      \ with 'moderate' strength a target proposition that the variant is pathogenic\
+      \ for Breast Cancer.  \n\nThe narrative form of the Statement represented by\
+      \ this Evidence Line is roughly: \"ExAC allele frequency data for BRCA2 c.8023A>G\
+      \ {0.0000021, 0.0000034, ...} provides evidence of moderate strength supporting\
+      \ the proposition that BRCA2 c.8023A>G is pathogenic for Breast Cancer\"."
     from_schema: https://w3id.org/ga4gh-va-core-im
-    exact_mappings:
-    - SEPIO:0000002
     is_a: InformationEntity
     slots:
     - subtype
@@ -911,8 +896,6 @@ classes:
       interpretation that specify how information can be organized, evaluated, and
       interpreted to generate evidence-based assertions.
     from_schema: https://w3id.org/ga4gh-va-core-im
-    exact_mappings:
-    - IAO:0000104
     is_a: InformationEntity
     slots:
     - subtype
@@ -945,9 +928,6 @@ classes:
       to generate scientific knowledge. Agents can play different types of roles in
       the generation and use of such artifacts.
     from_schema: https://w3id.org/ga4gh-va-core-im
-    exact_mappings:
-    - OBI:0000011
-    - PROV:Activity
     is_a: Entity
     slots:
     - subtype
@@ -1006,8 +986,6 @@ classes:
       Contribution instances are used to organize information about when, where, how
       (e.g. what roles were played), and on whose behalf these actions were performed.
     from_schema: https://w3id.org/ga4gh-va-core-im
-    exact_mappings:
-    - CAM:Contribution
     is_a: Activity
     slots:
     - contributionMadeTo
@@ -1023,7 +1001,7 @@ classes:
           in making the contribution.
         comments:
         - "Data creators can define terms for the specific types of activities relevant\
-          \ to their use case/application. \nNote that if the same Agent performed\
+          \ to their use case/application. \n\nNote that if the same Agent performed\
           \ multiple types of activities in contibuting to some artifact, they may\
           \ all be captured in a single Contribution object. However, if data creators\
           \ want to provide metadata specific to each activity (e.g. when or how each\
@@ -1042,8 +1020,6 @@ classes:
       iterations of the specification.  At present, adopters can plug their own model
       of Agents in here.
     from_schema: https://w3id.org/ga4gh-va-core-im
-    exact_mappings:
-    - CAM:Agent
     is_a: Entity
     slots:
     - subtype
@@ -1069,13 +1045,15 @@ classes:
       \ lexical entities formulated in some natural or artificial language. As primary\
       \ bearers of truth, they are either true or false. They are abstract entities\
       \ whose identity and existence are independent of space and time, and of whether\
-      \ they are ever asserted to be true by some agent. Propositions are \u2018sharable\u2019\
-      \ in the sense that the same Proposition instance can be put forth as true or\
-      \ false in many different Statements, as made by different Agents and/or on\
-      \ different occasions."
+      \ they are ever asserted to be true by some agent. \n\nPropositions are \u2018\
+      sharable\u2019 in the sense that the same Proposition instance can be put forth\
+      \ as true or false in many different Statements, as made by different Agents\
+      \ and/or on different occasions.\n\nPropositions are referenced in two contexts:\
+      \ (1) by Statements that assert the it to be true, or describe the overall state\
+      \ of confidence/evidence surrounding it; (2) by Evidence Lines that report how\
+      \ strong an argument is made by a particular collection of evidence items for\
+      \ or against it."
     from_schema: https://w3id.org/ga4gh-va-core-im
-    exact_mappings:
-    - SEPIO:0000000
     is_a: Entity
     slots:
     - subtype
@@ -1098,6 +1076,9 @@ classes:
         required: false
       propositionText:
         description: A natural-language expression of the Proposition's meaning.
+        multivalued: false
+        range: string
+        required: false
       subject:
         description: The Entity about which the Proposition is made.
         comments:
@@ -1191,8 +1172,6 @@ classes:
       may include additional metadata about the code and code system.
     title: Coding
     from_schema: https://w3id.org/ga4gh-va-core-im
-    exact_mappings:
-    - FHIR:Coding
     is_a: Utility
     slots:
     - code
@@ -1282,8 +1261,6 @@ classes:
     - The modeling pattern and use of Extensions is based on that defined by the FHIR
       Speciufication - see https://build.fhir.org/extensibility.html
     from_schema: https://w3id.org/ga4gh-va-core-im
-    exact_mappings:
-    - FHIR:Extension
     is_a: Utility
     slots:
     - description
@@ -1308,12 +1285,12 @@ classes:
       of the abstract information content/knowledge the record represents.
     title: Record Metadata
     comments:
-    - Record-level metadata applies to a specific concrete encoding/serialization
-      of knowledge  (e.g as a record in a specific database, or an online digital
-      resource). A RecordMetadata object can capture provenance and other metadata,
-      including when, how, and by whom a specific record was generated or modified;
-      what upstream resources it was derived/retrieved from; and record-level administrative
-      information such as versioning and system / lifecycle status.
+    - "Record-level metadata applies to a specific concrete encoding/serialization\
+      \ of knowledge  (e.g as a record in a specific database, or an online digital\
+      \ resource). \n\nA RecordMetadata object can capture provenance and other metadata,\
+      \ including when, how, and by whom a specific record was generated or modified;\
+      \ what upstream resources it was derived/retrieved from; and record-level administrative\
+      \ information such as versioning and system / lifecycle status."
     from_schema: https://w3id.org/ga4gh-va-core-im
     is_a: Utility
     slots:
