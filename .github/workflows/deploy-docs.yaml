@@ -28,5 +28,5 @@ jobs:
         run: |
           mkdir -p docs
           touch docs/.nojekyll
-          poetry run gen-doc -d docs src/ga4gh_va_schema/schema/ga4gh_va_schema.yaml
-          poetry run mkdocs gh-deploy
+          make gendoc
+          make mkd-gh-deploy
