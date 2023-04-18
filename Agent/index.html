@@ -386,10 +386,6 @@
 <td>native</td>
 <td>vacoreim:Agent</td>
 </tr>
-<tr>
-<td>exact</td>
-<td>CAM:Agent</td>
-</tr>
 </tbody>
 </table>
 <h2 id="linkml-source">LinkML Source</h2>
@@ -406,8 +402,6 @@ comments:
   of the specification.  At present, adopters can plug their own model of Agents in
   here.
 from_schema: https://w3id.org/ga4gh-va-core-im
-exact_mappings:
-- CAM:Agent
 rank: 1000
 is_a: Entity
 slots:
@@ -452,8 +446,6 @@ comments:
   of the specification.  At present, adopters can plug their own model of Agents in
   here.
 from_schema: https://w3id.org/ga4gh-va-core-im
-exact_mappings:
-- CAM:Agent
 rank: 1000
 is_a: Entity
 slot_usage:
@@ -529,8 +521,6 @@ attributes:
       field holds business identifiers, which are globally unique and used to connect
       entities and share content across systems.
     from_schema: https://w3id.org/ga4gh-va-core-im
-    exact_mappings:
-    - FHIR:id
     rank: 1000
     multivalued: false
     alias: id
@@ -550,8 +540,6 @@ attributes:
       field holds business identifiers, which are globally unique and used to connect
       entities and share content across systems.
     from_schema: https://w3id.org/ga4gh-va-core-im
-    exact_mappings:
-    - FHIR:identifier
     rank: 1000
     multivalued: true
     alias: identifiers

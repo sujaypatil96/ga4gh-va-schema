@@ -491,10 +491,6 @@
 <td>native</td>
 <td>vacoreim:Contribution</td>
 </tr>
-<tr>
-<td>exact</td>
-<td>CAM:Contribution</td>
-</tr>
 </tbody>
 </table>
 <h2 id="linkml-source">LinkML Source</h2>
@@ -513,8 +509,6 @@ comments:
   Contribution instances are used to organize information about when, where, how (e.g.
   what roles were played), and on whose behalf these actions were performed.
 from_schema: https://w3id.org/ga4gh-va-core-im
-exact_mappings:
-- CAM:Contribution
 rank: 1000
 is_a: Activity
 slots:
@@ -535,7 +529,7 @@ slot_usage:
       making the contribution.
     comments:
     - "Data creators can define terms for the specific types of activities relevant\
-      \ to their use case/application. \nNote that if the same Agent performed multiple\
+      \ to their use case/application. \n\nNote that if the same Agent performed multiple\
       \ types of activities in contibuting to some artifact, they may all be captured\
       \ in a single Contribution object. However, if data creators want to provide\
       \ metadata specific to each activity (e.g. when or how each was performed),\
@@ -562,8 +556,6 @@ comments:
   Contribution instances are used to organize information about when, where, how (e.g.
   what roles were played), and on whose behalf these actions were performed.
 from_schema: https://w3id.org/ga4gh-va-core-im
-exact_mappings:
-- CAM:Contribution
 rank: 1000
 is_a: Activity
 slot_usage:
@@ -581,7 +573,7 @@ slot_usage:
       making the contribution.
     comments:
     - "Data creators can define terms for the specific types of activities relevant\
-      \ to their use case/application. \nNote that if the same Agent performed multiple\
+      \ to their use case/application. \n\nNote that if the same Agent performed multiple\
       \ types of activities in contibuting to some artifact, they may all be captured\
       \ in a single Contribution object. However, if data creators want to provide\
       \ metadata specific to each activity (e.g. when or how each was performed),\
@@ -610,7 +602,7 @@ attributes:
       making the contribution.
     comments:
     - "Data creators can define terms for the specific types of activities relevant\
-      \ to their use case/application. \nNote that if the same Agent performed multiple\
+      \ to their use case/application. \n\nNote that if the same Agent performed multiple\
       \ types of activities in contibuting to some artifact, they may all be captured\
       \ in a single Contribution object. However, if data creators want to provide\
       \ metadata specific to each activity (e.g. when or how each was performed),\
@@ -723,8 +715,6 @@ attributes:
       field holds business identifiers, which are globally unique and used to connect
       entities and share content across systems.
     from_schema: https://w3id.org/ga4gh-va-core-im
-    exact_mappings:
-    - FHIR:id
     rank: 1000
     multivalued: false
     alias: id
@@ -744,8 +734,6 @@ attributes:
       field holds business identifiers, which are globally unique and used to connect
       entities and share content across systems.
     from_schema: https://w3id.org/ga4gh-va-core-im
-    exact_mappings:
-    - FHIR:identifier
     rank: 1000
     multivalued: true
     alias: identifiers

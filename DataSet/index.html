@@ -423,9 +423,9 @@
 </table>
 <h2 id="comments">Comments</h2>
 <ul>
-<li>Instances of this class represent a specific version of a given dataset (e.g. gnomAD v3.1.2). At present, the model does not support 'Summary Level' or 'Distribution Level' representations (see https://www.w3.org/TR/hcls-dataset/#datasetdescriptionlevels).
-Examples include the Broad ExAC dataset on allele population frequency, or a SIFT dataset of computational predictions functional impact for a set of variants, or the contents of a VCF file that describes variations observed in a particular patient and various annotations made on them.</li>
+<li>Instances of this class represent a specific version of a given dataset (e.g. gnomAD v3.1.2). At present, the model does not support 'Summary Level' or 'Distribution Level' representations (see https://www.w3.org/TR/hcls-dataset/#datasetdescriptionlevels).</li>
 </ul>
+<p>Examples include the Broad ExAC dataset on allele population frequency, or a SIFT dataset of computational predictions functional impact for a set of variants, or the contents of a VCF file that describes variations observed in a particular patient and various annotations made on them.</p>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
@@ -448,10 +448,6 @@ Examples include the Broad ExAC dataset on allele population frequency, or a SIF
 <td>native</td>
 <td>vacoreim:DataSet</td>
 </tr>
-<tr>
-<td>exact</td>
-<td>IAO:0000100</td>
-</tr>
 </tbody>
 </table>
 <h2 id="linkml-source">LinkML Source</h2>
@@ -468,13 +464,12 @@ comments:
   v3.1.2). At present, the model does not support ''Summary Level'' or ''Distribution
   Level'' representations (see https://www.w3.org/TR/hcls-dataset/#datasetdescriptionlevels).
 
+
   Examples include the Broad ExAC dataset on allele population frequency, or a SIFT
   dataset of computational predictions functional impact for a set of variants, or
   the contents of a VCF file that describes variations observed in a particular patient
   and various annotations made on them.'
 from_schema: https://w3id.org/ga4gh-va-core-im
-exact_mappings:
-- IAO:0000100
 rank: 1000
 is_a: InformationEntity
 slots:
@@ -561,13 +556,12 @@ comments:
   v3.1.2). At present, the model does not support ''Summary Level'' or ''Distribution
   Level'' representations (see https://www.w3.org/TR/hcls-dataset/#datasetdescriptionlevels).
 
+
   Examples include the Broad ExAC dataset on allele population frequency, or a SIFT
   dataset of computational predictions functional impact for a set of variants, or
   the contents of a VCF file that describes variations observed in a particular patient
   and various annotations made on them.'
 from_schema: https://w3id.org/ga4gh-va-core-im
-exact_mappings:
-- IAO:0000100
 rank: 1000
 is_a: InformationEntity
 slot_usage:
@@ -779,8 +773,6 @@ attributes:
     description: An information resource from which the Information Entity is derived,
       in whole or in part
     from_schema: https://w3id.org/ga4gh-va-core-im
-    exact_mappings:
-    - DC:source
     rank: 1000
     multivalued: true
     alias: derivedFrom
@@ -824,8 +816,6 @@ attributes:
       field holds business identifiers, which are globally unique and used to connect
       entities and share content across systems.
     from_schema: https://w3id.org/ga4gh-va-core-im
-    exact_mappings:
-    - FHIR:id
     rank: 1000
     multivalued: false
     alias: id
@@ -845,8 +835,6 @@ attributes:
       field holds business identifiers, which are globally unique and used to connect
       entities and share content across systems.
     from_schema: https://w3id.org/ga4gh-va-core-im
-    exact_mappings:
-    - FHIR:identifier
     rank: 1000
     multivalued: true
     alias: identifiers

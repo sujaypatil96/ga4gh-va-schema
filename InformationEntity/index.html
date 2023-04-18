@@ -492,10 +492,6 @@
 <td>native</td>
 <td>vacoreim:InformationEntity</td>
 </tr>
-<tr>
-<td>exact</td>
-<td>FRBR:Work, IAO:0000030</td>
-</tr>
 </tbody>
 </table>
 <h2 id="linkml-source">LinkML Source</h2>
@@ -514,9 +510,6 @@ comments:
 from_schema: https://w3id.org/ga4gh-va-core-im
 aliases:
 - Information Content Entity, ICE
-exact_mappings:
-- FRBR:Work
-- IAO:0000030
 rank: 1000
 is_a: Entity
 slots:
@@ -578,8 +571,6 @@ slot_usage:
     name: derivedFrom
     description: An information resource from which the Information Entity is derived,
       in whole or in part
-    exact_mappings:
-    - DC:source
     multivalued: true
     domain_of:
     - InformationEntity
@@ -622,9 +613,6 @@ comments:
 from_schema: https://w3id.org/ga4gh-va-core-im
 aliases:
 - Information Content Entity, ICE
-exact_mappings:
-- FRBR:Work
-- IAO:0000030
 rank: 1000
 is_a: Entity
 slot_usage:
@@ -680,8 +668,6 @@ slot_usage:
     name: derivedFrom
     description: An information resource from which the Information Entity is derived,
       in whole or in part
-    exact_mappings:
-    - DC:source
     multivalued: true
     domain_of:
     - InformationEntity
@@ -773,8 +759,6 @@ attributes:
     description: An information resource from which the Information Entity is derived,
       in whole or in part
     from_schema: https://w3id.org/ga4gh-va-core-im
-    exact_mappings:
-    - DC:source
     rank: 1000
     multivalued: true
     alias: derivedFrom
@@ -818,8 +802,6 @@ attributes:
       field holds business identifiers, which are globally unique and used to connect
       entities and share content across systems.
     from_schema: https://w3id.org/ga4gh-va-core-im
-    exact_mappings:
-    - FHIR:id
     rank: 1000
     multivalued: false
     alias: id
@@ -839,8 +821,6 @@ attributes:
       field holds business identifiers, which are globally unique and used to connect
       entities and share content across systems.
     from_schema: https://w3id.org/ga4gh-va-core-im
-    exact_mappings:
-    - FHIR:identifier
     rank: 1000
     multivalued: true
     alias: identifiers

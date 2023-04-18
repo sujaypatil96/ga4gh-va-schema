@@ -395,8 +395,9 @@
 </table>
 <h2 id="comments">Comments</h2>
 <ul>
-<li>StudyResult objects provide a flexible and useful way to summarize a subset of data items from a larger study that are cited as evidence in curation workflows that generate higher order knowledge about a particular variant or other entity. For example, a specific subset of allele frequency data items about a particular variant of interest in the gnomAD dataset can be captured in a Study Result object, along with relevant provenance information, and referenced as evidence for a higher-order Statement about the variant's pathogenicity.</li>
+<li>StudyResult objects provide a flexible and useful way to summarize a subset of data items from a larger study that are cited as evidence in curation workflows that generate higher order knowledge about a particular variant or other entity. </li>
 </ul>
+<p>For example, a specific subset of allele frequency data items about a particular variant of interest in the gnomAD dataset can be captured in a Study Result object, along with relevant provenance information, and referenced as evidence for a higher-order Statement about the variant's pathogenicity.</p>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
@@ -431,13 +432,13 @@ description: A collection of data items from a single study that are about a par
   describing how these data items were generated).
 title: Study Result
 comments:
-- StudyResult objects provide a flexible and useful way to summarize a subset of data
-  items from a larger study that are cited as evidence in curation workflows that
-  generate higher order knowledge about a particular variant or other entity. For
-  example, a specific subset of allele frequency data items about a particular variant
-  of interest in the gnomAD dataset can be captured in a Study Result object, along
-  with relevant provenance information, and referenced as evidence for a higher-order
-  Statement about the variant's pathogenicity.
+- "StudyResult objects provide a flexible and useful way to summarize a subset of\
+  \ data items from a larger study that are cited as evidence in curation workflows\
+  \ that generate higher order knowledge about a particular variant or other entity.\
+  \ \n\nFor example, a specific subset of allele frequency data items about a particular\
+  \ variant of interest in the gnomAD dataset can be captured in a Study Result object,\
+  \ along with relevant provenance information, and referenced as evidence for a higher-order\
+  \ Statement about the variant's pathogenicity."
 from_schema: https://w3id.org/ga4gh-va-core-im
 rank: 1000
 is_a: InformationEntity
@@ -516,13 +517,13 @@ description: A collection of data items from a single study that are about a par
   describing how these data items were generated).
 title: Study Result
 comments:
-- StudyResult objects provide a flexible and useful way to summarize a subset of data
-  items from a larger study that are cited as evidence in curation workflows that
-  generate higher order knowledge about a particular variant or other entity. For
-  example, a specific subset of allele frequency data items about a particular variant
-  of interest in the gnomAD dataset can be captured in a Study Result object, along
-  with relevant provenance information, and referenced as evidence for a higher-order
-  Statement about the variant's pathogenicity.
+- "StudyResult objects provide a flexible and useful way to summarize a subset of\
+  \ data items from a larger study that are cited as evidence in curation workflows\
+  \ that generate higher order knowledge about a particular variant or other entity.\
+  \ \n\nFor example, a specific subset of allele frequency data items about a particular\
+  \ variant of interest in the gnomAD dataset can be captured in a Study Result object,\
+  \ along with relevant provenance information, and referenced as evidence for a higher-order\
+  \ Statement about the variant's pathogenicity."
 from_schema: https://w3id.org/ga4gh-va-core-im
 rank: 1000
 is_a: InformationEntity
@@ -753,8 +754,6 @@ attributes:
       field holds business identifiers, which are globally unique and used to connect
       entities and share content across systems.
     from_schema: https://w3id.org/ga4gh-va-core-im
-    exact_mappings:
-    - FHIR:id
     rank: 1000
     multivalued: false
     alias: id
@@ -774,8 +773,6 @@ attributes:
       field holds business identifiers, which are globally unique and used to connect
       entities and share content across systems.
     from_schema: https://w3id.org/ga4gh-va-core-im
-    exact_mappings:
-    - FHIR:identifier
     rank: 1000
     multivalued: true
     alias: identifiers

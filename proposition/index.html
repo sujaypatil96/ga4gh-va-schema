@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://sujaypatil96.github.io/ga4gh-va-schema/Identifier/">
+        <link rel="canonical" href="https://sujaypatil96.github.io/ga4gh-va-schema/proposition/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
     
     
       
-        <title>Type: Identifier - ga4gh-va-schema</title>
+        <title>Slot: proposition - ga4gh-va-schema</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#type-identifier" class="md-skip">
+        <a href="#slot-proposition" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Type: Identifier
+              Slot: proposition
             
           </span>
         </div>
@@ -256,8 +256,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#comments" class="md-nav__link">
-    Comments
+  <a href="#applicable-classes" class="md-nav__link">
+    Applicable Classes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    Properties
   </a>
   
 </li>
@@ -282,6 +289,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#linkml-source" class="md-nav__link">
+    LinkML Source
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -296,36 +310,54 @@
                 
                   
 
-  <a href="https://github.com/sujaypatil96/ga4gh-va-schema/edit/master/docs/Identifier.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/sujaypatil96/ga4gh-va-schema/edit/master/docs/proposition.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-<h1 id="type-identifier">Type: Identifier</h1>
-<p><em>A string value that uniquely identifies a specific instance of an object in a dataset or document. Identifiers should be persistent, machine-resolvable, and unique within their intended scope of use.</em></p>
-<p>URI: <a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></p>
+<h1 id="slot-proposition">Slot: proposition</h1>
+<p>URI: <a href="https://example.org/vacoreim/proposition">vacoreim:proposition</a></p>
+<!-- no inheritance hierarchy -->
+
+<h2 id="applicable-classes">Applicable Classes</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../Statement/">Statement</a></td>
+<td>An information entity expressing a declarative sentence that is either true o...</td>
+</tr>
+</tbody>
+</table>
+<h2 id="properties">Properties</h2>
 <ul>
-<li>
-<p><a href="https://w3id.org/linkml/base">base</a>: str</p>
-</li>
-<li>
-<p><a href="https://w3id.org/linkml/uri">uri</a>: xsd:string</p>
-</li>
+<li>Range: <a href="../String/">String</a></li>
 </ul>
-<h2 id="comments">Comments</h2>
-<ul>
-<li>We distinguish between two types of identifiers depending on their intended scope of use: </li>
-</ul>
-<p>‘Logical identifiers’ are used to identify a data object within a given system, where it is used as a reference from other objects within the same system (i.e. primary and foreign keys). The same data object copied to a different system will likely have a different logical identifier in that new system. </p>
-<p>‘Business identifiers’ are typically provided by an external system or authority, and are meant to be globally unique and persist across implementing systems. A given entity or concept may have many business identifiers associated with it, which can all be captured in a given data system. </p>
-<p>In the VA model, we follow FHIR naming conventions and use id attribute to hold the logical identifier of a data object, and an identifier attribute to hold any business identifiers that the data creator may also want to provide.</p>
-<p>Use of the W3C Compact URI (CURIE) syntax to structure identifiers is strongly recommended, as a way to ensure that a given identifier is unique within its intended scope of use.</p>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
 <li>from schema: https://w3id.org/ga4gh-va-core-im</li>
 </ul>
+<h2 id="linkml-source">LinkML Source</h2>
+<details>
+
+<pre><code class="language-yaml">name: proposition
+from_schema: https://w3id.org/ga4gh-va-core-im
+rank: 1000
+alias: proposition
+domain_of:
+- Statement
+range: string
+
+</code></pre>
+
+</details>
 
 
 

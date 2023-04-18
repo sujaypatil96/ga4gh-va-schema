@@ -453,10 +453,6 @@
 <td>native</td>
 <td>vacoreim:DataItem</td>
 </tr>
-<tr>
-<td>exact</td>
-<td>IAO:0000027</td>
-</tr>
 </tbody>
 </table>
 <h2 id="linkml-source">LinkML Source</h2>
@@ -472,8 +468,6 @@ comments:
   weight, derived calculations such as frequency or mean, and computed statistical
   scores/metrics such as p-values and z-scores.
 from_schema: https://w3id.org/ga4gh-va-core-im
-exact_mappings:
-- IAO:0000027
 rank: 1000
 is_a: InformationEntity
 slots:
@@ -535,8 +529,6 @@ comments:
   weight, derived calculations such as frequency or mean, and computed statistical
   scores/metrics such as p-values and z-scores.
 from_schema: https://w3id.org/ga4gh-va-core-im
-exact_mappings:
-- IAO:0000027
 rank: 1000
 is_a: InformationEntity
 slot_usage:
@@ -698,8 +690,6 @@ attributes:
     description: An information resource from which the Information Entity is derived,
       in whole or in part
     from_schema: https://w3id.org/ga4gh-va-core-im
-    exact_mappings:
-    - DC:source
     rank: 1000
     multivalued: true
     alias: derivedFrom
@@ -743,8 +733,6 @@ attributes:
       field holds business identifiers, which are globally unique and used to connect
       entities and share content across systems.
     from_schema: https://w3id.org/ga4gh-va-core-im
-    exact_mappings:
-    - FHIR:id
     rank: 1000
     multivalued: false
     alias: id
@@ -764,8 +752,6 @@ attributes:
       field holds business identifiers, which are globally unique and used to connect
       entities and share content across systems.
     from_schema: https://w3id.org/ga4gh-va-core-im
-    exact_mappings:
-    - FHIR:identifier
     rank: 1000
     multivalued: true
     alias: identifiers

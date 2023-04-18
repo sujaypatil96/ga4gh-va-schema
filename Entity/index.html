@@ -405,10 +405,6 @@
 <td>native</td>
 <td>vacoreim:Entity</td>
 </tr>
-<tr>
-<td>exact</td>
-<td>BFO:0000001</td>
-</tr>
 </tbody>
 </table>
 <h2 id="linkml-source">LinkML Source</h2>
@@ -425,8 +421,6 @@ comments:
 from_schema: https://w3id.org/ga4gh-va-core-im
 aliases:
 - Thing
-exact_mappings:
-- BFO:0000001
 rank: 1000
 is_a: Element
 slots:
@@ -447,8 +441,6 @@ slot_usage:
       identifiers which are unique only within a given system, and an 'identifier'
       field holds business identifiers, which are globally unique and used to connect
       entities and share content across systems.
-    exact_mappings:
-    - FHIR:id
     multivalued: false
     domain_of:
     - Entity
@@ -464,8 +456,6 @@ slot_usage:
       identifiers which are unique only within a given system, and an 'identifier'
       field holds business identifiers, which are globally unique and used to connect
       entities and share content across systems.
-    exact_mappings:
-    - FHIR:identifier
     multivalued: true
     domain_of:
     - Entity
@@ -536,8 +526,6 @@ comments:
 from_schema: https://w3id.org/ga4gh-va-core-im
 aliases:
 - Thing
-exact_mappings:
-- BFO:0000001
 rank: 1000
 is_a: Element
 slot_usage:
@@ -551,8 +539,6 @@ slot_usage:
       identifiers which are unique only within a given system, and an 'identifier'
       field holds business identifiers, which are globally unique and used to connect
       entities and share content across systems.
-    exact_mappings:
-    - FHIR:id
     multivalued: false
     domain_of:
     - Entity
@@ -568,8 +554,6 @@ slot_usage:
       identifiers which are unique only within a given system, and an 'identifier'
       field holds business identifiers, which are globally unique and used to connect
       entities and share content across systems.
-    exact_mappings:
-    - FHIR:identifier
     multivalued: true
     domain_of:
     - Entity
@@ -637,8 +621,6 @@ attributes:
       field holds business identifiers, which are globally unique and used to connect
       entities and share content across systems.
     from_schema: https://w3id.org/ga4gh-va-core-im
-    exact_mappings:
-    - FHIR:id
     rank: 1000
     multivalued: false
     alias: id
@@ -658,8 +640,6 @@ attributes:
       field holds business identifiers, which are globally unique and used to connect
       entities and share content across systems.
     from_schema: https://w3id.org/ga4gh-va-core-im
-    exact_mappings:
-    - FHIR:identifier
     rank: 1000
     multivalued: true
     alias: identifiers

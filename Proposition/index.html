@@ -395,6 +395,12 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="../Statement/">Statement</a></td>
+<td><a href="../proposition/">proposition</a></td>
+<td>range</td>
+<td><a href="./">Proposition</a></td>
+</tr>
+<tr>
 <td><a href="../EvidenceLine/">EvidenceLine</a></td>
 <td><a href="../targetProposition/">targetProposition</a></td>
 <td>range</td>
@@ -404,8 +410,10 @@
 </table>
 <h2 id="comments">Comments</h2>
 <ul>
-<li>Propositions are taken to represent the semantic content of sentences or larger lexical entities formulated in some natural or artificial language. As primary bearers of truth, they are either true or false. They are abstract entities whose identity and existence are independent of space and time, and of whether they are ever asserted to be true by some agent. Propositions are ‘sharable’ in the sense that the same Proposition instance can be put forth as true or false in many different Statements, as made by different Agents and/or on different occasions.</li>
+<li>Propositions are taken to represent the semantic content of sentences or larger lexical entities formulated in some natural or artificial language. As primary bearers of truth, they are either true or false. They are abstract entities whose identity and existence are independent of space and time, and of whether they are ever asserted to be true by some agent. </li>
 </ul>
+<p>Propositions are ‘sharable’ in the sense that the same Proposition instance can be put forth as true or false in many different Statements, as made by different Agents and/or on different occasions.</p>
+<p>Propositions are referenced in two contexts: (1) by Statements that assert the it to be true, or describe the overall state of confidence/evidence surrounding it; (2) by Evidence Lines that report how strong an argument is made by a particular collection of evidence items for or against it.</p>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
@@ -428,10 +436,6 @@
 <td>native</td>
 <td>vacoreim:Proposition</td>
 </tr>
-<tr>
-<td>exact</td>
-<td>SEPIO:0000000</td>
-</tr>
 </tbody>
 </table>
 <h2 id="linkml-source">LinkML Source</h2>
@@ -443,16 +447,18 @@ description: An abstract entity representing the sharable meaning that can be pu
   forth as true or false in a Statement made by an Agent.
 title: Proposition
 comments:
-- Propositions are taken to represent the semantic content of sentences or larger
-  lexical entities formulated in some natural or artificial language. As primary bearers
-  of truth, they are either true or false. They are abstract entities whose identity
-  and existence are independent of space and time, and of whether they are ever asserted
-  to be true by some agent. Propositions are ‘sharable’ in the sense that the same
-  Proposition instance can be put forth as true or false in many different Statements,
-  as made by different Agents and/or on different occasions.
+- "Propositions are taken to represent the semantic content of sentences or larger\
+  \ lexical entities formulated in some natural or artificial language. As primary\
+  \ bearers of truth, they are either true or false. They are abstract entities whose\
+  \ identity and existence are independent of space and time, and of whether they\
+  \ are ever asserted to be true by some agent. \n\nPropositions are ‘sharable’ in\
+  \ the sense that the same Proposition instance can be put forth as true or false\
+  \ in many different Statements, as made by different Agents and/or on different\
+  \ occasions.\n\nPropositions are referenced in two contexts: (1) by Statements that\
+  \ assert the it to be true, or describe the overall state of confidence/evidence\
+  \ surrounding it; (2) by Evidence Lines that report how strong an argument is made\
+  \ by a particular collection of evidence items for or against it."
 from_schema: https://w3id.org/ga4gh-va-core-im
-exact_mappings:
-- SEPIO:0000000
 rank: 1000
 is_a: Entity
 slots:
@@ -489,8 +495,11 @@ slot_usage:
   propositionText:
     name: propositionText
     description: A natural-language expression of the Proposition's meaning.
+    multivalued: false
     domain_of:
     - Proposition
+    range: string
+    required: false
   subject:
     name: subject
     description: The Entity about which the Proposition is made.
@@ -593,16 +602,18 @@ description: An abstract entity representing the sharable meaning that can be pu
   forth as true or false in a Statement made by an Agent.
 title: Proposition
 comments:
-- Propositions are taken to represent the semantic content of sentences or larger
-  lexical entities formulated in some natural or artificial language. As primary bearers
-  of truth, they are either true or false. They are abstract entities whose identity
-  and existence are independent of space and time, and of whether they are ever asserted
-  to be true by some agent. Propositions are ‘sharable’ in the sense that the same
-  Proposition instance can be put forth as true or false in many different Statements,
-  as made by different Agents and/or on different occasions.
+- "Propositions are taken to represent the semantic content of sentences or larger\
+  \ lexical entities formulated in some natural or artificial language. As primary\
+  \ bearers of truth, they are either true or false. They are abstract entities whose\
+  \ identity and existence are independent of space and time, and of whether they\
+  \ are ever asserted to be true by some agent. \n\nPropositions are ‘sharable’ in\
+  \ the sense that the same Proposition instance can be put forth as true or false\
+  \ in many different Statements, as made by different Agents and/or on different\
+  \ occasions.\n\nPropositions are referenced in two contexts: (1) by Statements that\
+  \ assert the it to be true, or describe the overall state of confidence/evidence\
+  \ surrounding it; (2) by Evidence Lines that report how strong an argument is made\
+  \ by a particular collection of evidence items for or against it."
 from_schema: https://w3id.org/ga4gh-va-core-im
-exact_mappings:
-- SEPIO:0000000
 rank: 1000
 is_a: Entity
 slot_usage:
@@ -631,8 +642,11 @@ slot_usage:
   propositionText:
     name: propositionText
     description: A natural-language expression of the Proposition's meaning.
+    multivalued: false
     domain_of:
     - Proposition
+    range: string
+    required: false
   subject:
     name: subject
     description: The Entity about which the Proposition is made.
@@ -757,11 +771,13 @@ attributes:
     description: A natural-language expression of the Proposition's meaning.
     from_schema: https://w3id.org/ga4gh-va-core-im
     rank: 1000
+    multivalued: false
     alias: propositionText
     owner: Proposition
     domain_of:
     - Proposition
     range: string
+    required: false
   subject:
     name: subject
     description: The Entity about which the Proposition is made.
@@ -885,8 +901,6 @@ attributes:
       field holds business identifiers, which are globally unique and used to connect
       entities and share content across systems.
     from_schema: https://w3id.org/ga4gh-va-core-im
-    exact_mappings:
-    - FHIR:id
     rank: 1000
     multivalued: false
     alias: id
@@ -906,8 +920,6 @@ attributes:
       field holds business identifiers, which are globally unique and used to connect
       entities and share content across systems.
     from_schema: https://w3id.org/ga4gh-va-core-im
-    exact_mappings:
-    - FHIR:identifier
     rank: 1000
     multivalued: true
     alias: identifiers

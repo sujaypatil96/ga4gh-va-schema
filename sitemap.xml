@@ -2,497 +2,502 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/Activity/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/Agent/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/Boolean/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/Class/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/Coding/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/Contribution/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/Curie/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/DataItem/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/DataSet/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/Date/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/DateOrDatetime/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/DateTime/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/Datetime/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/Decimal/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/Document/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/Double/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/Element/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/Entity/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/EvidenceLine/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/Expression/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/Extension/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/Float/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/GA4GH-VA-Core-IM/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/Identifier/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/InformationEntity/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/Integer/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/Method/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/Ncname/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/Nodeidentifier/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/Objectidentifier/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/Proposition/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/RecordMetadata/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/Statement/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/String/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/StudyResult/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/Time/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/Uri/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/Uriorcurie/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/Url/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/Utility/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/activity/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/code/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/conclusion/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/confidenceDirection/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/confidenceLevel/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/confidenceScore/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/contributionMadeTo/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/contributions/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/dataItems/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/date/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/dateAuthored/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/dateRecordCreated/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/derivedFrom/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/description/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/directionOfEvidenceProvided/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/evidenceDirection/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/evidenceItems/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/evidenceLevel/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/evidenceScore/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/extensions/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/focus/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/hasEvidence/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/hasEvidenceLines/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/hasEvidenceOfTypes/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/id/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/identifiers/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/input/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/label/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/license/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/name/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/negated/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/object/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/output/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/performedBy/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/predicate/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://sujaypatil96.github.io/ga4gh-va-schema/proposition/</loc>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/propositionText/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/qualifiers/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/recordIdentifier/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/recordMetadata/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/recordVersion/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/releaseDate/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/reportedIn/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/specifiedBy/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/statementText/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/strengthOfEvidenceProvided/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/subject/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/subtype/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/system/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/systemURL/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/systemVersion/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/targetProposition/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/title/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/type/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/unit/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/urls/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/value/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/version/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://sujaypatil96.github.io/ga4gh-va-schema/xrefs/</loc>
-         <lastmod>2023-04-17</lastmod>
+         <lastmod>2023-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>

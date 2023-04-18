@@ -246,6 +246,8 @@
 
       Statement : evidenceDirection
 
+          Statement ..&gt; Coding : evidenceDirection
+
       Statement : evidenceLevel
 
           Statement ..&gt; Coding : evidenceLevel
@@ -275,6 +277,10 @@
       Statement : identifiers
 
       Statement : label
+
+      Statement : proposition
+
+          Statement ..&gt; Proposition : proposition
 
       Statement : recordMetadata
 
@@ -334,6 +340,12 @@
 </tr>
 <tr>
 <td><a href="../statementText/">statementText</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../proposition/">proposition</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
 <td></td>
 <td>direct</td>
@@ -490,9 +502,9 @@
 </ul>
 <h2 id="comments">Comments</h2>
 <ul>
-<li>In the VA model, each assertion of knowledge about a variant is captured in a self-contained Statement object. Organization of variant knowledge into discrete Statement objects allows clear and precise tracking of the evidence and provenance that supports each. 
-The VA model distinguishes two high-level categories of statements: (1) 'Domain Statements' put forth as true a specific proposition about the domain of discourse (e.g. that "BRCA2 c.8023A&gt;G is pathogenic for Breast Cancer"); (2) 'Proposition Assessment Statements' describe the overall state of evidence and/or confidence surrounding a particular proposition (e.g. that "there is moderate evidence supporting the pathogenicity of BRCA2 c.8023A&gt;G for Breast Cancer", or that "I have very high confidence that the proposition that BRCA2 c.8023A&gt;G is pathogenic for Breast Cancer is true") -  but does not directly express the proposition as true. The VA model provides distinct class structures for representing these different levels of Statements.</li>
+<li>In the VA model, each assertion of knowledge about a variant is captured in a self-contained Statement object. Organization of variant knowledge into discrete Statement objects allows clear and precise tracking of the evidence and provenance that supports each. </li>
 </ul>
+<p>The VA model allows Statemetns to simply put forth as true a specific proposition about the domain of discourse (e.g. that "BRCA2 c.8023A&gt;G is pathogenic for Breast Cancer"), and/or describe the overall state of evidence and/or confidence surrounding a particular proposition (e.g. that "there is moderate evidence supporting the pathogenicity of BRCA2 c.8023A&gt;G for Breast Cancer", or that "I have very high confidence in the truth of the proposition that BRCA2 c.8023A&gt;G is pathogenic for Breast Cancer").</p>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
@@ -515,10 +527,6 @@ The VA model distinguishes two high-level categories of statements: (1) 'Domain 
 <td>native</td>
 <td>vacoreim:Statement</td>
 </tr>
-<tr>
-<td>exact</td>
-<td>SEPIO:0000174</td>
-</tr>
 </tbody>
 </table>
 <h2 id="linkml-source">LinkML Source</h2>
@@ -533,26 +541,22 @@ comments:
 - "In the VA model, each assertion of knowledge about a variant is captured in a self-contained\
   \ Statement object. Organization of variant knowledge into discrete Statement objects\
   \ allows clear and precise tracking of the evidence and provenance that supports\
-  \ each. \nThe VA model distinguishes two high-level categories of statements: (1)\
-  \ 'Domain Statements' put forth as true a specific proposition about the domain\
-  \ of discourse (e.g. that \"BRCA2 c.8023A&gt;G is pathogenic for Breast Cancer\");\
-  \ (2) 'Proposition Assessment Statements' describe the overall state of evidence\
-  \ and/or confidence surrounding a particular proposition (e.g. that \"there is moderate\
-  \ evidence supporting the pathogenicity of BRCA2 c.8023A&gt;G for Breast Cancer\",\
-  \ or that \"I have very high confidence that the proposition that BRCA2 c.8023A&gt;G\
-  \ is pathogenic for Breast Cancer is true\") -  but does not directly express the\
-  \ proposition as true. The VA model provides distinct class structures for representing\
-  \ these different levels of Statements."
+  \ each. \n\nThe VA model allows Statemetns to simply put forth as true a specific\
+  \ proposition about the domain of discourse (e.g. that \"BRCA2 c.8023A&gt;G is pathogenic\
+  \ for Breast Cancer\"), and/or describe the overall state of evidence and/or confidence\
+  \ surrounding a particular proposition (e.g. that \"there is moderate evidence supporting\
+  \ the pathogenicity of BRCA2 c.8023A&gt;G for Breast Cancer\", or that \"I have very\
+  \ high confidence in the truth of the proposition that BRCA2 c.8023A&gt;G is pathogenic\
+  \ for Breast Cancer\")."
 from_schema: https://w3id.org/ga4gh-va-core-im
 aliases:
 - Assertion; Claim
-exact_mappings:
-- SEPIO:0000174
 rank: 1000
 is_a: InformationEntity
 slots:
 - subtype
 - statementText
+- proposition
 - confidenceDirection
 - confidenceLevel
 - confidenceScore
@@ -599,6 +603,22 @@ slot_usage:
     - Statement
     range: string
     required: false
+  proposition:
+    name: proposition
+    description: 'A possible fact (Proposition) that the Statement is about.  A Statement
+      may say any or all of the following about its Proposition: (1) simply report
+      its as being true; (2) describe the author''s degree of confidence in the its
+      truth; (3) report the author''s assessment of the level and direction of evidence
+      backing it.'
+    comments:
+    - This attribute provides the option of encapsulating the structured semantics
+      of the possible fact asserted or evaluated by a Statement in a separate 'Proposition'
+      object.
+    multivalued: false
+    domain_of:
+    - Statement
+    range: Proposition
+    required: false
   confidenceDirection:
     name: confidenceDirection
     description: A term indicating whether the confidenceLevel and/or confidenceScore
@@ -632,10 +652,9 @@ slot_usage:
     required: false
   confidenceScore:
     name: confidenceScore
-    description: A quantitative score reflecting the asserting agent's level of confidence
-      in the Statement's proposition. For PropositionAssessmentStatements, the direction
-      this confidence pertains to (i.e. the truth or falsehood of the proposition)
-      is captured in the confidenceDirection attribute.
+    description: A quantitative score the asserting agent's level of confidence about
+      the Statement's proposition (i.e. how confident they are that it is true or
+      false).
     comments:
     - A Statement's proposition may ultimately be assessed by the agent to be true,
       false, or uncertain -  as indicated by the confidenceDirection attribute. The
@@ -659,8 +678,11 @@ slot_usage:
       its validity), or remains 'inconclusive' (if conficting or insufficient evidence
       exists to assert one direction or the other). (Recommended values = 'supports',
       'disputes', 'inconclusive'.)
+    multivalued: false
     domain_of:
     - Statement
+    range: Coding
+    required: false
   evidenceLevel:
     name: evidenceLevel
     description: A term indicating the overall strength of support for or against
@@ -781,21 +803,16 @@ comments:
 - "In the VA model, each assertion of knowledge about a variant is captured in a self-contained\
   \ Statement object. Organization of variant knowledge into discrete Statement objects\
   \ allows clear and precise tracking of the evidence and provenance that supports\
-  \ each. \nThe VA model distinguishes two high-level categories of statements: (1)\
-  \ 'Domain Statements' put forth as true a specific proposition about the domain\
-  \ of discourse (e.g. that \"BRCA2 c.8023A&gt;G is pathogenic for Breast Cancer\");\
-  \ (2) 'Proposition Assessment Statements' describe the overall state of evidence\
-  \ and/or confidence surrounding a particular proposition (e.g. that \"there is moderate\
-  \ evidence supporting the pathogenicity of BRCA2 c.8023A&gt;G for Breast Cancer\",\
-  \ or that \"I have very high confidence that the proposition that BRCA2 c.8023A&gt;G\
-  \ is pathogenic for Breast Cancer is true\") -  but does not directly express the\
-  \ proposition as true. The VA model provides distinct class structures for representing\
-  \ these different levels of Statements."
+  \ each. \n\nThe VA model allows Statemetns to simply put forth as true a specific\
+  \ proposition about the domain of discourse (e.g. that \"BRCA2 c.8023A&gt;G is pathogenic\
+  \ for Breast Cancer\"), and/or describe the overall state of evidence and/or confidence\
+  \ surrounding a particular proposition (e.g. that \"there is moderate evidence supporting\
+  \ the pathogenicity of BRCA2 c.8023A&gt;G for Breast Cancer\", or that \"I have very\
+  \ high confidence in the truth of the proposition that BRCA2 c.8023A&gt;G is pathogenic\
+  \ for Breast Cancer\")."
 from_schema: https://w3id.org/ga4gh-va-core-im
 aliases:
 - Assertion; Claim
-exact_mappings:
-- SEPIO:0000174
 rank: 1000
 is_a: InformationEntity
 slot_usage:
@@ -834,6 +851,22 @@ slot_usage:
     - Statement
     range: string
     required: false
+  proposition:
+    name: proposition
+    description: 'A possible fact (Proposition) that the Statement is about.  A Statement
+      may say any or all of the following about its Proposition: (1) simply report
+      its as being true; (2) describe the author''s degree of confidence in the its
+      truth; (3) report the author''s assessment of the level and direction of evidence
+      backing it.'
+    comments:
+    - This attribute provides the option of encapsulating the structured semantics
+      of the possible fact asserted or evaluated by a Statement in a separate 'Proposition'
+      object.
+    multivalued: false
+    domain_of:
+    - Statement
+    range: Proposition
+    required: false
   confidenceDirection:
     name: confidenceDirection
     description: A term indicating whether the confidenceLevel and/or confidenceScore
@@ -867,10 +900,9 @@ slot_usage:
     required: false
   confidenceScore:
     name: confidenceScore
-    description: A quantitative score reflecting the asserting agent's level of confidence
-      in the Statement's proposition. For PropositionAssessmentStatements, the direction
-      this confidence pertains to (i.e. the truth or falsehood of the proposition)
-      is captured in the confidenceDirection attribute.
+    description: A quantitative score the asserting agent's level of confidence about
+      the Statement's proposition (i.e. how confident they are that it is true or
+      false).
     comments:
     - A Statement's proposition may ultimately be assessed by the agent to be true,
       false, or uncertain -  as indicated by the confidenceDirection attribute. The
@@ -894,8 +926,11 @@ slot_usage:
       its validity), or remains 'inconclusive' (if conficting or insufficient evidence
       exists to assert one direction or the other). (Recommended values = 'supports',
       'disputes', 'inconclusive'.)
+    multivalued: false
     domain_of:
     - Statement
+    range: Coding
+    required: false
   evidenceLevel:
     name: evidenceLevel
     description: A term indicating the overall strength of support for or against
@@ -1047,6 +1082,26 @@ attributes:
     - Statement
     range: string
     required: false
+  proposition:
+    name: proposition
+    description: 'A possible fact (Proposition) that the Statement is about.  A Statement
+      may say any or all of the following about its Proposition: (1) simply report
+      its as being true; (2) describe the author''s degree of confidence in the its
+      truth; (3) report the author''s assessment of the level and direction of evidence
+      backing it.'
+    comments:
+    - This attribute provides the option of encapsulating the structured semantics
+      of the possible fact asserted or evaluated by a Statement in a separate 'Proposition'
+      object.
+    from_schema: https://w3id.org/ga4gh-va-core-im
+    rank: 1000
+    multivalued: false
+    alias: proposition
+    owner: Statement
+    domain_of:
+    - Statement
+    range: Proposition
+    required: false
   confidenceDirection:
     name: confidenceDirection
     description: A term indicating whether the confidenceLevel and/or confidenceScore
@@ -1088,10 +1143,9 @@ attributes:
     required: false
   confidenceScore:
     name: confidenceScore
-    description: A quantitative score reflecting the asserting agent's level of confidence
-      in the Statement's proposition. For PropositionAssessmentStatements, the direction
-      this confidence pertains to (i.e. the truth or falsehood of the proposition)
-      is captured in the confidenceDirection attribute.
+    description: A quantitative score the asserting agent's level of confidence about
+      the Statement's proposition (i.e. how confident they are that it is true or
+      false).
     comments:
     - A Statement's proposition may ultimately be assessed by the agent to be true,
       false, or uncertain -  as indicated by the confidenceDirection attribute. The
@@ -1121,11 +1175,13 @@ attributes:
       'disputes', 'inconclusive'.)
     from_schema: https://w3id.org/ga4gh-va-core-im
     rank: 1000
+    multivalued: false
     alias: evidenceDirection
     owner: Statement
     domain_of:
     - Statement
-    range: string
+    range: Coding
+    required: false
   evidenceLevel:
     name: evidenceLevel
     description: A term indicating the overall strength of support for or against
@@ -1322,8 +1378,6 @@ attributes:
     description: An information resource from which the Information Entity is derived,
       in whole or in part
     from_schema: https://w3id.org/ga4gh-va-core-im
-    exact_mappings:
-    - DC:source
     rank: 1000
     multivalued: true
     alias: derivedFrom
@@ -1367,8 +1421,6 @@ attributes:
       field holds business identifiers, which are globally unique and used to connect
       entities and share content across systems.
     from_schema: https://w3id.org/ga4gh-va-core-im
-    exact_mappings:
-    - FHIR:id
     rank: 1000
     multivalued: false
     alias: id
@@ -1388,8 +1440,6 @@ attributes:
       field holds business identifiers, which are globally unique and used to connect
       entities and share content across systems.
     from_schema: https://w3id.org/ga4gh-va-core-im
-    exact_mappings:
-    - FHIR:identifier
     rank: 1000
     multivalued: true
     alias: identifiers
